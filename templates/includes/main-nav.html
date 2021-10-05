@@ -17,10 +17,10 @@
                 Pieces
             </a>
             <div class="dropdown-menu border-0" aria-labelledby="clothing-link">
-                <a href="" class="dropdown-item">Onesies</a>
-                <a href="" class="dropdown-item">Tops</a>
-                <a href="" class="dropdown-item">Bottoms</a>
-                <a href="" class="dropdown-item">Dresses</a>
+                <a href="{% url 'products' %}?category=onesies" class="dropdown-item">Onesies</a>
+                <a href="{% url 'products' %}?category=tops" class="dropdown-item">Tops</a>
+                <a href="{% url 'products' %}?category=bottoms" class="dropdown-item">Bottoms</a>
+                <a href="{% url 'products' %}?category=dresses" class="dropdown-item">Dresses</a>
             </div>
         </li>
 
@@ -29,10 +29,10 @@
                 Ages
             </a>
             <div class="dropdown-menu border-0" aria-labelledby="ages-link">
-                <a href="" class="dropdown-item">0-6 M</a>
-                <a href="" class="dropdown-item">6-12 M</a>
-                <a href="" class="dropdown-item">12-18 M</a>
-                <a href="" class="dropdown-item">18-24 M</a>
+                <a href="{% url 'products' %}?category=0_6_m" class="dropdown-item">0-6 M</a>
+                <a href="{% url 'products' %}?category=6_12_m" class="dropdown-item">6-12 M</a>
+                <a href="{% url 'products' %}?category=12_18_m" class="dropdown-item">12-18 M</a>
+                <a href="{% url 'products' %}?category=18_24_m" class="dropdown-item">18-24 M</a>
             </div>
         </li>
 
@@ -41,10 +41,10 @@
                 Specials
             </a>
             <div class="dropdown-menu border-0" aria-labelledby="specials-link">
-                <a href="" class="dropdown-item">New Arrivals</a>
-                <a href="" class="dropdown-item">Sale</a>
-                <a href="" class="dropdown-item">Outfits</a>
-                <a href="" class="dropdown-item">All Specials</a>
+                <a href="{% url 'products' %}?category=new_arrivals" class="dropdown-item">New Arrivals</a>
+                <a href="{% url 'products' %}?category=sale" class="dropdown-item">Sale</a>
+                <a href="{% url 'products' %}?category=outfits" class="dropdown-item">Outfits</a>
+                <a href="{% url 'products' %}?category=new_arrivals,sale,outfits" class="dropdown-item">All Specials</a>
             </div>
         </li>
     </ul>
