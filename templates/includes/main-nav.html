@@ -4,7 +4,7 @@
             <a class="logo-font font-weight-bold nav-link text-secondary mr-5" href="#" id="all-products-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 All Clothing
             </a>
-            <div class="dropdown-menu border-0" aria-labelledby="all-clothing-link">
+            <div class="dropdown-menu bg-secondary border-0" aria-labelledby="all-clothing-link">
                 <a href="{% url 'products' %}?sort=price&direction=asc" class="dropdown-item">By Price</a>
                 <a href="{% url 'products' %}?sort=rating&direction=desc" class="dropdown-item ">By Rating</a>
                 <a href="{% url 'products' %}?sort=category&direction=asc" class="dropdown-item ">By Category</a>
@@ -16,7 +16,7 @@
             <a class="logo-font font-weight-bold nav-link text-secondary mr-5" href="#" id="clothing-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 Pieces
             </a>
-            <div class="dropdown-menu border-0" aria-labelledby="clothing-link">
+            <div class="dropdown-menu bg-secondary border-0" aria-labelledby="clothing-link">
                 <a href="{% url 'products' %}?category=onesies" class="dropdown-item">Onesies</a>
                 <a href="{% url 'products' %}?category=tops" class="dropdown-item">Tops</a>
                 <a href="{% url 'products' %}?category=bottoms" class="dropdown-item">Bottoms</a>
@@ -28,7 +28,7 @@
             <a class="logo-font font-weight-bold nav-link text-secondary mr-5" href="#" id="homeware-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 Ages
             </a>
-            <div class="dropdown-menu border-0" aria-labelledby="ages-link">
+            <div class="dropdown-menu bg-secondary border-0" aria-labelledby="ages-link">
                 <a href="{% url 'products' %}?category=0_6_m" class="dropdown-item">0-6 M</a>
                 <a href="{% url 'products' %}?category=6_12_m" class="dropdown-item">6-12 M</a>
                 <a href="{% url 'products' %}?category=12_18_m" class="dropdown-item">12-18 M</a>
@@ -40,7 +40,7 @@
             <a class="logo-font font-weight-bold nav-link text-secondary" href="#" id="specials-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 Specials
             </a>
-            <div class="dropdown-menu border-0" aria-labelledby="specials-link">
+            <div class="dropdown-menu bg-secondary border-0" aria-labelledby="specials-link">
                 <a href="{% url 'products' %}?category=new_arrivals" class="dropdown-item">New Arrivals</a>
                 <a href="{% url 'products' %}?category=sale" class="dropdown-item">Sale</a>
                 <a href="{% url 'products' %}?category=outfits" class="dropdown-item">Outfits</a>

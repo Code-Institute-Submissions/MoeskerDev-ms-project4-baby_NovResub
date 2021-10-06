@@ -57,6 +57,15 @@ body {
 	z-index: -1;
 }
 
+.dropdown-item {
+    color: white;
+}
+
+a.category-badge > span.badge:hover {
+    background: grey;
+    color: #fff !important;
+}
+
 /* -------------------------------- Media Queries */
 
 /* Slightly larger container on xl screens */
