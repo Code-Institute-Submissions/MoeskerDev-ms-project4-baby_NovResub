@@ -8,7 +8,7 @@ body {
     background-position: 0px 15px;
     height: calc(100vh - 164px);
     color: #555;
-    font-family: 'Baumans';
+    font-family: 'Baumans', 'sans-serif';
 }
 /* from Bulma */
 .icon {
