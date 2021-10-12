@@ -27,7 +27,7 @@ class Product(models.Model):
     price = models.DecimalField(max_digits=6, decimal_places=2)
     rating = models.DecimalField(
         max_digits=6, decimal_places=2, null=True, blank=True)
-    review = models.TextField()
+    review = models.TextField(blank=True)
     image_url = models.URLField(max_length=1024, blank=True)
     image = models.ImageField(null=True, blank=True)
 
