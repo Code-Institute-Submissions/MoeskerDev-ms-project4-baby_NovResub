@@ -1,9 +1,11 @@
+"""Models for the product app"""
 from django.db import models
 
 
 class Category(models.Model):
-
+    """Category model for products which creates a category name and friendly name"""
     class Meta:
+        """Adapts the plural name of the category model"""
         verbose_name_plural = 'Categories'
 
     name = models.CharField(max_length=254)
@@ -13,10 +15,12 @@ class Category(models.Model):
         return self.name
 
     def get_friendly_name(self):
+        """Getting the friendly (UI) name of the category"""
         return self.friendly_name
 
 
 class Product(models.Model):
+    """Product model for products which creates the fields available regarding a product"""
     category = models.ForeignKey(
         Category, null=True, blank=True, on_delete=models.SET_NULL)
     sku = models.CharField(max_length=254, blank=True)
