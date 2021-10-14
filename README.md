@@ -1,108 +1,181 @@
-![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
+                                            Baby!
 
-Welcome MoeskerDev,
+View the live project <a></a>
 
-This is the Code Institute student template for Gitpod. We have preinstalled all of the tools you need to get started. It's perfectly ok to use this template as the basis for your project submissions.
+![Mockup]()
+![Mockup]()
+![Mockup]()
 
-You can safely delete this README.md file, or change it for your own project. Please do read it at least once, though! It contains some important information about Gitpod and the extensions we use. Some of this information has been updated since the video content was created. The last update to this file was: **September 1, 2021**
+# UX
+## Project Goals
 
-## Gitpod Reminders
+The final goal is to sell baby clothing online.
+----
+## User Stories
+Anonymous Visitor Goals
 
-To run a frontend (HTML, CSS, Javascript only) application in Gitpod, in the terminal, type:
+As an anonymous user, I want to 
 
-`python3 -m http.server`
+As a registered/logged in user, I want to be able to 
+----
+## Design choices
+### Fonts
+The font used is called Baumans with a backup font of sans serif.
+### Icons
+All icons have the purpose to add or explicitly visually show the purpose of the related elements. One icon is a link to add a product to your own wishlist.
+### Colours
+In essence, the idea was to keep it simple and soft. 
 
-A blue button should appear to click: _Make Public_,
+The colours were based on Bootstrap's secondary class, which is tone of grey, and white since the images show several colours.
+### Styling
 
-Another blue button should appear to click: _Open Browser_.
+----
+## Wireframes
+All wireframes can be found [here]().
+----
+# Features
+## Existing Features
+- 
+- Backend code and frontend functionality for all users to search for items.
+- Backend code and frontend functionality for all users to sort items via a certain category.
+- Secure payments
+- Email response
+- Responsive for the following screen sizes:
+    - 320x568
+    - 360x640
+    - 375x667
+    - 375x812
+    - 411x731
+    - 411x823
+    - 414x736
+    - 540x720
+    - 768x1024
+    - 1024x600
+    - 1024x1366
+    - 1280x800
+    - 1366x768
+## Left to implement
 
-To run a backend Python file, type `python3 app.py`, if your Python file is named `app.py` of course.
+----
+# Technologies Used
+## Languages
+HTML5
+CSS3
+JavaScript
+Python
+## External libraries and frameworks
+Django:
+Postgres:
+Stripe:
+Font Awesome:
+jQuery:
+To support features and functions 
+Git:
+Used for version control by utilizing Gitpod terminal to commit to Git and Push to GitHub.
+GitHub:
+To document and store the development process.
+Heroku:
+Used to deploy this full stack web application to a Cloud platform.
+Balsamiq:
+During the design process, the wireframes were created by Balsamiq.
+----
+# Testing
+## Validators
+- [W3C Markup Validator]()
 
-A blue button should appear to click: _Make Public_,
+- [W3C CSS Validator]()
 
-Another blue button should appear to click: _Open Browser_.
+- [JSHint Validator]()
 
-In Gitpod you have superuser security privileges by default. Therefore you do not need to use the `sudo` (superuser do) command in the bash terminal in any of the lessons.
+- Python code was checked via the command line by typing: ```python3 -m flake8``` and via the online [Python validator]()
+Pylint left me with one unused-import error, W0611 for import env, which is okay. I am using it, pylint just cannot see that.
+The PEP8 requirements results were: all right.
 
-To log into the Heroku toolbelt CLI:
+## Testing User Stories
+The most common path through the website for an anonymous user will be the Homepage and then search for a particular piece of clothing via the search bar or click on the button or one of the menu items to view multiple items on a page and scrolling through them. Another frequent path would be from Homepage to the Register page.
 
-1. Log in to your Heroku account and go to *Account Settings* in the menu under your avatar.
-2. Scroll down to the *API Key* and click *Reveal*
-3. Copy the key
-4. In Gitpod, from the terminal, run `heroku_config`
-5. Paste in your API key when asked
+1. As an anonymous user:
+* I want to 
 
-You can now use the `heroku` CLI program - try running `heroku apps` to confirm it works. This API key is unique and private to you so do not share it. If you accidentally make it public then you can create a new one with _Regenerate API Key_.
+The most common path for a registered user is from the homepage to the login page which leads to the profile page.
 
-------
+2. As a registered/logged in user:
+* I want to be able to 
 
-## Release History
+## Further testing
+- The website was tested on Google Chrome, Microsoft Edge and Mozilla Firefox.
+- The website was viewed on several devices; Laptop, Moto G4, Galaxy S5, Pixel 2, Pixel 2 XL, Iphone 5/SE, Iphone 6/7/8, Iphone 6/7/8 Plus, Iphone x, Ipad, Ipad Pro, Surface Duo and Galaxy Fold, Nest Hub, Nest Hub Max.
+- The Lighthouse report for mobile can be found [here]().
+- The Lighthouse report for desktop can be found [here]().
+## Known Bugs
 
-We continually tweak and adjust this template to help give you the best experience. Here is the version history:
+## Fixed Bugs
+- Issue: 
+    - Fix: 
+- Issue: 
+    - Fix: 
+----
+# Deployment
+## Deploy app to Heroku
+To deploy Baby! to Heroku, take the following steps:
 
-**September 1 2021:** Remove `PGHOSTADDR` environment variable.
+1. Create a requirements.txt file using the terminal command ```pip freeze > requirements.txt```
+2. Create a Procfile with the terminal command ```echo web: python app.py > Procfile```
+3. git add and git commit the new requirements and Procfile and then git push the project to GitHub.
+4. Create a new app on the [Heroku website](https://signup.heroku.com/login) by clicking the "New" button in your dashboard. Give it a name and set the region to Europe.
+5. Inside your newly created application, in the heroku dashboard, click on "Deploy" > "Deployment method" and select GitHub.
+6. Confirm the link between the heroku app and the correct GitHub repository.
+7. Now, in the heroku dashboard of your application, click on "Settings" > "Reveal Config Vars".
+8. Set the following config vars:
+Key|Value
+---|-----
+SECRET_KEY	<your_secret_key>
 
-**July 19 2021:** Remove `font_fix` script now that the terminal font issue is fixed.
 
-**July 2 2021:** Remove extensions that are not available in Open VSX.
+9. Click "Deploy" in the heroku dashboard.
+10. In the section "Manual Deploy" make sure the main branch is selected and then click on "Deploy Branch".
+The site is now successfully deployed.
+11. Click on "View" to view the app in your browser.
 
-**June 30 2021:** Combined the P4 and P5 templates into one file, added the uptime script. See the FAQ at the end of this file.
+## Run this project locally
+To clone this project into Gidpod you have to:
 
-**June 10 2021:** Added: `font_fix` script and alias to fix the Terminal font issue
+1. Have a GitHub account: create one [here]() if needed.
+2. Use a Chrome Browser. 
+According to the steps below:
+1. Install the [Gitpod Browser Extention for Chrome]().
+2. After installing it, restart the browser.
+3. Log into [Gitpod]() with your Gitpod account.
+4. Go to your project GitHub repository in GitHub under the tab "Repositories".
+5. Click the green "Gitpod" button in the top right corner of the repository.
+6. This will trigger a new Gitpod workspace, created from the code in GitHub, where you can work locally.
 
-**May 10 2021:** Added `heroku_config` script to allow Heroku API key to be stored as an environment variable.
+To work on the project code within a local IDE (Pycharm,VSCode, etc.):
 
-**April 7 2021:** Upgraded the template for VS Code instead of Theia.
-
-**October 21 2020:** Versions of the HTMLHint, Prettier, Bootstrap4 CDN and Auto Close extensions updated. The Python extension needs to stay the same version for now.
-
-**October 08 2020:** Additional large Gitpod files (`core.mongo*` and `core.python*`) are now hidden in the Explorer, and have been added to the `.gitignore` by default.
-
-**September 22 2020:** Gitpod occasionally creates large `core.Microsoft` files. These are now hidden in the Explorer. A `.gitignore` file has been created to make sure these files will not be committed, along with other common files.
-
-**April 16 2020:** The template now automatically installs MySQL instead of relying on the Gitpod MySQL image. The message about a Python linter not being installed has been dealt with, and the set-up files are now hidden in the Gitpod file explorer.
-
-**April 13 2020:** Added the _Prettier_ code beautifier extension instead of the code formatter built-in to Gitpod.
-
-**February 2020:** The initialisation files now _do not_ auto-delete. They will remain in your project. You can safely ignore them. They just make sure that your workspace is configured correctly each time you open it. It will also prevent the Gitpod configuration popup from appearing.
-
-**December 2019:** Added Eventyret's Bootstrap 4 extension. Type `!bscdn` in a HTML file to add the Bootstrap boilerplate. Check out the <a href="https://github.com/Eventyret/vscode-bcdn" target="_blank">README.md file at the official repo</a> for more options.
-
-------
-
-## FAQ about the uptime script
-
-**Why have you added this script?**
-
-It will help us to calculate how many running workspaces there are at any one time, which greatly helps us with cost and capacity planning. It will help us decide on the future direction of our cloud-based IDE strategy.
-
-**How will this affect me?**
-
-For everyday usage of Gitpod, it doesn’t have any effect at all. The script only captures the following data:
-
-- An ID that is randomly generated each time the workspace is started.
-- The current date and time
-- The workspace status of “started” or “running”, which is sent every 5 minutes.
-
-It is not possible for us or anyone else to trace the random ID back to an individual, and no personal data is being captured. It will not slow down the workspace or affect your work.
-
-**So….?**
-
-We want to tell you this so that we are being completely transparent about the data we collect and what we do with it.
-
-**Can I opt out?**
-
-Yes, you can. Since no personally identifiable information is being captured, we'd appreciate it if you let the script run; however if you are unhappy with the idea, simply run the following commands from the terminal window after creating the workspace, and this will remove the uptime script:
+1. Go to the [project GitHub repository]().
+2. Click on the "Code" button next to the green "Gitpod" button.
+3. In the Clone section, make sure the HTTPS is selected, then copy the clone url of the repository.
+4. Open the terminal in your local IDE.
+5. Change the current working directory to the location where you want the cloned directory to be created.
+6. Then, type ```git clone``` and paste the url that you copied in step 3 behind it:
 
 ```
-pkill uptime.sh
-rm .vscode/uptime.sh
+git clone https://github.com/USERNAME/REPOSITORY
 ```
 
-**Anything more?**
+7. Press Enter for your local clone to be created.
 
-Yes! We'd strongly encourage you to look at the source code of the `uptime.sh` file so that you know what it's doing. As future software developers, it will be great practice to see how these shell scripts work.
+- For further information about cloning a repository from GitHub, read [this]().
+----
+# Credits
+## Code
+1. For setting up the project I watched and copied most of the mini-project videos of CI. I adjusted some CSS styling.
+2. 
+## Content
+1. The images came from [unsplash]().
+2. The data regarding the clothing I created myself.
+3. In order to create the mockups I used this [website](http://ami.responsivedesign.is).
+4. To create images from screenshots I used [Paste Pics]().
+5. To adapt the sizes of the images I used []().
+## Acknowledgements
 
----
-
-Happy coding!
