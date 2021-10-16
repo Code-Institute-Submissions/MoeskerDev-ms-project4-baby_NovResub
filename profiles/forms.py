@@ -1,9 +1,17 @@
+"""Form for user profile"""
 from django import forms
 from .models import UserProfile
 
 
 class UserProfileForm(forms.ModelForm):
+    """
+    Form to update or maintain the user profile
+    """
     class Meta:
+        """
+        The form inherits from the UserProfile model,
+        except for the 'user' field since that one is unique
+        """
         model = UserProfile
         exclude = ('user',)
 

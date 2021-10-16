@@ -9,7 +9,7 @@ View the live project <a></a>
 # UX
 ## Project Goals
 
-The final goal is to sell baby clothing online.
+The final goal is to sell baby clothing online, but with the option to add toys, for example, in the future or other categories if wanted. 
 ----
 ## User Stories
 Anonymous Visitor Goals
@@ -65,19 +65,29 @@ JavaScript
 Python
 ## External libraries and frameworks
 Django:
+- Python web framework that makes setting up a project faster and easier.
 Postgres:
+- The relational database used for this project.
 Stripe:
+- To have a secure payment infrastructure.
+Amazon Web Services:
+- To store some static files like the images and the main styling file in the cloud.
+Google Fonts:
+- To use a font that is free and fits the project.
 Font Awesome:
+- To use the free icons that they provide.
 jQuery:
-To support features and functions 
+- To support features and functions. 
 Git:
-Used for version control by utilizing Gitpod terminal to commit to Git and Push to GitHub.
+- Used for version control by utilizing Gitpod terminal to commit to Git and Push to GitHub.
 GitHub:
-To document and store the development process.
+- To document and store the development process.
 Heroku:
-Used to deploy this full stack web application to a Cloud platform.
+- Used to deploy this full stack web application to a cloud platform.
 Balsamiq:
-During the design process, the wireframes were created by Balsamiq.
+- During the design process, the wireframes were created by Balsamiq.
+Something else:
+- To create the relational database schema.
 ----
 # Testing
 ## Validators
@@ -100,6 +110,9 @@ The most common path through the website for an anonymous user will be the Homep
 The most common path for a registered user is from the homepage to the login page which leads to the profile page.
 
 2. As a registered/logged in user:
+* I want to be able to 
+
+3. As a store owner:
 * I want to be able to 
 
 ## Further testing
@@ -129,7 +142,7 @@ To deploy Baby! to Heroku, take the following steps:
 8. Set the following config vars:
 Key|Value
 ---|-----
-SECRET_KEY	<your_secret_key>
+SECRET_KEY|<your_secret_key>
 
 
 9. Click "Deploy" in the heroku dashboard.

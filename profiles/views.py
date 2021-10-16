@@ -1,19 +1,24 @@
-from django.shortcuts import render, get_object_or_404
+"""
+Views of the profiles app
+"""
+from django.shortcuts import redirect, render, reverse, get_object_or_404
+from django.http import HttpResponseRedirect
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
-from .models import UserProfile
-from .forms import UserProfileForm
-
 from checkout.models import Order
+from products.models import Product
+
+from .models import UserProfile, WishList
+from .forms import UserProfileForm
 
 
 @login_required
 def profile(request):
     """ Display the user's profile. """
-    profile = get_object_or_404(UserProfile, user=request.user)
+    profile_user = get_object_or_404(UserProfile, user=request.user)
 
     if request.method == 'POST':
-        form = UserProfileForm(request.POST, instance=profile)
+        form = UserProfileForm(request.POST, instance=profile_user)
         if form.is_valid():
             form.save()
             messages.success(request, 'Profile updated successfully')
@@ -21,8 +26,8 @@ def profile(request):
             messages.error(
                 request, 'Update failed. Please ensure the form is valid.')
     else:
-        form = UserProfileForm(instance=profile)
-    orders = profile.orders.all()
+        form = UserProfileForm(instance=profile_user)
+    orders = profile_user.orders.all()
 
     template = 'profiles/profile.html'
     context = {
@@ -35,6 +40,7 @@ def profile(request):
 
 
 def order_history(request, order_number):
+    """Display order history"""
     order = get_object_or_404(Order, order_number=order_number)
 
     messages.info(request, (
@@ -49,3 +55,48 @@ def order_history(request, order_number):
     }
 
     return render(request, template, context)
+
+
+@ login_required
+def wishlist(request):
+    """
+    A view to show the wishlist
+    """
+    w_list = WishList.objects.all()
+
+    template = 'profiles/profile.html'
+    context = {
+        'wishlist': w_list
+    }
+
+    return render(request, template, context)
+
+
+@ login_required
+def add_to_wishlist(request):
+    """
+    Adding a product to the wish list
+    """
+    wish_list = get_object_or_404(WishList, user=request.user)
+    product = get_object_or_404(Product, id=id)
+    if product.wish_list.filter(id=request.user.id):
+        product.wish_list.remove(request.user)
+    else:
+        product.wish_list.add(request.user)
+    return HttpResponseRedirect(request.META["HTTP_REFERER"])
+
+
+@ login_required
+def delete_from_wishlist(request, product_id):
+    """
+    Delete a product from the wishlist
+    """
+    if not request.user.is_logged_in(id=request.user.id):
+        messages.error(
+            request, 'Sorry, only logged in account users can do that.')
+        return redirect(reverse('home'))
+
+    product = get_object_or_404(Product, pk=product_id)
+    product.delete()
+    messages.success(request, 'Product deleted from wishlist!')
+    return redirect(reverse('wishlist'))

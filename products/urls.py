@@ -1,3 +1,6 @@
+"""
+URLs related to the products app
+"""
 from django.urls import path
 from . import views
 

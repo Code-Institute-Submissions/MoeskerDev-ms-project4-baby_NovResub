@@ -3,7 +3,8 @@ from django.db import models
 
 
 class Category(models.Model):
-    """Category model for products which creates a category name and friendly name"""
+    """Category model for products which creates a
+    category name and friendly name"""
     class Meta:
         """Adapts the plural name of the category model"""
         verbose_name_plural = 'Categories'
@@ -20,7 +21,8 @@ class Category(models.Model):
 
 
 class Product(models.Model):
-    """Product model for products which creates the fields available regarding a product"""
+    """Product model for products which creates the fields
+    available regarding a product"""
     category = models.ForeignKey(
         Category, null=True, blank=True, on_delete=models.SET_NULL)
     sku = models.CharField(max_length=254, blank=True)
@@ -31,7 +33,8 @@ class Product(models.Model):
     price = models.DecimalField(max_digits=6, decimal_places=2)
     rating = models.DecimalField(
         max_digits=6, decimal_places=2, null=True, blank=True)
-    review = models.TextField(blank=True)
+        # place into review model
+    review = models.TextField(blank=True)  # place into review model
     image_url = models.URLField(max_length=1024, blank=True)
     image = models.ImageField(null=True, blank=True)
 

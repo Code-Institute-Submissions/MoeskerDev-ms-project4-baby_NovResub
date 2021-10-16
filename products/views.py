@@ -61,13 +61,15 @@ def all_products(request):
     return render(request, 'products/products.html', context)
 
 
-def product_detail(request, product_id):
+def product_detail(request):
     """ A view to show individual product details """
 
-    product = get_object_or_404(Product, pk=product_id)
+    product = get_object_or_404(Product, pk=id)
+    # review = get_object_or_404(Review, pk=id)  # or user id?
 
     context = {
         'product': product,
+        # 'review': review,
     }
 
     return render(request, 'products/product_detail.html', context)
