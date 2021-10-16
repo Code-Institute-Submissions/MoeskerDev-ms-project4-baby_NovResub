@@ -47,10 +47,10 @@ def create_or_update_user_profile(sender, instance, created, **kwargs):
 class WishList(models.Model):
     """
     A wishlist model to maintain a list of
-    products a user wishes to buy
+    products a logged in user wishes to buy
     """
-    user_wish = models.ForeignKey(UserProfile, on_delete=models.CASCADE)
-    product_wish = models.ForeignKey(Product, on_delete=models.CASCADE)
+    product_id = models.ForeignKey(Product, on_delete=models.CASCADE)
+    user_id = models.ForeignKey(UserProfile, on_delete=models.CASCADE)
 
     def __str__(self):
-        return self.user_wish
+        return self.user.user_id

@@ -62,8 +62,8 @@ def wishlist(request):
     """
     A view to show the wishlist
     """
+    wish_list = get_object_or_404(WishList, user=request.user)
     w_list = WishList.objects.all()
-
     template = 'profiles/profile.html'
     context = {
         'wishlist': w_list
@@ -73,16 +73,16 @@ def wishlist(request):
 
 
 @ login_required
-def add_to_wishlist(request):
+def add_to_wishlist(request, user_id, product_id):
     """
     Adding a product to the wish list
     """
-    wish_list = get_object_or_404(WishList, user=request.user)
-    product = get_object_or_404(Product, id=id)
-    if product.wish_list.filter(id=request.user.id):
-        product.wish_list.remove(request.user)
+    w_list = get_object_or_404(WishList, pk=user_id)
+    product = get_object_or_404(Product, pk=product_id)
+    if product.w_list.filter(id=request.user.id):
+        product.w_list.remove(request.user)
     else:
-        product.wish_list.add(request.user)
+        product.w_list.add(request.user)
     return HttpResponseRedirect(request.META["HTTP_REFERER"])
 
 
@@ -91,12 +91,12 @@ def delete_from_wishlist(request, product_id):
     """
     Delete a product from the wishlist
     """
-    if not request.user.is_logged_in(id=request.user.id):
+    if not request.user.is_logged_in(user=request.user.id):
         messages.error(
             request, 'Sorry, only logged in account users can do that.')
         return redirect(reverse('home'))
 
     product = get_object_or_404(Product, pk=product_id)
     product.delete()
-    messages.success(request, 'Product deleted from wishlist!')
+    messages.success(request, 'Product deleted from Wish List!')
     return redirect(reverse('wishlist'))
