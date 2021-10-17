@@ -40,11 +40,11 @@
                                 <tr>
                                     <td>
                                         {% if product.image %}
-                                        <a href="{% url 'product_detail' product.id %}">
+                                        <a href="{% url 'wishlist' %}">
                                             <img class="card-img-top img-fluid" src="{{ product.image.url }}" alt="{{ product.name }}">
                                         </a>
                                         {% else %}
-                                        <a href="{% url 'product_detail' product.id %}">
+                                        <a href="{% url 'wishlist' %}">
                                             <img class="card-img-top img-fluid" src="{{ MEDIA_URL }}0noimage.png" alt="{{ product.name }}">
                                         </a>
                                         {% endif %}
