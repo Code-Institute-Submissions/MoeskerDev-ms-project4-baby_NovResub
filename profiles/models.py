@@ -53,4 +53,4 @@ class WishList(models.Model):
     user_id = models.ForeignKey(UserProfile, on_delete=models.CASCADE)
 
     def __str__(self):
-        return self.user.user_id
+        return self.user_id
