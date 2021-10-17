@@ -102,6 +102,12 @@
                             </div>
 
                             <div class="col{% if s %}-12 mt-2{% endif %}">
+                                <a href="{% url 'wishlist' %}" class="btn btn-outline-secondary rounded-pill mt-5">
+                                    <span class="text-uppercase">Add to Wish List</span>
+                                    <span class="icon">
+                                        <i class="fab fa-gratipay"></i>
+                                    </span>
+                                </a>
                                 <a href="{% url 'products' %}" class="btn btn-outline-secondary rounded-pill mt-5">
                                     <span class="icon">
                                         <i class="fas fa-chevron-left"></i>
@@ -109,12 +115,6 @@
                                     <span class="text-uppercase">Keep Shopping</span>
                                 </a>
                                 <input type="submit" class="btn btn-secondary rounded-pill text-uppercase mt-5" value="Add to Basket">
-                                <a href="{% url 'wishlist' %}" class="btn btn-outline-secondary rounded-pill mt-5">
-                                    <span class="text-uppercase">Add to Wish List</span>
-                                    <span class="icon">
-                                        <i class="fab fa-gratipay"></i>
-                                    </span>
-                                </a>
                             </div>
                             <input type="hidden" name="redirect_url" value="{{ request.path }}">
                             {% endwith %}
@@ -127,7 +127,7 @@
             <div class="col">
                 <div class="reviews-container">
                     {% if product.review %}
-                    <p class="text-secondary"><small class="text-muted"><i class="fas fa-question-circle mr-1"></i>Reviews: {{ product.review }}</small>
+                    <p class="text-secondary text-muted"><i class="fas fa-question-circle mr-1"></i>Reviews: {{ product.review }}</p>
                     {% else %}
                         <small class="text-muted">No Reviews</small></p>
                     {% endif %}
