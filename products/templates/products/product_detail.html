@@ -100,14 +100,15 @@
                                     </div>
                                 </div>
                             </div>
-
-                            <div class="col{% if s %}-12 mt-2{% endif %}">
+                            <div class="col">
                                 <a href="{% url 'wishlist' %}" class="btn btn-outline-secondary rounded-pill mt-5">
                                     <span class="text-uppercase">Add to Wish List</span>
                                     <span class="icon">
                                         <i class="fab fa-gratipay"></i>
                                     </span>
                                 </a>
+                            </div>
+                            <div class="col{% if s %}-12 mt-2{% endif %}">
                                 <a href="{% url 'products' %}" class="btn btn-outline-secondary rounded-pill mt-5">
                                     <span class="icon">
                                         <i class="fas fa-chevron-left"></i>
