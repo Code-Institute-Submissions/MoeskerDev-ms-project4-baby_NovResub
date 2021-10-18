@@ -62,7 +62,7 @@ def wishlist(request):
     """
     A view to show the wishlist
     """
-    products = get_object_or_404(Product, user_id=request.user)
+    products = get_object_or_404(Product, pk=id)
     # wish_list = Product.objects.filter(WishList, user_id=request.user)
     template = 'profiles/wishlist.html'
     context = {
