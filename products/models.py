@@ -13,7 +13,7 @@ class Category(models.Model):
     friendly_name = models.CharField(max_length=254, blank=True)
 
     def __str__(self):
-        return self.name
+        return str(self.name)
 
     def get_friendly_name(self):
         """Getting the friendly (UI) name of the category"""
@@ -26,6 +26,7 @@ class Product(models.Model):
     category = models.ForeignKey(
         Category, null=True, blank=True, on_delete=models.SET_NULL)
     sku = models.CharField(max_length=254, blank=True)
+    name = models.CharField(max_length=254)
     description = models.TextField()
     has_sizes = models.BooleanField(
         default=False, null=True, blank=True)
@@ -38,5 +39,4 @@ class Product(models.Model):
     image = models.ImageField(null=True, blank=True)
 
     def __str__(self):
-        return models.CharField(max_length=254)
-
+        return str(self.name)

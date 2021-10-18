@@ -62,11 +62,11 @@ def wishlist(request):
     """
     A view to show the wishlist
     """
-    products = get_object_or_404(Product, pk=id)
+    products = WishList.objects.all()
     # wish_list = Product.objects.filter(WishList, user_id=request.user)
     template = 'profiles/wishlist.html'
     context = {
-        'products': products
+        'wishlist': products
     }
 
     return render(request, template, context)
@@ -75,14 +75,17 @@ def wishlist(request):
 @ login_required
 def add_to_wishlist(request, user_id, product_id):
     """
-    Adding a product to the wish list
+    Adding a product to the wishlist
     """
     w_list = get_object_or_404(WishList, pk=user_id)
     product = get_object_or_404(Product, pk=product_id)
     if product.w_list.filter(id=request.user.id):
         product.w_list.remove(request.user)
+        messages.error(request, 'This product is already in your Wish List')
     else:
         product.w_list.add(request.user)
+        messages.success(request,
+                         f'{ product.name} was added to your Wish List')
     return HttpResponseRedirect(request.META["HTTP_REFERER"])
 
 
