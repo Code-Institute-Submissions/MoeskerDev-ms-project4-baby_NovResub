@@ -49,7 +49,8 @@ class WishList(models.Model):
     A wishlist model to maintain a list of
     products a logged in user wishes to buy
     """
-    user = models.ForeignKey(User, null=True, blank=True, on_delete=models.CASCADE)
+    user = models.ForeignKey(
+        User, null=True, blank=True, on_delete=models.CASCADE)
     product = models.ForeignKey(Product, on_delete=models.CASCADE)
 
     def __str__(self):

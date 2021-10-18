@@ -73,12 +73,12 @@ def wishlist(request):
 
 
 @ login_required
-def add_to_wishlist(request, user_id, product_id):
+def add_to_wishlist(request, id):
     """
     Adding a product to the wishlist
     """
-    w_list = get_object_or_404(WishList, pk=user_id)
-    product = get_object_or_404(Product, pk=product_id)
+    w_list = get_object_or_404(WishList, id=id)
+    product = get_object_or_404(Product, id=id)
     if product.w_list.filter(id=request.user.id):
         product.w_list.remove(request.user)
         messages.error(request, 'This product is already in your Wish List')
