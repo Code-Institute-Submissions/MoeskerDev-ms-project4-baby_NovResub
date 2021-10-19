@@ -49,7 +49,7 @@ class WishList(models.Model):
     A wishlist model to maintain a list of
     products a logged in user wishes to buy
     """
-    user = models.ForeignKey(
+    user = models.OneToOneField(
         UserProfile, null=True, blank=True, on_delete=models.CASCADE)
     products = models.ManyToManyField(Product)
 
