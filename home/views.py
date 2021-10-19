@@ -1,3 +1,6 @@
+"""
+Views of the home page
+"""
 from django.shortcuts import render
 
 

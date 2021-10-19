@@ -1,3 +1,6 @@
+"""
+The URLs of the basket app
+"""
 from django.urls import path
 from . import views
 

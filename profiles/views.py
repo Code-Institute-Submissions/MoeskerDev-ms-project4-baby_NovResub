@@ -73,24 +73,29 @@ def wishlist(request):
 
 
 @ login_required
-def add_to_wishlist(request, id):
+def add_to_wishlist(request, item_id, user_id):
     """
     Adding a product to the wishlist
     """
-    w_list = get_object_or_404(WishList, id=id)
-    product = get_object_or_404(Product, id=id)
+    print("ADD_TO_WISHLIST VIEW FIRED")
+    product = Product.objects.get(pk=item_id)
+    # w_list = get_object_or_404(WishList, user_id=user_id)
+
+    redirect_url = request.POST.get('redirect_url')
+
     if product.w_list.filter(id=request.user.id):
         product.w_list.remove(request.user)
-        messages.error(request, 'This product is already in your Wish List')
+        messages.error(
+            request, 'This product is already in your Wish List')
     else:
         product.w_list.add(request.user)
-        messages.success(request,
-                         f'{ product.name} was added to your Wish List')
-    return HttpResponseRedirect(request.META["HTTP_REFERER"])
+        messages.success(
+            request, f'{ product.name} was added to your Wish List')
+        return HttpResponseRedirect(request.META["HTTP_REFERER"])
 
 
 @ login_required
-def delete_from_wishlist(request, product_id):
+def remove_from_wishlist(request, product_id):
     """
     Delete a product from the wishlist
     """
@@ -101,5 +106,5 @@ def delete_from_wishlist(request, product_id):
 
     product = get_object_or_404(Product, pk=product_id)
     product.delete()
-    messages.success(request, 'Product deleted from Wish List!')
+    messages.success(request, 'Product removed from Wish List!')
     return redirect(reverse('wishlist'))

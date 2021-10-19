@@ -21,17 +21,23 @@
                 <hr>
                 <h2 class="logo-font mb-4">My Wish List</h2>
                 <hr>
-                {% if wishlist %}
-                {% for product in wishlist %}
                 <div class="row">
                     <div class="col">
                         <p class="text-muted">Wish List Items</p>
+                    </div>
+                </div>
+                {% if wishlist %}
+                {% for product_ids in wishlist %}
+                <div class="row">
+                    <div class="col">
                         <div class="wishlist table-responsive">
                             <table class="table table-sm table-borderless text-secondary">
                                 <thead>
                                     <tr>
                                         <th>Image</th>
                                         <th>Product Name</th>
+                                        <th>Price</th>
+                                        <th>Remove</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -52,11 +58,13 @@
                                     </td>
                                     <td>{{ product.name }}</td>
                                     <td>€{{ product.price }}</td>
+                                    <td>
+                                        <a type="button" class="btn btn-secondary btn-sm" href="{% url 'remove_from_wishlist' product.id %}">Remove from Wish List></a>
+                                    </td>
                                 </tr>
                                 {% endfor %}
                             </tbody>
                         </table>
-                        <a type="button" class="btn btn-secondary btn-sm" href="{% url 'add_to_wishlist' product.id %}">Remove from Wish List></a>
                     </div>
                 </div>
             </div>

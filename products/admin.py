@@ -1,8 +1,14 @@
+"""
+To register and display the models in the Django admin
+"""
 from django.contrib import admin
 from .models import Product, Category
 
 
 class ProductAdmin(admin.ModelAdmin):
+    """
+    Adding certain Product fields in Django admin
+    """
     list_display = (
         'sku',
         'name',
@@ -17,6 +23,9 @@ class ProductAdmin(admin.ModelAdmin):
 
 
 class CategoryAdmin(admin.ModelAdmin):
+    """
+    Adding certain Product fields in Django admin
+    """
     list_display = (
         'friendly_name',
         'name',

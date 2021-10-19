@@ -50,8 +50,8 @@ class WishList(models.Model):
     products a logged in user wishes to buy
     """
     user = models.ForeignKey(
-        User, null=True, blank=True, on_delete=models.CASCADE)
-    product = models.ForeignKey(Product, on_delete=models.CASCADE)
+        UserProfile, null=True, blank=True, on_delete=models.CASCADE)
+    products = models.ManyToManyField(Product)
 
     def __str__(self):
-        return str(self.user.id)
+        return str(self.user)
