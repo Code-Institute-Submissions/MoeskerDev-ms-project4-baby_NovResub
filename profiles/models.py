@@ -51,7 +51,7 @@ class WishList(models.Model):
     """
     user = models.OneToOneField(
         UserProfile, null=True, blank=True, on_delete=models.CASCADE)
-    products = models.ManyToManyField(Product)
+    products = models.ForeignKey(Product, null=True, blank=True, on_delete=models.CASCADE)
 
     def __str__(self):
-        return str(self.user)
+        return str(self.products.name)

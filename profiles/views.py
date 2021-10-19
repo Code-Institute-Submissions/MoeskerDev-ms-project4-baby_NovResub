@@ -62,7 +62,7 @@ def wishlist(request):
     """
     A view to show the wishlist
     """
-    products = WishList.objects.all()
+    products = Product.objects.all()
 
     template = 'profiles/wishlist.html'
     context = {
@@ -73,7 +73,7 @@ def wishlist(request):
 
 
 @ login_required
-def add_to_wishlist(request, item_id, user_id):
+def add_to_wishlist(request, item_id):
     """
     Adding a product to the wishlist
     """
