@@ -7,7 +7,7 @@ from .models import Product, Category
 class ProductForm(forms.ModelForm):
     """Model that adapts the image field on the product form"""
     class Meta:
-        """It uses the fields of the Product model"""
+        """It uses all the fields of the Product model"""
         model = Product
         fields = '__all__'
 
