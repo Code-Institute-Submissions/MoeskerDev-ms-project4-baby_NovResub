@@ -69,17 +69,18 @@ def wishlist(request):
     A view to show the wishlist
     """
     try:
-        # product = Product.objects.all()
-        w_user = get_object_or_404(UserProfile, user=request.user)
-        w_list = WishList.w_user
+        user = UserProfile.objects.filter(user=request.user)
+        product = Product.objects
+        w_list = WishList.objects.all()
 
         template = 'profiles/wishlist.html'
         context = {
-            'wishlist': w_list
+            'user': user,
+            'product': product,
         }
 
         return render(request, template, context)
-    except WishList.DoesNotExist:
+    except wishlist.DoesNotExist:
 
         template = 'profiles/wishlist.html'
         context = {
@@ -95,10 +96,7 @@ def add_to_wishlist(request, item_id):
     """
     print("ADD_TO_WISHLIST VIEW FIRED")
     product = Product.objects.get(pk=item_id)
-    # w_list = get_object_or_404(WishList, user_id=user_id)
-
-    redirect_url = request.POST.get('redirect_url')
-
+    # redirect_url = request.POST.get('redirect_url')
     if product.w_list.filter(id=request.user.id):
         product.w_list.remove(request.user)
         messages.error(

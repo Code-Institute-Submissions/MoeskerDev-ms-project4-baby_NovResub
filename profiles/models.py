@@ -1,4 +1,6 @@
-"""Modules for the profiles app"""
+"""
+Modules for the profiles app
+"""
 from django.db import models
 from django.contrib.auth.models import User
 from django.db.models.signals import post_save
@@ -52,7 +54,19 @@ class WishList(models.Model):
     user = models.OneToOneField(
         UserProfile, null=True, blank=True, on_delete=models.CASCADE)
     products = models.ForeignKey(
-        Product, null=True, blank=True, on_delete=models.CASCADE)
+        Product, null=True, blank=True, on_delete=models.SET_NULL()
+
 
     def __str__(self):
         return str(self.user)
+
+
+@receiver(post_save, sender=User)
+def create_or_update_wishlist(sender, instance, created, **kwargs):
+    """
+    Create or update wishlist
+    """
+    if created:
+        WishList.objects.create(user=instance)
+        # Existing wishlist: save the updated wishlist
+        instance.wishlist.save()
