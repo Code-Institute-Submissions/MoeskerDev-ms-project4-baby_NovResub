@@ -24,6 +24,7 @@ class WishListAdmin(admin.ModelAdmin):
     """
     list_display = (
         'user',
+        'products',
     )
 
 

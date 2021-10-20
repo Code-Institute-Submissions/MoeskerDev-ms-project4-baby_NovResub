@@ -57,19 +57,35 @@ def order_history(request, order_number):
     return render(request, template, context)
 
 
+# @login_required()
+# def wishlist(request):
+#     """View to show wishlist page"""
+#     return render(request, 'profiles/wishlist.html')
+
+
 @ login_required
 def wishlist(request):
     """
     A view to show the wishlist
     """
-    products = Product.objects.all()
+    try:
+        # product = Product.objects.all()
+        w_user = get_object_or_404(UserProfile, user=request.user)
+        w_list = WishList.w_user
 
-    template = 'profiles/wishlist.html'
-    context = {
-        'wishlist': products
-    }
+        template = 'profiles/wishlist.html'
+        context = {
+            'wishlist': w_list
+        }
 
-    return render(request, template, context)
+        return render(request, template, context)
+    except WishList.DoesNotExist:
+
+        template = 'profiles/wishlist.html'
+        context = {
+            'error': 'No wishlist found.'
+        }
+        return render(request, template, context)
 
 
 @ login_required
