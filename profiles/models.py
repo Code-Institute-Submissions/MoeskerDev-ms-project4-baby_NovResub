@@ -54,7 +54,7 @@ class WishList(models.Model):
     user = models.OneToOneField(
         UserProfile, null=True, blank=True, on_delete=models.CASCADE)
     products = models.ForeignKey(
-        Product, null=True, blank=True, on_delete=models.SET_NULL()
+        Product, null=True, blank=True, on_delete=models.SET_NULL)
 
 
     def __str__(self):
