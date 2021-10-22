@@ -51,14 +51,14 @@ class WishList(models.Model):
     A wishlist model to maintain a list of
     products a logged in user wishes to buy
     """
-    user = models.OneToOneField(
+    user = models.ForeignKey(
         UserProfile, null=True, blank=True, on_delete=models.CASCADE)
-    products = models.ForeignKey(
-        Product, null=True, blank=True, on_delete=models.SET_NULL)
+    product = models.ForeignKey(
+        Product, null=True, blank=True, on_delete=models.CASCADE)
 
 
     def __str__(self):
-        return str(self.user)
+        return str(self.user.username)
 
 
 @receiver(post_save, sender=User)

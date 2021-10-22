@@ -21,11 +21,6 @@
                 <hr>
                 <h2 class="logo-font mb-4">My Wish List</h2>
                 <hr>
-                <div class="row">
-                    <div class="col">
-                        <p class="text-muted">Wish List Items</p>
-                    </div>
-                </div>
                 {% if wishlist_items %}
                 <div class="row">
                     <div class="col">
@@ -70,12 +65,12 @@
                         </div>
                         <a type="button" class="btn btn-secondary btn-sm"
                         href="{% url 'remove_from_wishlist' product.id %}">
-                        Remove from Wish List>
+                        Remove from Wish List
                         </a>
                     </div>
                 </div>
                 {% else %}
-                <p class="card-text text-danger">No products have been added yet</p>
+                <p class="lead text-danger mb-5">No products have been added yet</p>
                 <a href="{% url 'products' %}" class="btn btn-outline-secondary rounded-pill btn-lg">
                     <span class="icon">
                         <i class="fas fa-chevron-left"></i>

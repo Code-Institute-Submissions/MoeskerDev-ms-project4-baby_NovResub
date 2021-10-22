@@ -5,6 +5,7 @@ from django.shortcuts import redirect, render, reverse, get_object_or_404
 from django.http import HttpResponseRedirect
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
+from django.forms.models import model_to_dict
 from checkout.models import Order
 from products.models import Product
 
@@ -94,24 +95,44 @@ def add_to_wishlist(request, item_id):
     """
     Adding a product to the wishlist
     """
-    print("ADD_TO_WISHLIST VIEW FIRED")
+    # print("ADD_TO_WISHLIST VIEW FIRED")
 
     product = Product.objects.get(pk=item_id)
-    user = get_object_or_404(UserProfile, user=request.user)
     redirect_url = request.POST.get('redirect_url')
     wishlist = request.session.get('wishlist', {})
 
-    if item_id in wishlist:
+    # data = self.get_queryset()
+
+    # # for item in data:
+    # #     item['product'] = model_to_dict(item['product'])
+
+    # # return HttpResponse(json.simplejson.dumps(data), mimetype="application/json")
+
+
+    if item_id in list(wishlist.keys()):
         wishlist.pop(item_id)
         messages.error(
-            request, 'This product is already in your Wish List')
+            request, 'This product is already in your wish list')
     else:
-        wishlist.append(item_id)
+        wishlist[item_id] = product
         messages.success(
             request, f'Added {product.name} to your wish list')
 
     request.session['wishlist'] = wishlist
+    print(request.session['wishlist'])
     return redirect(redirect_url)
+
+    # if item_id in wishlist:
+    #     wishlist.pop(item_id)
+    #     messages.error(
+    #         request, 'This product is already in your Wish List')
+    # else:
+    #     updated_wishlist.save()
+    #     messages.success(
+    # #         request, f'Added {product.name} to your wish list')
+
+    # request.session['wishlist'] = wishlist
+    # return redirect(redirect_url)
 
     # if  product in wishlist:
     #     product.remove(request.user)
@@ -142,7 +163,7 @@ def remove_from_wishlist(request, item_id):
             messages.success(
                 request, f'Removed {product.name} from your wish list')
 
-        request.session['basket'] = basket
+        request.session['wishlist'] = wishlist
         return HttpResponse(status=200)
 
     except Exception as e:

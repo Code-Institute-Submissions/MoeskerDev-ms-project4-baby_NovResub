@@ -9,7 +9,7 @@ View the live project <a></a>
 # UX
 ## Project Goals
 
-The final goal is to sell baby clothing online, but with the option to add toys, for example, in the future or other categories if wanted. 
+The final goal of the store owner is to sell baby clothing online, but with the option to add toys, for example, in the future or other categories if wanted. Providing an easy and safe way to purchase baby clothing online.
 ----
 ## User Stories
 Anonymous Visitor Goals
@@ -111,7 +111,7 @@ Heroku:
 - Used to deploy this full stack web application to a cloud platform.
 Balsamiq:
 - During the design process, the wireframes were created by Balsamiq.
-Something else:
+Something else?:
 - To create the relational database schema.
 ----
 # Testing
