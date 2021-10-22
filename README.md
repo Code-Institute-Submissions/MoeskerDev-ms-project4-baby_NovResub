@@ -14,9 +14,34 @@ The final goal is to sell baby clothing online, but with the option to add toys,
 ## User Stories
 Anonymous Visitor Goals
 
-As an anonymous user, I want to 
+As an anonymous user/shopper, I want to be able to:
+* view a list of products so that I can select some to purchase.
+* view individual product details so that I can identify the image, price, description, product rating,reviews and sizes.
+* view a specific category of products so that I can quickly find products I am interested in without going through all products.
+* easily view the total of my purchases so that I can avoid spending too much.
+* search for a product by name or description so that I can find a specific product I would like to purchase.
+* easily to what I have searched for and the number of results, so that I can quickly decide if the product I want is available.
+* easily select the size and quantity of a product when purchasing it so that I can ensure I do not accidentally select the wrong product, quantity or size.
+* view items in my basket to be purchased, so that I can identify all items I will receive along with the total cost of my purchase.
+* adjust the quantity of individual items in my basket so that I can easily make changes to my purchase before paying for the order.
+* easily enter my payment information so that I can checkout quickly with no hassels.
+* feel my personal and payment info is save and secure so that I can confidently provide the needed information to make a purchase. 
+* view an order confirmation after checkout so that I can verify I have made no mistakes.
+* receive an email confirmation after checking out so that I can keep the confirmation of what I have purchased for my own records.
 
-As a registered/logged in user, I want to be able to 
+Registered Visitor Goals
+As a registered/logged in user, I want to be able to:
+* easily register for an account so that I can have a personal account, be able to view my profile and create my own wishlist.
+* easily login or logout so that I can acces my personal account information.
+* easily recover my password in case I forget it so that I can recover access to my account.
+* receive an email confirmation after registering so that I can verify that my account registration was succesful.
+* have a personalized user profile so that I can view my personal order history and order confirmations, as well as saving default delivery information. 
+
+Store Owner Goals
+As a store owner, I want to be able to:
+* add a product to the store so that I can add new items to my store.
+* edit or update a product so that I can change product prices, descriptions, images and other product criteria.
+* delete a product so that I can remove items that are no longer for sale.
 ----
 ## Design choices
 ### Fonts
@@ -102,10 +127,22 @@ Pylint left me with one unused-import error, W0611 for import env, which is okay
 The PEP8 requirements results were: all right.
 
 ## Testing User Stories
-The most common path through the website for an anonymous user will be the Homepage and then search for a particular piece of clothing via the search bar or click on the button or one of the menu items to view multiple items on a page and scrolling through them. Another frequent path would be from Homepage to the Register page.
+The most common path through the website for an anonymous user will be the homepage and then search for a particular piece of clothing via the search bar, click on the button or one of the menu items to view multiple items on a page and scrolling through them. Another frequent path would be from Homepage to the Register page.
 
 1. As an anonymous user, I want to be able to:
-*  
+* view a list of products so that I can select some to purchase.
+* view individual product details so that I can identify the image, price, description, product rating,reviews and sizes.
+* view a specific category of products so that I can quickly find products I am interested in without going through all products.
+* easily view the total of my purchases so that I can avoid spending too much.
+* search for a product by name or description so that I can find a specific product I would like to purchase.
+* easily to what I have searched for and the number of results, so that I can quickly decide if the product I want is available.
+* easily select the size and quantity of a product when purchasing it so that I can ensure I do not accidentally select the wrong product, quantity or size.
+* view items in my basket to be purchased, so that I can identify all items I will receive along with the total cost of my purchase.
+* adjust the quantity of individual items in my basket so that I can easily make changes to my purchase before paying for the order.
+* easily enter my payment information so that I can checkout quickly with no hassels.
+* feel my personal and payment info is save and secure so that I can confidently provide the needed information to make a purchase. 
+* view an order confirmation after checkout so that I can verify I have made no mistakes.
+* receive an email confirmation after checking out so that I can keep the confirmation of what I have purchased for my own records. 
 
 The most common path for a registered user is from the homepage to the login page which leads to the profile page.
 
@@ -115,6 +152,8 @@ The most common path for a registered user is from the homepage to the login pag
 * easily recover my password in case I forget it so that I can recover access to my account.
 * receive an email confirmation after registering so that I can verify that my account registration was succesful.
 * have a personalized user profile so that I can view my personal order history and order confirmations, as well as saving default delivery information. 
+
+The most common path for a store owner is from the homepage to the login page. After that, it is either going to the store management page where they can add a new product or searching for a particular product to either edit or delete that product.
 
 3. As a store owner, I want to be able to:
 * add a product to the store so that I can add new items to my store.
