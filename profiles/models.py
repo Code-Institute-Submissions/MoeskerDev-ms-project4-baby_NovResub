@@ -59,14 +59,3 @@ class WishList(models.Model):
 
     def __str__(self):
         return str(self.user.username)
-
-
-@receiver(post_save, sender=User)
-def create_or_update_wishlist(sender, instance, created, **kwargs):
-    """
-    Create or update wishlist
-    """
-    if created:
-        WishList.objects.create(user=instance)
-        # Existing wishlist: save the updated wishlist
-        instance.wishlist.save()
