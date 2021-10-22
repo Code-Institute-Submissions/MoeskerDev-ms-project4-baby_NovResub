@@ -104,8 +104,8 @@ The PEP8 requirements results were: all right.
 ## Testing User Stories
 The most common path through the website for an anonymous user will be the Homepage and then search for a particular piece of clothing via the search bar or click on the button or one of the menu items to view multiple items on a page and scrolling through them. Another frequent path would be from Homepage to the Register page.
 
-1. As an anonymous user:
-* I want to 
+1. As an anonymous user, I want to be able to:
+*  
 
 The most common path for a registered user is from the homepage to the login page which leads to the profile page.
 
@@ -148,7 +148,16 @@ To deploy Baby! to Heroku, take the following steps:
 8. Set the following config vars:
 Key|Value
 ---|-----
+AWS_ACCESS_KEY_ID|
+AWS_SECRET_ACCESS_KEY|
+DATABASE_URL|
+EMAIL_HOST_PASS|
+EMAIL_HOST_USER|<your_email_address>
 SECRET_KEY|<your_secret_key>
+STRIPE_PUBLIC_KEY|
+STRIPE_SECRET_KEY|
+STRIPE_WH_SECRET|
+USE_AWS|<True>
 
 
 9. Click "Deploy" in the heroku dashboard.
