@@ -57,36 +57,36 @@ def order_history(request, order_number):
     return render(request, template, context)
 
 
-# @login_required()
-# def wishlist(request):
-#     """View to show wishlist page"""
-#     return render(request, 'profiles/wishlist.html')
-
-
-@ login_required
+@login_required()
 def wishlist(request):
-    """
-    A view to show the wishlist
-    """
-    try:
-        user = UserProfile.objects.filter(user=request.user)
-        product = Product.objects
-        w_list = WishList.objects.all()
+    """View to show wishlist page"""
+    return render(request, 'profiles/wishlist.html')
 
-        template = 'profiles/wishlist.html'
-        context = {
-            'user': user,
-            'product': product,
-        }
 
-        return render(request, template, context)
-    except wishlist.DoesNotExist:
+# @ login_required
+# def wishlist(request):
+#     """
+#     A view to show the wishlist
+#     """
+#     try:
+#         user = UserProfile.objects.filter(user=request.user)
+#         product = Product.objects
+#         w_list = WishList.objects.all()
 
-        template = 'profiles/wishlist.html'
-        context = {
-            'error': 'No wishlist found.'
-        }
-        return render(request, template, context)
+#         template = 'profiles/wishlist.html'
+#         context = {
+#             'user': user,
+#             'product': product,
+#         }
+
+#         return render(request, template, context)
+#     except wishlist.DoesNotExist:
+
+#         template = 'profiles/wishlist.html'
+#         context = {
+#             'error': 'No wishlist found.'
+#         }
+#         return render(request, template, context)
 
 
 @ login_required
@@ -95,30 +95,56 @@ def add_to_wishlist(request, item_id):
     Adding a product to the wishlist
     """
     print("ADD_TO_WISHLIST VIEW FIRED")
+
     product = Product.objects.get(pk=item_id)
-    # redirect_url = request.POST.get('redirect_url')
-    if product.w_list.filter(id=request.user.id):
-        product.w_list.remove(request.user)
+    user = get_object_or_404(UserProfile, user=request.user)
+    redirect_url = request.POST.get('redirect_url')
+    wishlist = request.session.get('wishlist', {})
+
+    if item_id in wishlist:
+        wishlist.pop(item_id)
         messages.error(
             request, 'This product is already in your Wish List')
     else:
-        product.w_list.add(request.user)
+        wishlist.append(item_id)
         messages.success(
-            request, f'{ product.name} was added to your Wish List')
-        return HttpResponseRedirect(request.META["HTTP_REFERER"])
+            request, f'Added {product.name} to your wish list')
+
+    request.session['wishlist'] = wishlist
+    return redirect(redirect_url)
+
+    # if  product in wishlist:
+    #     product.remove(request.user)
+    #     messages.error(
+    #         request, 'This product is already in your Wish List')
+    # else:
+    #     product.add(request.user)
+    #     messages.success(
+    #         request, f'{ product.name} was added to your Wish List')
+    #     return HttpResponseRedirect(request.META["HTTP_REFERER"])
 
 
 @ login_required
-def remove_from_wishlist(request, product_id):
+def remove_from_wishlist(request, item_id):
     """
     Delete a product from the wishlist
     """
-    if not request.user.is_logged_in(user=request.user.id):
-        messages.error(
-            request, 'Sorry, only logged in account users can do that.')
-        return redirect(reverse('home'))
+    try:
+        product = get_object_or_404(Product, pk=item_id)
+        wishlist = request.session.get('wishlist', {})
 
-    product = get_object_or_404(Product, pk=product_id)
-    product.delete()
-    messages.success(request, 'Product removed from Wish List!')
-    return redirect(reverse('wishlist'))
+        if not request.user.is_logged_in(user=request.user.id):
+            messages.error(
+            request, 'Sorry, only logged in account users can do that.')
+            return redirect(reverse('home'))
+        else:
+            wishlist.pop(item_id)
+            messages.success(
+                request, f'Removed {product.name} from your wish list')
+
+        request.session['basket'] = basket
+        return HttpResponse(status=200)
+
+    except Exception as e:
+        messages.error(request, f'Error removing item: {e}')
+        return HttpResponse(status=500)

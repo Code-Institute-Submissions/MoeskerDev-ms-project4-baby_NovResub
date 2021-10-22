@@ -109,11 +109,17 @@ The most common path through the website for an anonymous user will be the Homep
 
 The most common path for a registered user is from the homepage to the login page which leads to the profile page.
 
-2. As a registered/logged in user:
-* I want to be able to 
+2. As a registered/logged in user, I want to be able to:
+* easily register for an account so that I can have a personal account, be able to view my profile and create my own wishlist.
+* easily login or logout so that I can acces my personal account information.
+* easily recover my password in case I forget it so that I can recover access to my account.
+* receive an email confirmation after registering so that I can verify that my account registration was succesful.
+* have a personalized user profile so that I can view my personal order history and order confirmations, as well as saving default delivery information. 
 
-3. As a store owner:
-* I want to be able to 
+3. As a store owner, I want to be able to:
+* add a product to the store so that I can add new items to my store.
+* edit or update a product so that I can change product prices, descriptions, images and other product criteria.
+* delete a product so that I can remove items that are no longer for sale.
 
 ## Further testing
 - The website was tested on Google Chrome, Microsoft Edge and Mozilla Firefox.
