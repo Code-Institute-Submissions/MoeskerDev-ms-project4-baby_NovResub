@@ -88,11 +88,13 @@
                                                 <a class="text-danger" href="{% url 'delete_product' product.id %}">Delete</a>
                                             </small>
                                             {% endif %}
+                                            {% if user.is_authenticated %}
                                             <p class="small mt-1 mb-0">
-                                                <a class="text-muted" href="{% url 'wishlist' %}">
+                                                <a class="text-muted" href="{% url 'add_to_wishlist' product.id %}">
                                                     <i class="fab fa-gratipay mr-1"></i>Add to wishlist
                                                 </a>
                                             </p>
+                                            {% endif %}
                                         </div>
                                     </div>
                                 </div>

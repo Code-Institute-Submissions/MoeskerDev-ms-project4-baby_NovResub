@@ -39,12 +39,12 @@
                                         <td>
                                             {% if item.product.image %}
                                             <a href="{% url 'wishlist' %}">
-                                                <img class="card-img-top img-fluid" src="{{ item.product.image.url }}"
+                                                <img class="card-img-top img-fluid h-50 w-50" src="{{ item.product.image.url }}"
                                                     alt="{{ item.product.name }}">
                                             </a>
                                             {% else %}
                                             <a href="{% url 'wishlist' %}">
-                                                <img class="card-img-top img-fluid" src="{{ MEDIA_URL }}0noimage.png"
+                                                <img class="card-img-top img-fluid h-50 w-50" src="{{ MEDIA_URL }}0noimage.png"
                                                     alt="{{ item.product.name }}">
                                             </a>
                                             {% endif %}
@@ -52,9 +52,9 @@
                                         <td>{{ item.product.name }}</td>
                                         <td>€{{ item.product.price }}</td>
                                         <td>
-                                            <a type="button" class="btn btn-secondary btn-sm"
+                                            <a type="button" class="btn btn-secondary rounded-pill btn-sm"
                                                 href="{% url 'add_to_wishlist' item.product.id %}">
-                                                Remove from Wish List
+                                                Remove
                                             </a>
                                         </td>
                                     </tr>
@@ -64,7 +64,6 @@
                         </div>
                     </div>
                 </div>
-                <p class="lead text-danger mb-5">No products have been added yet</p>
                 <a href="{% url 'products' %}" class="btn btn-outline-secondary rounded-pill btn-lg">
                     <span class="icon">
                         <i class="fas fa-chevron-left"></i>

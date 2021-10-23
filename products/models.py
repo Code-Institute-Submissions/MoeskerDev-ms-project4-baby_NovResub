@@ -31,10 +31,6 @@ class Product(models.Model):
     has_sizes = models.BooleanField(
         default=False, null=True, blank=True)
     price = models.DecimalField(max_digits=6, decimal_places=2)
-    rating = models.DecimalField(
-        max_digits=6, decimal_places=2, null=True, blank=True)
-    # place into review model
-    review = models.TextField(blank=True)  # place into review model
     image_url = models.URLField(max_length=1024, blank=True)
     image = models.ImageField(null=True, blank=True)
 

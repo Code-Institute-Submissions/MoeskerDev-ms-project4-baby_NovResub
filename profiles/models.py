@@ -59,3 +59,17 @@ class WishList(models.Model):
 
     def __str__(self):
         return str(self.user)
+
+
+class Review(models.Model):
+    """
+    A review model to maintain reviews and ratings
+    about the products made by a registered user
+    """
+    user = models.ForeignKey(
+        UserProfile, null=True, blank=True, on_delete=models.CASCADE)
+    product = models.ForeignKey(
+        Product, null=True, blank=True, on_delete=models.CASCADE)
+    rating = models.DecimalField(
+        max_digits=6, decimal_places=2, null=True, blank=True)
+    review = models.TextField(blank=True)
