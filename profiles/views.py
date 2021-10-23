@@ -9,7 +9,7 @@ from django.forms.models import model_to_dict
 from checkout.models import Order
 from products.models import Product
 
-from .models import UserProfile, WishList
+from .models import Review, UserProfile, WishList
 from .forms import UserProfileForm
 
 
@@ -100,3 +100,19 @@ def add_to_wishlist(request, item_id):
         return redirect(redirect_url)
     else:
         return redirect('wishlist')
+
+
+@ login_required
+def review(request):
+    """
+    A view to show the review(s)
+    """
+    user = UserProfile.objects.filter(user=request.user)
+    review = Review.objects.filter(user__in=user)
+
+    template = 'products/product_detail.html'
+    context = {
+        'review': review
+    }
+    print(review)
+    return render(request, template, context)
