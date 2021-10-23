@@ -58,37 +58,21 @@ def order_history(request, order_number):
     return render(request, template, context)
 
 
-@login_required()
+@ login_required
 def wishlist(request):
-    """View to show wishlist page"""
-    return render(request, 'profiles/wishlist.html')
+    """
+    A view to show the wishlist
+    """
+    user = UserProfile.objects.filter(user=request.user)
+    wishlist = WishList.objects.filter(user__in=user)
 
+    template = 'profiles/wishlist.html'
+    context = {
+        'wishlist': wishlist,
+    }
 
-# @ login_required
-# def wishlist(request):
-#     """
-#     A view to show the wishlist
-#     """
-#     try:
-#         user = UserProfile.objects.filter(user=request.user)
-#         product = Product.objects
-#         w_list = WishList.objects.all()
-
-#         template = 'profiles/wishlist.html'
-#         context = {
-#             'user': user,
-#             'product': product,
-#         }
-
-#         return render(request, template, context)
-#     except wishlist.DoesNotExist:
-
-#         template = 'profiles/wishlist.html'
-#         context = {
-#             'error': 'No wishlist found.'
-#         }
-#         return render(request, template, context)
-
+    return render(request, template, context)
+    
 
 @ login_required
 def add_to_wishlist(request, item_id):
@@ -98,74 +82,21 @@ def add_to_wishlist(request, item_id):
     # print("ADD_TO_WISHLIST VIEW FIRED")
 
     product = Product.objects.get(pk=item_id)
+    user = UserProfile.objects.get(user=request.user)
     redirect_url = request.POST.get('redirect_url')
-    wishlist = request.session.get('wishlist', {})
 
-    # data = self.get_queryset()
+    wishlist = WishList.objects.filter(product=product, user=user)
 
-    # # for item in data:
-    # #     item['product'] = model_to_dict(item['product'])
-
-    # # return HttpResponse(json.simplejson.dumps(data), mimetype="application/json")
-
-
-    if item_id in list(wishlist.keys()):
-        wishlist.pop(item_id)
-        messages.error(
-            request, 'This product is already in your wish list')
+    if wishlist:
+        wishlist.delete()
+        messages.success(
+            request, 'This product is removed from your wish list')
     else:
-        wishlist[item_id] = product
+        list = WishList(product=product, user=user)
+        list.save()
         messages.success(
             request, f'Added {product.name} to your wish list')
-
-    request.session['wishlist'] = wishlist
-    print(request.session['wishlist'])
-    return redirect(redirect_url)
-
-    # if item_id in wishlist:
-    #     wishlist.pop(item_id)
-    #     messages.error(
-    #         request, 'This product is already in your Wish List')
-    # else:
-    #     updated_wishlist.save()
-    #     messages.success(
-    # #         request, f'Added {product.name} to your wish list')
-
-    # request.session['wishlist'] = wishlist
-    # return redirect(redirect_url)
-
-    # if  product in wishlist:
-    #     product.remove(request.user)
-    #     messages.error(
-    #         request, 'This product is already in your Wish List')
-    # else:
-    #     product.add(request.user)
-    #     messages.success(
-    #         request, f'{ product.name} was added to your Wish List')
-    #     return HttpResponseRedirect(request.META["HTTP_REFERER"])
-
-
-@ login_required
-def remove_from_wishlist(request, item_id):
-    """
-    Delete a product from the wishlist
-    """
-    try:
-        product = get_object_or_404(Product, pk=item_id)
-        wishlist = request.session.get('wishlist', {})
-
-        if not request.user.is_logged_in(user=request.user.id):
-            messages.error(
-            request, 'Sorry, only logged in account users can do that.')
-            return redirect(reverse('home'))
-        else:
-            wishlist.pop(item_id)
-            messages.success(
-                request, f'Removed {product.name} from your wish list')
-
-        request.session['wishlist'] = wishlist
-        return HttpResponse(status=200)
-
-    except Exception as e:
-        messages.error(request, f'Error removing item: {e}')
-        return HttpResponse(status=500)
+    if redirect_url:
+        return redirect(redirect_url)
+    else:
+        return redirect('wishlist')

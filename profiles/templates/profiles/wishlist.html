@@ -21,7 +21,6 @@
                 <hr>
                 <h2 class="logo-font mb-4">My Wish List</h2>
                 <hr>
-                {% if wishlist_items %}
                 <div class="row">
                     <div class="col">
                         <div class="wishlist table-responsive">
@@ -35,27 +34,27 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    {% for item in wishlist_items %}
+                                    {% for item in wishlist %}
                                     <tr>
                                         <td>
-                                            {% if product.image %}
+                                            {% if item.product.image %}
                                             <a href="{% url 'wishlist' %}">
-                                                <img class="card-img-top img-fluid" src="{{ product.image.url }}"
-                                                    alt="{{ product.name }}">
+                                                <img class="card-img-top img-fluid" src="{{ item.product.image.url }}"
+                                                    alt="{{ item.product.name }}">
                                             </a>
                                             {% else %}
                                             <a href="{% url 'wishlist' %}">
                                                 <img class="card-img-top img-fluid" src="{{ MEDIA_URL }}0noimage.png"
-                                                    alt="{{ product.name }}">
+                                                    alt="{{ item.product.name }}">
                                             </a>
                                             {% endif %}
                                         </td>
-                                        <td>{{ product.name }}</td>
-                                        <td>€{{ product.price }}</td>
+                                        <td>{{ item.product.name }}</td>
+                                        <td>€{{ item.product.price }}</td>
                                         <td>
                                             <a type="button" class="btn btn-secondary btn-sm"
-                                                href="{% url 'remove_from_wishlist' product.id %}">
-                                                Remove from Wish List>
+                                                href="{% url 'add_to_wishlist' item.product.id %}">
+                                                Remove from Wish List
                                             </a>
                                         </td>
                                     </tr>
@@ -63,13 +62,8 @@
                                 </tbody>
                             </table>
                         </div>
-                        <a type="button" class="btn btn-secondary btn-sm"
-                        href="{% url 'remove_from_wishlist' product.id %}">
-                        Remove from Wish List
-                        </a>
                     </div>
                 </div>
-                {% else %}
                 <p class="lead text-danger mb-5">No products have been added yet</p>
                 <a href="{% url 'products' %}" class="btn btn-outline-secondary rounded-pill btn-lg">
                     <span class="icon">
@@ -77,7 +71,6 @@
                     </span>
                     <span class="text-uppercase">Add an Item</span>
                 </a>
-                {% endif %}
             </div>
         </div>
     </div>
