@@ -77,7 +77,8 @@ def wishlist(request):
 @ login_required
 def add_to_wishlist(request, item_id):
     """
-    Adding a product to the wishlist
+    Adding a product to or removing a product
+    from the wishlist
     """
     # print("ADD_TO_WISHLIST VIEW FIRED")
 
@@ -116,3 +117,10 @@ def review(request):
     }
     print(review)
     return render(request, template, context)
+
+
+@ login_required
+def add_review(request, item_id):
+    """
+    Adding a review
+    """
