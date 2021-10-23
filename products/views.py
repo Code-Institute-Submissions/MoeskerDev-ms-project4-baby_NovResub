@@ -73,7 +73,6 @@ def product_detail(request, product_id):
         # review = get_object_or_404(Review, pk=user_id)
         wishlist = WishList.objects.filter(product=product, user=user)
 
-
     context = {
         'product': product,
         'wishlist': wishlist,

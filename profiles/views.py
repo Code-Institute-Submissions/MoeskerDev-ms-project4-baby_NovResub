@@ -1,11 +1,9 @@
 """
 Views of the profiles app
 """
-from django.shortcuts import redirect, render, reverse, get_object_or_404
-from django.http import HttpResponseRedirect
+from django.shortcuts import redirect, render, get_object_or_404
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
-from django.forms.models import model_to_dict
 from checkout.models import Order
 from products.models import Product
 
@@ -72,16 +70,14 @@ def wishlist(request):
     }
 
     return render(request, template, context)
-    
+
 
 @ login_required
 def add_to_wishlist(request, item_id):
     """
-    Adding a product to or removing a product
+    Adding or removing a product to or
     from the wishlist
     """
-    # print("ADD_TO_WISHLIST VIEW FIRED")
-
     product = Product.objects.get(pk=item_id)
     user = UserProfile.objects.get(user=request.user)
     redirect_url = request.POST.get('redirect_url')
@@ -106,14 +102,14 @@ def add_to_wishlist(request, item_id):
 @ login_required
 def review(request):
     """
-    A view to show the review(s)
+    A view to show the review(s) of a user
     """
     user = UserProfile.objects.filter(user=request.user)
-    review = Review.objects.filter(user__in=user)
+    reviews = Review.objects.filter(user__in=user)
 
     template = 'products/product_detail.html'
     context = {
-        'review': review
+        'reviews': reviews
     }
 
     return render(request, template, context)
