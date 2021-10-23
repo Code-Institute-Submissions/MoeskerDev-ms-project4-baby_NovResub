@@ -115,7 +115,7 @@ def review(request):
     context = {
         'review': review
     }
-    print(review)
+
     return render(request, template, context)
 
 

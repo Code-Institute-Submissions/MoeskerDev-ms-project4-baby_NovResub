@@ -154,10 +154,12 @@
                                 <div class="review-icon"></div>
                                 <i class="fas fa-question-circle mr-1"></i>
                                 {% if review %}
-                                    <input type="submit" data-item_id="{{ product.id }}" id="{{ product.id }}" class="btn btn-secondary rounded-pill text-uppercase mt-0" value="Remove from Reviews">
+                                    <input type="submit" data-item_id="{{ product.id }}" id="{{ product.id }}" class="btn btn-secondary rounded-pill text-uppercase mt-0" value="Remove review">
                                     <i class="fas fa-question-circle mr-1"></i>
                                 {% else %}
-                                    <input type="submit" data-item_id="{{ product.id }}" id="{{ product.id }}" class="btn btn-secondary rounded-pill text-uppercase mt-0" value="Add to Reviews">
+                                    <input type="submit" data-item_id="{{ product.id }}" id="{{ product.id }}" class="btn btn-secondary rounded-pill text-uppercase mt-0" value="Add review">
+                                <i class="fas fa-question-circle mr-1"></i>
+                                <input type="submit" data-item_id="{{ product.id }}" id="{{ product.id }}" class="btn btn-secondary rounded-pill text-uppercase mt-0" value="Edit review">
                                 <i class="fas fa-question-circle mr-1"></i>
                                 {% endif %}
                                 </div>
