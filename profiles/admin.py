@@ -2,12 +2,24 @@
 To register and display the models in the Django admin
 """
 from django.contrib import admin
-from .models import UserProfile, WishList
+from .models import Review, UserProfile, WishList
+
+
+class ReviewAdmin(admin.ModelAdmin):
+    """
+    Adding Review fields in Django admin
+    """
+    list_display = (
+        'user',
+        'product',
+        'rating',
+        'review',
+    )
 
 
 class UserProfileAdmin(admin.ModelAdmin):
     """
-    Adding certain UserProfile fields in Django admin
+    Adding UserProfile fields in Django admin
     """
     list_display = (
         'user',
@@ -20,7 +32,7 @@ class UserProfileAdmin(admin.ModelAdmin):
 
 class WishListAdmin(admin.ModelAdmin):
     """
-    Adding certain WishList fields in Django admin
+    Adding WishList fields in Django admin
     """
     list_display = (
         'user',
@@ -28,5 +40,6 @@ class WishListAdmin(admin.ModelAdmin):
     )
 
 
+admin.site.register(Review, ReviewAdmin)
 admin.site.register(UserProfile, UserProfileAdmin)
 admin.site.register(WishList, WishListAdmin)
