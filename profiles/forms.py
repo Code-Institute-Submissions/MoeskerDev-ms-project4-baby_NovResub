@@ -55,6 +55,6 @@ class ReviewForm(forms.ModelForm):
         reviews = Review.objects.all()
         list_reviews = [(r.id, r.get_list_reviews()) for r in reviews]
 
-        self.fields['review'].choices = reviews
+        self.fields['review'].choices = list_reviews
         for field_name, field in self.fields.items():
             field.widget.attrs['class'] = 'border-secondary rounded-pill'

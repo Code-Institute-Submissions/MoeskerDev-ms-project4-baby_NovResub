@@ -109,7 +109,7 @@ def review(request):
 
     template = 'profiles/review.html'
     context = {
-        'review': reviews
+        'reviews': reviews
     }
 
     return render(request, template, context)
