@@ -107,11 +107,11 @@ def review(request):
     user = UserProfile.objects.filter(user=request.user)
     reviews = Review.objects.filter(user__in=user)
 
-    template = 'products/product_detail.html'
+    template = 'profiles/review.html'
     context = {
-        'reviews': reviews
+        'review': reviews
     }
-    print(reviews)
+
     return render(request, template, context)
 
 
@@ -134,7 +134,7 @@ def add_review(request, item_id):
         r_list = Review(product=product, user=user)
         r_list.save()
         messages.success(
-            request, f'Added this review to your reviews')
+            request, f'Added {review.review} to your reviews')
     if redirect_url:
         return redirect(redirect_url)
     else:

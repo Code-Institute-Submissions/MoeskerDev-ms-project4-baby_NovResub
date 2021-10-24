@@ -53,6 +53,7 @@ class ReviewForm(forms.ModelForm):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         reviews = Review.objects.all()
+        list_reviews = [(r.id, r.get_list_reviews()) for r in reviews]
 
         self.fields['review'].choices = reviews
         for field_name, field in self.fields.items():
