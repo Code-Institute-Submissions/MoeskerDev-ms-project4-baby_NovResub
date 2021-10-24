@@ -1,0 +1,76 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'profiles/css/profile.css' %}">
+{% endblock %}
+
+{% block page_header %}
+    <div class="container header-container">
+        <div class="row">
+            <div class="col"></div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block content %}
+    <div class="overlay"></div>
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <hr>
+                <h2 class="logo-font mb-4">My Reviews</h2>
+                <hr>
+                <div class="row">
+                    <div class="col">
+                        <div class="wishlist table-responsive">
+                            <table class="table table-sm table-borderless text-secondary">
+                                <thead>
+                                    <tr>
+                                        <th>Image</th>
+                                        <th>Rating</th>
+                                        <th>Review</th>
+                                        <th class="text-danger">Remove</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {% for item in review %}
+                                    <tr>
+                                        <td>
+                                            {% if item.product.image %}
+                                            <a href="{% url 'wishlist' %}">
+                                                <img class="card-img-top img-fluid h-50 w-50" src="{{ item.product.image.url }}"
+                                                    alt="{{ item.product.name }}">
+                                            </a>
+                                            {% else %}
+                                            <a href="{% url 'wishlist' %}">
+                                                <img class="card-img-top img-fluid h-50 w-50" src="{{ MEDIA_URL }}0noimage.png"
+                                                    alt="{{ item.product.name }}">
+                                            </a>
+                                            {% endif %}
+                                        </td>
+                                        <td>{{ item.product.rating }}</td>
+                                        <td>€{{ item.product.review }}</td>
+                                        <td>
+                                            <a type="button" class="btn btn-secondary rounded-pill btn-sm"
+                                                href="{% url 'add_to_review' item.product.id %}">
+                                                Remove
+                                            </a>
+                                        </td>
+                                    </tr>
+                                    {% endfor %}
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <a href="{% url 'products' %}" class="btn btn-outline-secondary rounded-pill btn-lg">
+                    <span class="icon">
+                        <i class="fas fa-chevron-left"></i>
+                    </span>
+                    <span class="text-uppercase">Add review</span>
+                </a>
+            </div>
+        </div>
+    </div>
+{% endblock %}

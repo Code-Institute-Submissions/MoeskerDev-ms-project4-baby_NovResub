@@ -152,6 +152,8 @@
                                 {% if review %}
                                     <input type="submit" data-item_id="{{ product.id }}" id="{{ product.id }}" class="btn btn-secondary rounded-pill text-uppercase mt-0" value="Remove review">
                                     <i class="fas fa-question-circle mr-1"></i>
+                                    <input type="submit" data-item_id="{{ product.id }}" id="{{ product.id }}" class="btn btn-secondary rounded-pill text-uppercase mt-0" value="Edit review">
+                                    <i class="fas fa-question-circle mr-1"></i>
                                 {% else %}
                                     <input type="submit" data-item_id="{{ product.id }}" id="{{ product.id }}" class="btn btn-secondary rounded-pill text-uppercase mt-0" value="Add review">
                                 <i class="fas fa-question-circle mr-1"></i>
@@ -164,17 +166,6 @@
                         </div>
                         {% endif %}
                     </form>
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col">
-                <div class="reviews-container text-center">
-                    {% if review.review %}
-                    <p class="text-secondary text-muted"><i class="fas fa-question-circle mr-1"></i>Reviews: {{ review.review }}</p>
-                    {% else %}
-                        <small class="text-muted">No Reviews</small></p>
-                    {% endif %}
                 </div>
             </div>
         </div>

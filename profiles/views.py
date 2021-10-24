@@ -82,10 +82,10 @@ def add_to_wishlist(request, item_id):
     user = UserProfile.objects.get(user=request.user)
     redirect_url = request.POST.get('redirect_url')
 
-    new_wishlist = WishList.objects.filter(product=product, user=user)
+    all_wishlist = WishList.objects.filter(product=product, user=user)
 
-    if new_wishlist:
-        new_wishlist.delete()
+    if all_wishlist:
+        all_wishlist.delete()
         messages.success(
             request, 'This product is removed from your wish list')
     else:
@@ -118,5 +118,24 @@ def review(request):
 @ login_required
 def add_review(request, item_id):
     """
-    Adding a review
+    Adding or removing a review
     """
+    product = Product.objects.get(pk=item_id)
+    user = UserProfile.objects.get(user=request.user)
+    redirect_url = request.POST.get('redirect_url')
+
+    all_reviews = Review.objects.filter(product=product, user=user)
+
+    if all_reviews:
+        all_reviews.delete()
+        messages.success(
+            request, 'This review is removed from your reviews')
+    else:
+        r_list = Review(product=product, user=user)
+        r_list.save()
+        messages.success(
+            request, f'Added this review to your reviews')
+    if redirect_url:
+        return redirect(redirect_url)
+    else:
+        return redirect('review')
