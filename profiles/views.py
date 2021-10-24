@@ -62,11 +62,11 @@ def wishlist(request):
     A view to show the wishlist
     """
     user = UserProfile.objects.filter(user=request.user)
-    wishlist = WishList.objects.filter(user__in=user)
+    w_list = WishList.objects.filter(user__in=user)
 
     template = 'profiles/wishlist.html'
     context = {
-        'wishlist': wishlist,
+        'wishlist': w_list,
     }
 
     return render(request, template, context)
@@ -82,15 +82,15 @@ def add_to_wishlist(request, item_id):
     user = UserProfile.objects.get(user=request.user)
     redirect_url = request.POST.get('redirect_url')
 
-    wishlist = WishList.objects.filter(product=product, user=user)
+    new_wishlist = WishList.objects.filter(product=product, user=user)
 
-    if wishlist:
-        wishlist.delete()
+    if new_wishlist:
+        new_wishlist.delete()
         messages.success(
             request, 'This product is removed from your wish list')
     else:
-        list = WishList(product=product, user=user)
-        list.save()
+        w_list = WishList(product=product, user=user)
+        w_list.save()
         messages.success(
             request, f'Added {product.name} to your wish list')
     if redirect_url:
@@ -111,7 +111,7 @@ def review(request):
     context = {
         'reviews': reviews
     }
-
+    print(reviews)
     return render(request, template, context)
 
 

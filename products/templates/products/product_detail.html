@@ -49,11 +49,6 @@
                         <a class="text-danger" href="{% url 'delete_product' product.id %}">Delete</a>
                     </small>
                     {% endif %}
-                    <!-- {% if product.review %}
-                    <p class="text-secondary"><small class="text-muted"><i class="fas fa-question-circle mr-1"></i>Reviews: {{ product.review }}</small>
-                    {% else %}
-                        <small class="text-muted">No Reviews</small></p>
-                    {% endif %} -->
                     <form class="form" action="{% url 'add_to_basket' product.id %}" method="POST">
                         {% csrf_token %}
                         <div class="form-row">
@@ -143,6 +138,7 @@
                 </div>
             </div>
         </div>
+        <hr>
         <div class="row">
             <div class="col">
                 <div class="review-container text-center">
@@ -171,17 +167,17 @@
                 </div>
             </div>
         </div>
-        <!-- <div class="row">
+        <div class="row">
             <div class="col">
                 <div class="reviews-container text-center">
-                    {% if product.review %}
-                    <p class="text-secondary text-muted"><i class="fas fa-question-circle mr-1"></i>Reviews: {{ product.review }}</p>
+                    {% if review.review %}
+                    <p class="text-secondary text-muted"><i class="fas fa-question-circle mr-1"></i>Reviews: {{ review.review }}</p>
                     {% else %}
                         <small class="text-muted">No Reviews</small></p>
                     {% endif %}
                 </div>
             </div>
-        </div> -->
+        </div>
     </div>
 {% endblock %}
 

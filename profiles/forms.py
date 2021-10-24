@@ -1,6 +1,6 @@
 """Form for user profile"""
 from django import forms
-from .models import UserProfile
+from .models import Review, UserProfile
 
 
 class UserProfileForm(forms.ModelForm):
@@ -41,3 +41,19 @@ class UserProfileForm(forms.ModelForm):
             self.fields[field].widget.attrs['class'] = (
                 'border-secondary rounded-pill profile-form-input')
             self.fields[field].label = False
+
+
+class ReviewForm(forms.ModelForm):
+    """Model that on the review form"""
+    class Meta:
+        """It uses all the fields of the Review model"""
+        model = Review
+        exclude = ('user',)
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        reviews = Review.objects.all()
+
+        self.fields['review'].choices = reviews
+        for field_name, field in self.fields.items():
+            field.widget.attrs['class'] = 'border-secondary rounded-pill'

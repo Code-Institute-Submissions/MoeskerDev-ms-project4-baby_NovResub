@@ -5,7 +5,7 @@ from django.contrib.auth.decorators import login_required
 from django.db.models import Q
 from django.db.models.functions import Lower
 
-from profiles.models import UserProfile, WishList
+from profiles.models import Review, UserProfile, WishList
 from .models import Category, Product
 from .forms import ProductForm
 
@@ -70,13 +70,14 @@ def product_detail(request, product_id):
 
     if request.user.is_authenticated:
         user = UserProfile.objects.get(user=request.user)
-        # review = get_object_or_404(Review, pk=user_id)
         wishlist = WishList.objects.filter(product=product, user=user)
+
+        review = Review.objects.filter(user=user, product=product)
 
     context = {
         'product': product,
         'wishlist': wishlist,
-        # 'review': review,
+        'review': review,
     }
 
     return render(request, 'products/product_detail.html', context)
