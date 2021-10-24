@@ -49,11 +49,24 @@
                                             </a>
                                             {% endif %}
                                         </td>
-                                        <td>{{ item.product.rating }}</td>
-                                        <td>€{{ item.product.review }}</td>
+                                        <tr class="dropdown">
+                                            <td class="btn btn-secondary rounded-pill dropdown-toggle" type="button" data-toggle="dropdown">Rating<span class="caret"></span>
+                                              <ul class="dropdown-menu">
+                                                <li><a href="#">1</a></li>
+                                                <li><a href="#">2</a></li>
+                                                <li><a href="#">3</a></li>
+                                                <li><a href="#">4</a></li>
+                                                <li><a href="#">5</a></li>
+                                              </ul>
+                                            </td>
+                                            <td>{{ item.product.rating }}</td>
+                                            <td>john@example.com</td>
+                                          </tr>
+                                        <!-- <td>{{ item.product.rating }}</td> -->
+                                        <td>{{ item.product.review }}</td>
                                         <td>
                                             <a type="button" class="btn btn-secondary rounded-pill btn-sm"
-                                                href="{% url 'review' item.product.id %}">
+                                                href="{% url 'add_review' item.product.id %}">
                                                 Remove
                                             </a>
                                         </td>

@@ -5,7 +5,7 @@ from django.contrib.auth.decorators import login_required
 from django.db.models import Q
 from django.db.models.functions import Lower
 
-from profiles.models import Review, UserProfile, WishList
+from profiles.models import UserProfile, WishList
 from .models import Category, Product
 from .forms import ProductForm
 
@@ -72,15 +72,13 @@ def product_detail(request, product_id):
         user = UserProfile.objects.get(user=request.user)
         wishlist = WishList.objects.filter(product=product, user=user)
 
-        review = Review.objects.filter(user=user, product=product)
-
+    template = 'products/product_detail.html'
     context = {
         'product': product,
         'wishlist': wishlist,
-        'review': review,
     }
 
-    return render(request, 'products/product_detail.html', context)
+    return render(request, template, context)
 
 
 @login_required
