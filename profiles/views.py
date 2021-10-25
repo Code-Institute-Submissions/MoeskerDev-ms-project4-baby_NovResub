@@ -134,7 +134,7 @@ def add_review(request, item_id):
         r_list = Review(product=product, user=user)
         r_list.save()
         messages.success(
-            request, f'Added {review.review} to your reviews')
+            request, 'Added review to your reviews')
     if redirect_url:
         return redirect(redirect_url)
     else:
