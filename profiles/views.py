@@ -1,11 +1,12 @@
 """
 Views of the profiles app
 """
-from django.shortcuts import redirect, render, get_object_or_404
+from django.shortcuts import redirect, render, reverse, get_object_or_404
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from checkout.models import Order
 from products.models import Product
+from .forms import ReviewForm
 
 from .models import Review, UserProfile, WishList
 from .forms import UserProfileForm
@@ -116,26 +117,54 @@ def review(request):
 
 
 @ login_required
-def add_review(request, item_id):
-    """
-    Adding or removing a review
-    """
-    product = Product.objects.get(pk=item_id)
-    user = UserProfile.objects.get(user=request.user)
-    redirect_url = request.POST.get('redirect_url')
-
-    all_reviews = Review.objects.filter(product=product, user=user)
-
-    if all_reviews:
-        all_reviews.delete()
-        messages.success(
-            request, 'This review is removed from your reviews')
+def add_review(request):
+    """ Add a review to a product """
+    if not request.user.is_authenticated:
+        messages.error(request, 'Sorry, only account users can do that.')
+        return redirect(reverse('home'))
+    pass
+    if request.method == 'POST':
+        form = ReviewForm(request.POST, request.FILES)  # 2nd to capture image
+        if form.is_valid():
+            product = form.save()
+            messages.success(request, 'Successfully added review!')
+            return redirect(reverse('product_detail', args=[product.id]))
+        else:
+            messages.error(
+                request, 'Failed to add review.'
+                'Please ensure the form is valid.')
     else:
-        r_list = Review(product=product, user=user)
-        r_list.save()
-        messages.success(
-            request, 'Added review to your reviews')
-    if redirect_url:
-        return redirect(redirect_url)
-    else:
-        return redirect('review')
+        form = ReviewForm()
+
+    template = 'profiles/add_review.html'
+    context = {
+        'form': form,
+    }
+
+    return render(request, template, context)
+
+
+# @ login_required
+# def add_review(request, item_id):
+#     """
+#     Adding or removing a review
+#     """
+#     product = Product.objects.get(pk=item_id)
+#     user = UserProfile.objects.get(user=request.user)
+#     redirect_url = request.POST.get('redirect_url')
+
+#     all_reviews = Review.objects.filter(product=product, user=user)
+
+#     if all_reviews:
+#         all_reviews.delete()
+#         messages.success(
+#             request, 'This review is removed from your reviews')
+#     else:
+#         r_list = Review(product=product, user=user)
+#         r_list.save()
+#         messages.success(
+#             request, 'Added review to your reviews')
+#     if redirect_url:
+#         return redirect(redirect_url)
+#     else:
+#         return redirect('review')

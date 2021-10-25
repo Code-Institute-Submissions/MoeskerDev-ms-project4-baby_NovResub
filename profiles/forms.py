@@ -44,7 +44,7 @@ class UserProfileForm(forms.ModelForm):
 
 
 class ReviewForm(forms.ModelForm):
-    """Model that on the review form"""
+    """Model for the the review form"""
     class Meta:
         """It uses all the fields of the Review model"""
         model = Review
@@ -52,9 +52,4 @@ class ReviewForm(forms.ModelForm):
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
-        reviews = Review.objects.all()
-        list_reviews = [(r.id, r.get_list_reviews()) for r in reviews]
-
-        self.fields['review'].choices = list_reviews
-        for field_name, field in self.fields.items():
-            field.widget.attrs['class'] = 'border-secondary rounded-pill'
+        # reviews = Review.objects.all()

@@ -140,7 +140,7 @@
         <div class="row">
             <div class="col">
                 <div class="review-container text-center">
-                    <form class="form" action="{% url 'review' %}" method="POST">
+                    <form class="form" action="{% url 'add_review' product.id %}" method="POST">
                         {% csrf_token %}
                         {% if user.is_authenticated %}
                         <div class="form-row">
