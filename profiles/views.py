@@ -144,35 +144,49 @@ def add_review(request, product_id):
     return render(request, template, context)
 
 
-@login_required
-def edit_review(request, product_id):
-    """ Edit a product in the store """
-    if not request.user.is_authenticated:
-        messages.error(request, 'Sorry, only users that are logged in can do that.')
-        return redirect(reverse('home'))
+# @login_required
+# def edit_review(request, product_id):
+#     """ Edit a product in the store """
+#     if not request.user.is_authenticated:
+#         messages.error(request, 'Sorry, only users that are logged in can do that.')
+#         return redirect(reverse('home'))
 
-    product = get_object_or_404(Product, pk=product_id)
-    if request.method == 'POST':
-        form = ReviewForm(request.POST, request.FILES, instance=product)
-        if form.is_valid():
-            form.save()
-            messages.success(request, 'Successfully updated review!')
-            return redirect(reverse('product_detail', args=[product.id]))
-        else:
-            messages.error(request,
-                           'Failed to update review.'
-                           'Please ensure the form is valid.')
-    else:
-        form = ReviewForm(instance=product)
-        messages.info(request, 'You are editing this review')
+#     product = get_object_or_404(Product, pk=product_id)
+#     if request.method == 'POST':
+#         form = ReviewForm(request.POST, request.FILES, instance=product)
+#         if form.is_valid():
+#             form.save()
+#             messages.success(request, 'Successfully updated review!')
+#             return redirect(reverse('product_detail', args=[product.id]))
+#         else:
+#             messages.error(request,
+#                            'Failed to update review.'
+#                            'Please ensure the form is valid.')
+#     else:
+#         form = ReviewForm(instance=product)
+#         messages.info(request, 'You are editing this review')
 
-    template = 'profiles/edit_review.html'
-    context = {
-        'form': form,
-        'product': product,
-    }
+#     template = 'profiles/edit_review.html'
+#     context = {
+#         'form': form,
+#         'product': product,
+#     }
 
-    return render(request, template, context)
+#     return render(request, template, context)
+
+
+# @login_required
+# def delete_review(request, product_id):
+#     """ Delete a review """
+#     if not request.user.is_authenticated:
+#         messages.error(request, 'Sorry, only users that are logged in can do that.')
+#         return redirect(reverse('home'))
+
+#     product = get_object_or_404(Product, pk=product_id)
+#     product.delete()
+#     messages.success(request, 'Review deleted!')
+#     return redirect(reverse('products'))
+
 
 # @ login_required
 # def add_review(request, item_id):
