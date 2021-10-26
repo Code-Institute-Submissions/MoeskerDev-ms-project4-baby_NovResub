@@ -70,8 +70,8 @@ class Review(models.Model):
     product = models.ForeignKey(
         Product, null=True, blank=True, on_delete=models.CASCADE)
     rating = models.DecimalField(
-        max_digits=1, decimal_places=1, null=True, blank=False)
-    review = models.TextField(null=True, blank=False)
+        max_digits=6, decimal_places=2, null=False, default=0)
+    review = models.TextField(null=True)
 
     def __str__(self):
         return str(self.user)

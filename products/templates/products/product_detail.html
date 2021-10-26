@@ -140,12 +140,13 @@
         <hr>
         <h3 class="text-center">Reviews</h3>
         {% for review in reviews %}
-            {{ review }}
+            {{ rating }}
+            {{ reviews }}
         {% endfor %}
         <div class="row">
             <div class="col">
                 <div class="review-container text-center">
-                    <form class="form" action="{% url 'add_review' product.id %}" method="POST">
+                    <form class="form" action="{% url 'add_review' item.product.id %}" method="POST">
                         {% csrf_token %}
                         {% if user.is_authenticated %}
                         <div class="form-row">

@@ -46,6 +46,6 @@ class UserProfileForm(forms.ModelForm):
 class ReviewForm(forms.ModelForm):
     """Model for the the review form"""
     class Meta:
-        """It uses all the fields of the Review model"""
+        """It uses all fields of the Review model"""
         model = Review
-        fields = ('rating', 'review')
+        fields = '__all__'

@@ -69,7 +69,7 @@ def product_detail(request, product_id):
     product = get_object_or_404(Product, pk=product_id)
     reviews = Review.objects.filter(product=product)
     wishlist = None
-    
+
     if request.user.is_authenticated:
         user = UserProfile.objects.get(user=request.user)
         wishlist = WishList.objects.filter(product=product, user=user)

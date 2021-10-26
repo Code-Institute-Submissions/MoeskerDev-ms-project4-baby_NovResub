@@ -7,4 +7,7 @@ __pycache__/
 node_modules/
 .github/
 *.sqlite3
+*.sqlite3.backup
+*.sqlite3.old
 *.pyc
+*.json

@@ -128,7 +128,7 @@ def add_review(request, product_id):
         if form.is_valid():
             product = form.save()
             messages.success(request, 'Successfully added review!')
-            return redirect(reverse('product_detail', args=[product_id]))
+            return redirect(reverse('product_detail', args=[product.id]))
         else:
             messages.error(
                 request, 'Failed to add review.'
