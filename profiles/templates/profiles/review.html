@@ -34,12 +34,12 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    {% for item in review %}
+                                    {% for review in reviews %}
                                     <tr>
                                         <td>
-                                            {% if item.product.image %}
+                                            {% if review.product.image %}
                                             <a href="{% url 'review' %}">
-                                                <img class="card-img-top img-fluid h-50 w-50" src="{{ item.product.image.url }}"
+                                                <img class="card-img-top img-fluid h-50 w-50" src="{{ review.product.image.url }}"
                                                     alt="{{ item.product.name }}">
                                             </a>
                                             {% else %}
@@ -49,28 +49,15 @@
                                             </a>
                                             {% endif %}
                                         </td>
-                                        {% for review in reviews %}
-                                        <tr class="dropdown">
-                                            <td class="btn btn-secondary rounded-pill dropdown-toggle" type="button" data-toggle="dropdown">Rating<span class="caret"></span>
-                                              <ul class="dropdown-menu">
-                                                <li><a href="#">1</a></li>
-                                                <li><a href="#">2</a></li>
-                                                <li><a href="#">3</a></li>
-                                                <li><a href="#">4</a></li>
-                                                <li><a href="#">5</a></li>
-                                              </ul>
-                                            </td>
-                                            <td>{{ rating }}</td>
-                                          </tr>
-                                        <td>{{ review }}</td>
+                                        <td>{{ review.rating }}</td>
+                                        <td>{{ review.review }}</td>
                                         <td>
                                             <a type="button" class="btn btn-secondary rounded-pill btn-sm"
-                                                href="{% url 'delete_review' item.product.id %}">
+                                                href="{% url 'review' %}">
                                                 Remove
                                             </a>
                                         </td>
                                     </tr>
-                                        {% endfor %}
                                     {% endfor %}
                                 </tbody>
                             </table>
