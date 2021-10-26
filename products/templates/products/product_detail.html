@@ -110,6 +110,7 @@
             </div>
         </div>
         <hr>
+        <h3 class="text-center">Wish List</h3>
         <div class="row">
             <div class="col">
                 <div class="wishlist-container text-center">
@@ -137,6 +138,10 @@
             </div>
         </div>
         <hr>
+        <h3 class="text-center">Reviews</h3>
+        {% for review in reviews %}
+            {{ review }}
+        {% endfor %}
         <div class="row">
             <div class="col">
                 <div class="review-container text-center">

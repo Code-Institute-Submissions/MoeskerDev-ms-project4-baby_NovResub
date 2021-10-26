@@ -63,22 +63,22 @@ def all_products(request):
 
 
 def product_detail(request, product_id):
-    """ A view to show individual product details """
+    """ A view to show individual product details
+    and reviews if they exist """
 
     product = get_object_or_404(Product, pk=product_id)
+    reviews = Review.objects.filter(product=product)
     wishlist = None
-    review = None
-
+    
     if request.user.is_authenticated:
         user = UserProfile.objects.get(user=request.user)
         wishlist = WishList.objects.filter(product=product, user=user)
-        review = Review.objects.filter(product=product)
 
     template = 'products/product_detail.html'
     context = {
         'product': product,
         'wishlist': wishlist,
-        'review': review,
+        'reviews': reviews,
     }
 
     return render(request, template, context)

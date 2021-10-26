@@ -117,18 +117,18 @@ def review(request):
 
 
 @ login_required
-def add_review(request):
+def add_review(request, product_id):
     """ Add a review to a product """
     if not request.user.is_authenticated:
         messages.error(request, 'Sorry, only account users can do that.')
         return redirect(reverse('home'))
-    pass
+
     if request.method == 'POST':
         form = ReviewForm(request.POST, request.FILES)  # 2nd to capture image
         if form.is_valid():
             product = form.save()
             messages.success(request, 'Successfully added review!')
-            return redirect(reverse('product_detail', args=[product.id]))
+            return redirect(reverse('product_detail', args=[product_id]))
         else:
             messages.error(
                 request, 'Failed to add review.'

@@ -48,8 +48,4 @@ class ReviewForm(forms.ModelForm):
     class Meta:
         """It uses all the fields of the Review model"""
         model = Review
-        exclude = ('user',)
-
-    def __init__(self, *args, **kwargs):
-        super().__init__(*args, **kwargs)
-        # reviews = Review.objects.all()
+        fields = ('rating', 'review')
