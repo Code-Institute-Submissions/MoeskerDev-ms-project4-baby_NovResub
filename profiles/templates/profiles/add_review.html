@@ -21,40 +21,12 @@
             </div>
         </div>
 
-        <tr class="dropdown">
-            <td class="btn btn-secondary rounded-pill dropdown-toggle" type="button" data-toggle="dropdown">Rating<span class="caret"></span>
-              <ul class="dropdown-menu text-secondary">
-                <li><a href="#">1</a></li>
-                <li><a href="#">2</a></li>
-                <li><a href="#">3</a></li>
-                <li><a href="#">4</a></li>
-                <li><a href="#">5</a></li>
-              </ul>
-            </td>
-        </tr>
-
         <div class="row">
             <div class="col-12 col-md-6">
-                <form method="POST" action="{% url 'add_review' %}" class="form mb-2" enctype="multipart/form-data">
+                <form method="POST" action="{% url 'add_review' product.id %}" class="form mb-2" enctype="multipart/form-data">
                     {% csrf_token %}
                     {% for field in form %}
-                        {% if field.name != 'image' %}
                             {{ field | as_crispy_field }}
-                        {% if field.name = 'rating'%}
-                            <tr class="dropdown">
-                                <td class="btn btn-secondary rounded-pill dropdown-toggle" type="button" data-toggle="dropdown">Rating<span class="caret"></span>
-                                <ul class="dropdown-menu text-secondary">
-                                    <li><a href="#">1</a></li>
-                                    <li><a href="#">2</a></li>
-                                    <li><a href="#">3</a></li>
-                                    <li><a href="#">4</a></li>
-                                    <li><a href="#">5</a></li>
-                                </ul>
-                                </td>
-                            </tr>
-                        {% else %}
-                            {{ field }}
-                        {% endif %}
                      {% endfor %}
                     <div class="text-right">
                         <a class="btn btn-outline-secondary rounded-pill" href="{% url 'product_detail' product.id %}">Cancel</a>
