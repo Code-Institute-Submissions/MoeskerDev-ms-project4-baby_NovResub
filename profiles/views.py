@@ -57,7 +57,7 @@ def order_history(request, order_number):
     return render(request, template, context)
 
 
-@ login_required
+@login_required
 def wishlist(request):
     """
     A view to show the wishlist
@@ -73,7 +73,7 @@ def wishlist(request):
     return render(request, template, context)
 
 
-@ login_required
+@login_required
 def add_to_wishlist(request, item_id):
     """
     Adding or removing a product to or
@@ -100,7 +100,7 @@ def add_to_wishlist(request, item_id):
         return redirect('wishlist')
 
 
-@ login_required
+@login_required
 def review(request):
     """
     A view to show the review(s) of a user
@@ -122,7 +122,7 @@ def add_review(request, product_id):
     user = get_object_or_404(UserProfile, user=request.user)
     product = get_object_or_404(Product, pk=product_id)
     if request.method == 'POST':
-        form = ReviewForm(request.POST, request.FILES) # 2nd to capture image
+        form = ReviewForm(request.POST, request.FILES)  # 2nd to capture image
         if form.is_valid():
             review = form.save()
             review.user = user
@@ -138,10 +138,10 @@ def add_review(request, product_id):
         # user = get_object_or_404(UserProfile, user=request.user)
         # product = get_object_or_404(Product, pk=product_id)
         # initial = {'product': product,
-        #             'user': user 
+        #             'user': user
         #         }
         form = ReviewForm()
-    
+
     template = 'profiles/add_review.html'
     context = {
         'form': form,
@@ -189,7 +189,7 @@ def delete_review(request, review_id):
     return redirect(reverse('review'))
 
 
-# @ login_required
+# @login_required
 # def add_review(request, item_id):
 #     """
 #     Adding or removing a review
