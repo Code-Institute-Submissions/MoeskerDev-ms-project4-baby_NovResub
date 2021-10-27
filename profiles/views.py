@@ -135,8 +135,8 @@ def add_review(request, product_id):
                 request, 'Failed to add review.'
                 'Please ensure the form is valid.')
     else:
-        user = get_object_or_404(UserProfile, user=request.user)
-        product = get_object_or_404(Product, pk=product_id)
+        # user = get_object_or_404(UserProfile, user=request.user)
+        # product = get_object_or_404(Product, pk=product_id)
         # initial = {'product': product,
         #             'user': user 
         #         }
