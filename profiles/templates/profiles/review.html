@@ -30,6 +30,7 @@
                                         <th>Image</th>
                                         <th>Rating</th>
                                         <th>Review</th>
+                                        <th>Edit</th>
                                         <th class="text-danger">Remove</th>
                                     </tr>
                                 </thead>
@@ -53,17 +54,16 @@
                                         <td>{{ review.review }}</td>
                                         <td>
                                             <a type="button" class="btn btn-secondary rounded-pill btn-sm"
-                                                href="{% url 'delete_review' review.id %}">
-                                                Remove
+                                                href="{% url 'edit_review' review.id %}">
+                                                Edit review
                                             </a>
                                         </td>
                                         <td>
                                             <a type="button" class="btn btn-secondary rounded-pill btn-sm"
-                                                href="{% url 'edit_review' review.id %}">
-                                                Edit
+                                                href="{% url 'delete_review' review.id %}">
+                                                Remove review
                                             </a>
                                         </td>
-
                                     </tr>
                                     {% endfor %}
                                 </tbody>
