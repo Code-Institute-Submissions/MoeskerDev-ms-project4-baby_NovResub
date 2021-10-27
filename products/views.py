@@ -67,7 +67,7 @@ def product_detail(request, product_id):
     and reviews if they exist """
 
     product = get_object_or_404(Product, pk=product_id)
-    # reviews = Review.objects.filter(product=product)
+    reviews = Review.objects.filter(product=product)
     wishlist = None
 
     if request.user.is_authenticated:
@@ -78,6 +78,7 @@ def product_detail(request, product_id):
     context = {
         'product': product,
         'wishlist': wishlist,
+        'reviews': reviews,
     }
 
     return render(request, template, context)

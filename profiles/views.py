@@ -117,24 +117,24 @@ def review(request):
 
 
 @ login_required
-def add_review(request, product_id):
+def add_review(request):
     """ Add a review to a product """
-    if not request.user.is_authenticated:
-        messages.error(request, 'Sorry, only account users can do that.')
-        return redirect(reverse('home'))
+    # if not request.user.is_authenticated:
+    #     messages.error(request, 'Sorry, only account users can do that.')
+    #     return redirect(reverse('home'))
 
-    if request.method == 'POST':
-        form = ReviewForm(request.POST, request.FILES)  # 2nd to capture image
-        if form.is_valid():
-            product = form.save()
-            messages.success(request, 'Successfully added review!')
-            return redirect(reverse('product_detail', args=[product.id]))
-        else:
-            messages.error(
-                request, 'Failed to add review.'
-                'Please ensure the form is valid.')
-    else:
-        form = ReviewForm()
+    # if request.method == 'POST':
+    #     form = ReviewForm(request.POST, request.FILES)  # 2nd to capture image
+    #     if form.is_valid():
+    #         product = form.save()
+    #         messages.success(request, 'Successfully added review!')
+    #         return redirect(reverse('product_detail', args=[product.id]))
+    #     else:
+    #         messages.error(
+    #             request, 'Failed to add review.'
+    #             'Please ensure the form is valid.')
+    # else:
+    form = ReviewForm()
 
     template = 'profiles/add_review.html'
     context = {
@@ -148,7 +148,8 @@ def add_review(request, product_id):
 def edit_review(request, product_id):
     """ Edit a product in the store """
     if not request.user.is_authenticated:
-        messages.error(request, 'Sorry, only users that are logged in can do that.')
+        messages.error(request,
+                       'Sorry, only users that are logged in can do that.')
         return redirect(reverse('home'))
 
     product = get_object_or_404(Product, pk=product_id)
@@ -179,7 +180,8 @@ def edit_review(request, product_id):
 def delete_review(request, product_id):
     """ Delete a review """
     if not request.user.is_authenticated:
-        messages.error(request, 'Sorry, only users that are logged in can do that.')
+        messages.error(request,
+                       'Sorry, only users that are logged in can do that.')
         return redirect(reverse('home'))
 
     product = get_object_or_404(Product, pk=product_id)

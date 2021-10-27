@@ -1,6 +1,7 @@
 """Form for user profile"""
 from django import forms
 from .models import Review, UserProfile
+# from products.models import Product
 
 
 class UserProfileForm(forms.ModelForm):
@@ -49,3 +50,14 @@ class ReviewForm(forms.ModelForm):
         """It uses all fields of the Review model"""
         model = Review
         fields = '__all__'
+
+    # def __init__(self, *args, **kwargs):
+    #     super().__init__(*args, **kwargs)
+    #     self.initial['user'] = user
+    #     user = UserProfile.objects.get(user=user)
+    #     product = Product.objects.get(pk=product_id)
+    #     self.initial['product'] = product
+
+    # self.fields['rating'].choices = [(1,2,3,4,5)]
+    # for field_name, field in self.fields.items():
+    #     field.widget.attrs['class'] = 'border-secondary rounded'

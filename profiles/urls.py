@@ -12,7 +12,7 @@ urlpatterns = [
      path('add_to_wishlist/<item_id>',
           views.add_to_wishlist, name='add_to_wishlist'),
      path('review/', views.review, name='review'),
-     path('add_review/<int:product_id>',
+     path('add_review/',
           views.add_review, name='add_review'),
      path('delete_review/<int:product_id>',
           views.delete_review, name='delete_review'),
