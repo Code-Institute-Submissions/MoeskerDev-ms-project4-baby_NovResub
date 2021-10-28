@@ -21,56 +21,93 @@
                 <hr>
                 <h2 class="logo-font mb-4">My Wish List</h2>
                 <hr>
-                <div class="row">
-                    <div class="col">
-                        <div class="wishlist table-responsive">
-                            <table class="table table-sm table-borderless text-secondary">
-                                <thead>
-                                    <tr>
-                                        <th>Image</th>
-                                        <th>Product Name</th>
-                                        <th>Price</th>
-                                        <th class="text-danger">Remove</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    {% for item in wishlist %}
-                                    <tr>
-                                        <td>
-                                            {% if item.product.image %}
-                                            <a href="{% url 'wishlist' %}">
-                                                <img class="card-img-top img-fluid h-50 w-50" src="{{ item.product.image.url }}"
-                                                    alt="{{ item.product.name }}">
-                                            </a>
-                                            {% else %}
-                                            <a href="{% url 'wishlist' %}">
-                                                <img class="card-img-top img-fluid h-50 w-50" src="{{ MEDIA_URL }}0noimage.png"
-                                                    alt="{{ item.product.name }}">
-                                            </a>
-                                            {% endif %}
-                                        </td>
-                                        <td>{{ item.product.name }}</td>
-                                        <td>€{{ item.product.price }}</td>
-                                        <td>
-                                            <a type="button" class="btn btn-secondary rounded-pill btn-sm"
-                                                href="{% url 'add_to_wishlist' item.product.id %}">
-                                                Remove
-                                            </a>
-                                        </td>
-                                    </tr>
-                                    {% endfor %}
-                                </tbody>
-                            </table>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                {% if wishlist %}
+                <div class="d-block d-md-none">
+                    <div class="row">
+                        <div class="col">
+                        <a href="{% url 'products' %}" class="btn btn-outline-secondary rounded-pill btn-lg mb-2">
+                            <span class="icon">
+                                <i class="fas fa-chevron-left"></i>
+                            </span>
+                            <span class="text-uppercase">Add an Item</span>
+                        </a>
                         </div>
                     </div>
+                    {% for item in wishlist %}
+                        <div class="row">
+                            <div class="col-12 col-sm-6 mb-2">
+                                {% include "profiles/wishlist-image.html" %}
+                            </div>
+                            <div class="col-12 col-sm-6 mb-2">
+                                {% include "profiles/wishlist-product-name.html" %}
+                            </div>
+                            <div class="col-12 col-sm-6 mb-2">
+                                {% include "profiles/wishlist-product-price.html" %}
+                            </div>
+                            <div class="col-12 col-sm-6">
+                                {% include "profiles/wishlist-remove-button.html" %}
+                            </div>
+                        </div>
+                        <div class="row"><div class="col"><hr></div></div>
+                    {% endfor %}
+                    <div class="btt-button shadow-sm rounded-pill border border-secondary">
+                        <a class="btt-link d-flex h-100">
+                            <i class="fas fa-arrow-up text-secondary mx-auto my-auto"></i>
+                        </a>	
+                    </div>
                 </div>
-                <a href="{% url 'products' %}" class="btn btn-outline-secondary rounded-pill btn-lg">
-                    <span class="icon">
-                        <i class="fas fa-chevron-left"></i>
-                    </span>
-                    <span class="text-uppercase">Add an Item</span>
-                </a>
+                <div class="wishlist table-responsive d-none d-md-block">
+                    <table class="table table-sm table-borderless text-secondary">
+                        <thead>
+                            <tr>
+                                <th>Image</th>
+                                <th>Product Name</th>
+                                <th>Price</th>
+                                <th class="text-danger">Remove</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for item in wishlist %}
+                            <tr>
+                                <td>
+                                    {% include "profiles/wishlist-image.html" %}
+                                </td>
+                                <td>
+                                    {% include "profiles/wishlist-product-name.html" %}
+                                </td>
+                                <td>
+                                    {% include "profiles/wishlist-product-price.html" %}
+                                </td>
+                                <td>
+                                    {% include "profiles/wishlist-remove-button.html" %}
+                                </td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                {% else %}  
+                    <p class="lead text-danger mb-5">You have no products in your wish list.</p>
+                    <a href="{% url 'products' %}" class="btn btn-outline-secondary rounded-pill btn-lg">
+                        <span class="icon">
+                            <i class="fas fa-chevron-left"></i>
+                        </span>
+                        <span class="text-uppercase">Add an Item</span>
+                    </a>
+                {% endif %}  
             </div>
         </div>
     </div>
+{% endblock %}
+
+{% block postloadjs %}
+{{ block.super }}
+<script type="text/javascript">
+    $('.btt-link').click(function(e) {
+        window.scrollTo(0,0)
+    })
+</script>
 {% endblock %}
