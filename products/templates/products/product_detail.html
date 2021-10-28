@@ -104,21 +104,24 @@
                 </div>
             </div>
         </div>
-
         <div class="row">
             <div class="col">
-                <div class="wishlist-container text-center>
+                <div class="wishlist-container text-center">
                     <form class="form" action="{% url 'add_to_wishlist' product.id %}" method="POST">
                         {% csrf_token %}
                         {% if user.is_authenticated %}
                         <div class="form-row">
                             <div class="col-12">
-                                <div class="wishlist-icon"></div>
-                                {% if wishlist %}
-                                    <input type="submit" data-item_id="{{ product.id }}" id="{{ product.id }}" class="btn btn-secondary rounded-pill text-uppercase mt-0" value="Remove from Wish List">
-                                {% else %}
-                                    <input type="submit" data-item_id="{{ product.id }}" id="{{ product.id }}" class="btn btn-secondary rounded-pill text-uppercase mt-0" value="Add to Wish List">
-                                {% endif %}
+                                <div class="wishlist-icon">
+                                    {% if wishlist %}
+                                    <input type="submit" data-item_id="{{ product.id }}" id="{{ product.id }}"
+                                        class="btn btn-secondary rounded-pill text-uppercase mt-0"
+                                        value="Remove from Wish List">
+                                    {% else %}
+                                    <input type="submit" data-item_id="{{ product.id }}" id="{{ product.id }}"
+                                        class="btn btn-secondary rounded-pill text-uppercase mt-0"
+                                        value="Add to Wish List">
+                                    {% endif %}
                                 </div>
                             </div>
                             <input type="hidden" name="redirect_url" value="{{ request.path }}">
@@ -148,7 +151,7 @@
                                 <div class="reviews-list">
                                 {% for review in reviews %}
                                     {{ review.review }}
-                                    <hr>
+                                    <hr class="review-line">
                                 {% endfor %}
                                 </div>
                             </div>
