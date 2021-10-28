@@ -273,7 +273,7 @@ input[name='query']::placeholder {
     }
 
     .nav-link {
-        padding: 0.15rem;
+        padding: 0.1rem;
     }
 
     .nav-link i.fa-lg {
@@ -281,7 +281,7 @@ input[name='query']::placeholder {
     }
 
     .navbar-toggler {
-        padding: .6rem .6rem;
+        padding: .5rem .5rem;
         font-size: 1rem;
     }
 
@@ -304,3 +304,45 @@ input[name='query']::placeholder {
         padding: .25rem .5rem !important;
     }
 }
+
+@media (max-width: 540px) {
+    .quantity-width {
+        width: 60% !important;
+    }
+}
+
+@media (max-width: 280px) {
+    nav.navbar {
+        padding-left: 9px;
+        padding-right: 9px;
+    }
+
+    ul.mobile {
+        padding-left: 0px;
+    }
+
+    .nav-link {
+        padding: 0.03rem;
+    }
+
+    .nav-link i.fa-lg {
+        font-size: 0.9rem;
+    }
+
+    .navbar-toggler {
+        padding: .6rem .6rem;
+        font-size: 0.4rem;
+    } 
+
+    .keep-link {
+        margin-bottom: 15px;
+    }
+
+    .product-details-container {
+        margin-bottom: 15px !important;
+    }
+
+    .summary-basket {
+        margin-top: 15px;
+        margin-bottom: 15px !important;
+    }
