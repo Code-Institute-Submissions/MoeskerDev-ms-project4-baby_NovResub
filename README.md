@@ -242,7 +242,7 @@ git clone https://github.com/USERNAME/REPOSITORY
 1. For setting up the project I watched and copied most of the mini-project videos of CI. I adjusted some CSS styling.
 2. 
 ## Content
-1. The images came from [unsplash](https://unsplash.com/). I actually kept the name of the person who made the image in the name of the image. When you click on the image the creator is mentioned in the url.
+1. The images came from [unsplash](https://unsplash.com/). I actually kept the name of the person who made the image in the name of the image. When you click on the image the creator is mentioned in the url. For the cover image the source is fe-ngo-bvx3G7RkOts-unsplash.
 2. The data regarding the clothing I created myself.
 3. In order to create the mockups I used this [website](http://ami.responsivedesign.is).
 4. To create images from screenshots I used [Paste Pics](https://paste.pics/).

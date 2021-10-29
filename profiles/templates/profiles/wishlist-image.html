@@ -1,11 +1,11 @@
 {% if item.product.image %}
 <a href="{% url 'wishlist' %}">
-    <img class="card-img-top img-fluid h-100 w-100" src="{{ item.product.image.url }}"
+    <img class="img-fluid rounded" src="{{ item.product.image.url }}"
         alt="{{ item.product.name }}">
 </a>
 {% else %}
 <a href="{% url 'wishlist' %}">
-    <img class="card-img-top img-fluid h-100 w-100" src="{{ MEDIA_URL }}0noimage.png"
+    <img class="img-fluid rounded" src="{{ MEDIA_URL }}0noimage.png"
         alt="{{ item.product.name }}">
 </a>
 {% endif %}
