@@ -62,9 +62,10 @@ All wireframes can be found [here]().
 ## Existing Features
 - 
 - Backend code and frontend functionality for all users to search for items.
-- Backend code and frontend functionality for all users to sort items via a certain category.
-- Secure payments
-- Email response
+- Backend code and frontend functionality for all users to sort items via a certain category or by price.
+- Secure payments.
+- Email response.
+- Registered users have a profile page, a wishlist page and a review page.
 - Responsive for the following screen sizes:
     - 320x568
     - 360x640
@@ -89,30 +90,30 @@ CSS3
 JavaScript
 Python
 ## External libraries and frameworks
-[jQuery](https://jquery.com/):
-- JavaScript library to support features and functions. 
-[Django](https://www.djangoproject.com/):
-- Python web framework that makes setting up a project faster and easier.
-[Postgres](https://www.postgresql.org/):
-- The relational database used for this project.
-[Stripe](https://stripe.com/en-nl):
-- To have a secure payment infrastructure.
-[Amazon Web Services](https://aws.amazon.com/):
-- To store some static files like the images and the main styling file in the cloud.
-[Google Fonts](https://fonts.google.com/):
-- To use a font that is free and fits the project.
-[Font Awesome](https://fontawesome.com/):
-- To use the free icons that they provide. 
-[Git](https://www.gitpod.io/):
-- Used for version control by utilizing Gitpod terminal to commit to Git and Push to GitHub.
-GitHub:
-- To document and store the development process.
-[Heroku](https://www.heroku.com/):
-- Used to deploy this full stack web application to a cloud platform.
-[Balsamiq](https://balsamiq.com/wireframes/?gclid=EAIaIQobChMIvvPM2uzv8wIVUud3Ch2NeQosEAAYASAAEgL4bfD_BwE):
-- During the design process, the wireframes were created by Balsamiq.
-[Lucidchart](https://www.lucidchart.com/pages/) or []():
-- To create the relational database schema.
+- [jQuery](https://jquery.com/):
+    - JavaScript library to support features and functions. 
+- [Django](https://www.djangoproject.com/):
+    - Python web framework that makes setting up a project faster and easier.
+- [Postgres](https://www.postgresql.org/):
+    - The relational database used for this project.
+- [Stripe](https://stripe.com/en-nl):
+    - To have a secure payment infrastructure.
+- [Amazon Web Services](https://aws.amazon.com/):
+    - To store some static files like the images and the main styling file in the cloud.
+- [Google Fonts](https://fonts.google.com/):
+    - To use a font that is free and fits the project.
+- [Font Awesome](https://fontawesome.com/):
+    - To use the free icons that they provide. 
+- [Git](https://www.gitpod.io/):
+    - Used for version control by utilizing Gitpod terminal to commit to Git and Push to GitHub.
+- GitHub():
+    - To document and store the development process.
+- [Heroku](https://www.heroku.com/):
+    - Used to deploy this full stack web application to a cloud platform.
+- [Balsamiq](https://balsamiq.com/wireframes/):
+    - During the design process, the wireframes were created by Balsamiq.
+- [Lucidchart](https://www.lucidchart.com/pages/) or [diagrams](https://app.diagrams.net/):
+    - To create the relational database schema.
 ----
 # Testing
 ## Validators
@@ -170,7 +171,9 @@ The most common path for a store owner is from the homepage to the login page. A
 ## Fixed Bugs
 - Issue: 
     - Fix: 
-- Issue: 
+- Issue: when clicking on the add review button of the product detail page, landing on the add review page the error message is triggered on page loading. 
+    - Fix: 
+- Issue: after changing my tables into a grid for mobile, the add to wishlist, remove from wishlist add review, remove review and update review buttons, that all submit, all of a sudden trigger, like usual the accompanying message, but also add the basket to the message like when adding a product to the basket instead of only showing the message withouth the basket.
     - Fix: 
 ----
 # Deployment
