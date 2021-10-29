@@ -111,7 +111,7 @@ Python
     - To use the free icons that they provide. 
 - [Git](https://www.gitpod.io/):
     - Used for version control by utilizing Gitpod terminal to commit to Git and Push to GitHub.
-- GitHub():
+- GitHub(https://github.com/):
     - To document and store the development process.
 - [Heroku](https://www.heroku.com/):
     - Used to deploy this full stack web application to a cloud platform.
@@ -174,6 +174,8 @@ The most common path for a store owner is from the homepage to the login page. A
 ## Known Bugs
 
 ## Fixed Bugs
+- Issue: When using Stripe and sending test webhooks I always received an error with the payment_intent.succeeded option: Test webhook error: 500.
+    - Fix: It turned out that it worked on my page so the tutor mentioned that the most important thing is that it worked on my page but I still wonder why I keep receiving the error.
 - Issue: Getting the NoReverseMatch error. I got this one several times.
     - Fix: In my case I had to either adapt the url in the path itself or the link to the url in the template and I used this [stackoverflow page](https://stackoverflow.com/questions/38390177/what-is-a-noreversematch-error-and-how-do-i-fix-it) to help me.
 - Issue: I could not get rid of the following error: A field with precision 1, scale  must round to an absolute value less than 1. This was after I changed the decimal places for the rating to 1 in the review model.
@@ -181,7 +183,7 @@ The most common path for a store owner is from the homepage to the login page. A
 - Issue: when clicking on the add review button of the product detail page, landing on the add review page the error message, belonging to submitting the form if the form is not valid, is triggered on page loading since both fields on the form are required before submitting the form.
     - Fix: 
 - Issue: after changing my tables into a grid for mobile, the add to wishlist, remove from wishlist add review, remove review and update review buttons, that all submit, all of a sudden trigger, like usual the accompanying message, but also add the basket to the message like when adding a product to the basket instead of only showing the message withouth the basket.
-    - Fix: very interesting I just solved it by adding a missing quotation mark at the end of the previous line above the Succes! line in the toast succes page.
+    - Fix: very interesting, I just solved it by adding a missing quotation mark at the end of the previous line above the Succes! line in the toast succes page.
 ----
 # Deployment
 ## Deploy app to Heroku
@@ -195,19 +197,46 @@ To deploy Baby! to Heroku, take the following steps:
 6. Confirm the link between the heroku app and the correct GitHub repository.
 7. Now, in the heroku dashboard of your application, click on "Settings" > "Reveal Config Vars".
 8. Set the following config vars:
-Key|Value
----|-----
-AWS_ACCESS_KEY_ID|
-AWS_SECRET_ACCESS_KEY|
-DATABASE_URL| is automatically generated once you connect to the postgres database via Heroku.
-EMAIL_HOST_PASS|
-EMAIL_HOST_USER|<your_email_address>
-SECRET_KEY|<your_secret_key>
-STRIPE_PUBLIC_KEY|
-STRIPE_SECRET_KEY|
-STRIPE_WH_SECRET|
-USE_AWS|<True>
 
+    - DATABASE_URL| is automatically generated once you connect to the postgres database via Heroku. How?
+1. Via the Resources tab in Heroku go to the Add-ons section and search for postgres. 
+2. Select Heroku Postgres and use the free plan.
+
+    - AWS_ACCESS_KEY_ID|
+    - AWS_SECRET_ACCESS_KEY|
+    - USE_AWS|<True> 
+
+1. Create your own [AWS account](https://aws.amazon.com/console/).
+2. 
+
+
+    - EMAIL_HOST_PASS|
+    - EMAIL_HOST_USER|<your_email_address>
+The easiest way to do this is to use a gmail account:
+1. Open or create your [gmail account](https://www.google.com/gmail/about/).
+2. Your emailaddress is the host user.
+To get your host pass:
+
+
+    SECRET_KEY|<your_secret_key>
+
+    - STRIPE_PUBLIC_KEY|
+    - STRIPE_SECRET_KEY|
+    - STRIPE_WH_SECRET|
+    In order to get the keys above:
+1. Create an account at [Stripe](https://dashboard.stripe.com/register).
+2. Go to Developers.
+3. Then go to API Keys.
+4. In the Standard keys section you will find the Public and Secret key.
+    To get the webhook secret key:
+1. Go to Developers.
+2. Then go to Webhooks.
+3. Click on Add endpoint
+4. Add an enpoint URL, select events to listen to and click on Add endpoint.
+5. Click on the particular Endpoint URL.
+6. Below the Signing Secret column, click on Reveal.
+
+Now continue after setting config vars in Heroku:
 
 9. Click "Deploy" in the heroku dashboard.
 10. In the section "Manual Deploy" make sure the main branch is selected and then click on "Deploy Branch".
@@ -217,7 +246,7 @@ The site is now successfully deployed.
 ## Run this project locally
 To clone this project into Gidpod you have to:
 
-1. Have a GitHub account: create one [here]() if needed.
+1. Have a GitHub account: create one [here](https://github.com/signup?ref_cta=Sign+up&ref_loc=header+logged+out&ref_page=%2F&source=header-home) if needed.
 2. Use a Chrome Browser. 
 According to the steps below:
 1. Install the [Gitpod Browser Extention for Chrome](https://www.gitpod.io/docs/browser-extension/).
