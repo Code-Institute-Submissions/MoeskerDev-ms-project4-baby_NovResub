@@ -198,10 +198,12 @@ To deploy Baby! to Heroku, take the following steps:
 7. Now, in the heroku dashboard of your application, click on "Settings" > "Reveal Config Vars".
 8. Set the following config vars:
 
-    - DATABASE_URL| is automatically generated once you connect to the postgres database via Heroku. How?
+The first one is automatically generated once you connect to the postgres database via Heroku. How?
+    - DATABASE_URL|
 1. Via the Resources tab in Heroku go to the Add-ons section and search for postgres. 
 2. Select Heroku Postgres and use the free plan.
 
+Next, these are related to the Amazon Web Services account. By using the S3 service, static files stay in the cloud.
     - AWS_ACCESS_KEY_ID|
     - AWS_SECRET_ACCESS_KEY|
     - USE_AWS|<True> 
@@ -216,7 +218,6 @@ The easiest way to do this is to use a gmail account:
 1. Open or create your [gmail account](https://www.google.com/gmail/about/).
 2. Your emailaddress is the host user.
 To get your host pass:
-
 
     SECRET_KEY|<your_secret_key>
 
