@@ -116,13 +116,13 @@ Something else?:
 ----
 # Testing
 ## Validators
-- [W3C Markup Validator]()
+- [W3C Markup Validator](https://validator.w3.org/)
 
-- [W3C CSS Validator]()
+- [W3C CSS Validator](https://jigsaw.w3.org/css-validator/)
 
-- [JSHint Validator]()
+- [JSHint Validator](https://jshint.com/)
 
-- Python code was checked via the command line by typing: ```python3 -m flake8``` and via the online [Python validator]()
+- Python code was checked via the command line by typing: ```python3 -m flake8``` and via the online [Python validator](http://pep8online.com/)
 Pylint left me with one unused-import error, W0611 for import env, which is okay. I am using it, pylint just cannot see that.
 The PEP8 requirements results were: all right.
 
@@ -163,7 +163,7 @@ The most common path for a store owner is from the homepage to the login page. A
 ## Further testing
 - The website was tested on Google Chrome, Microsoft Edge and Mozilla Firefox.
 - The website was viewed on several devices; Laptop, Moto G4, Galaxy S5, Pixel 2, Pixel 2 XL, Iphone 5/SE, Iphone 6/7/8, Iphone 6/7/8 Plus, Iphone x, Ipad, Ipad Pro, Surface Duo and Galaxy Fold, Nest Hub, Nest Hub Max.
-- The Lighthouse report for mobile can be found [here]().
+- The [Lighthouse](https://developers.google.com/web/tools/lighthouse) report for mobile can be found [here]().
 - The Lighthouse report for desktop can be found [here]().
 ## Known Bugs
 
@@ -239,10 +239,10 @@ git clone https://github.com/USERNAME/REPOSITORY
 1. For setting up the project I watched and copied most of the mini-project videos of CI. I adjusted some CSS styling.
 2. 
 ## Content
-1. The images came from [unsplash]().
+1. The images came from [unsplash](https://unsplash.com/). I actually kept the name of the person who made the image in the name of the image. When you click on the image the creator is mentioned in the url.
 2. The data regarding the clothing I created myself.
 3. In order to create the mockups I used this [website](http://ami.responsivedesign.is).
-4. To create images from screenshots I used [Paste Pics]().
-5. To adapt the sizes of the images I used []().
+4. To create images from screenshots I used [Paste Pics](https://paste.pics/).
+5. To adapt the sizes of the images, by cropping and resizing, I used [befunky](https://www.befunky.com/features/resize-image/).
 ## Acknowledgements
 
