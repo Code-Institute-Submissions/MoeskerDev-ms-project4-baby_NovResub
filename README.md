@@ -99,7 +99,7 @@ Python
 - [Stripe](https://stripe.com/en-nl):
     - To have a secure payment infrastructure.
 - [Amazon Web Services](https://aws.amazon.com/):
-    - To store some static files like the images and the main styling file in the cloud.
+    - In particular S3, to store some static files like the images and the main styling file in the cloud.
 - [Google Fonts](https://fonts.google.com/):
     - To use a font that is free and fits the project.
 - [Font Awesome](https://fontawesome.com/):
@@ -169,12 +169,14 @@ The most common path for a store owner is from the homepage to the login page. A
 ## Known Bugs
 
 ## Fixed Bugs
-- Issue: 
-    - Fix: 
-- Issue: when clicking on the add review button of the product detail page, landing on the add review page the error message is triggered on page loading. 
+- Issue: Getting the NoReverseMatch error. I got this one several times.
+    - Fix: In my case I had to either adapt the url in the path itself or the link to the url in the template.
+- Issue: I could not get rid of the following error: A field with precision 1, scale  must round to an absolute value less than 1. This was after I changed the decimal places for the rating to 1 in the review model.
+    - Fix: First I tried to change it back to 2 to get rid of the error and deal with decimal places later, but whatever number, also tried 3, I changed it into, the error was there to stay. After some time I asked a tutor. In the end the tutor suggested to reset migrations, since it was a weird error and so we did. It took me about a day to get back to where I was before.
+- Issue: when clicking on the add review button of the product detail page, landing on the add review page the error message, belonging to submitting the form if the form is not valid, is triggered on page loading since both fields on the form are required before submitting the form.
     - Fix: 
 - Issue: after changing my tables into a grid for mobile, the add to wishlist, remove from wishlist add review, remove review and update review buttons, that all submit, all of a sudden trigger, like usual the accompanying message, but also add the basket to the message like when adding a product to the basket instead of only showing the message withouth the basket.
-    - Fix: 
+    - Fix: very interesting I just solved it by adding a missing quotation mark at the end of the previous line above the Succes! line in the toast succes page.
 ----
 # Deployment
 ## Deploy app to Heroku

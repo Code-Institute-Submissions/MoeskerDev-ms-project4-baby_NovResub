@@ -103,7 +103,7 @@ def add_to_wishlist(request, item_id):
 @login_required
 def review(request):
     """
-    A view to show the review(s) of a user
+    A view to show the review(s) of a registered user on one page
     """
     user = UserProfile.objects.filter(user=request.user)
     reviews = Review.objects.filter(user__in=user)
@@ -117,7 +117,7 @@ def review(request):
 
 
 @login_required
-def add_review(request, product_id):
+def add_rev(request, product_id):
     """ Add a review to a product """
 
     user = get_object_or_404(UserProfile, user=request.user)
