@@ -51,8 +51,3 @@ class ReviewForm(forms.ModelForm):
         """It uses all fields of the Review model"""
         model = Review
         fields = ['rating', 'review']
-
-
-    # def __init__(self, *args, **kwargs):
-    #     for field_name, field in self.fields.items():
-    #         field.widget.attrs['class'] = 'border-secondary rounded'

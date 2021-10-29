@@ -181,7 +181,7 @@ The most common path for a store owner is from the homepage to the login page. A
 - Issue: I could not get rid of the following error: A field with precision 1, scale  must round to an absolute value less than 1. This was after I changed the decimal places for the rating to 1 in the review model.
     - Fix: First I tried to change it back to 2 to get rid of the error and deal with decimal places later, but whatever number, also tried 3, I changed it into, the error was there to stay. After some time I asked a tutor. In the end the tutor suggested to reset migrations, since it was a weird error and so we did. It took me about a day to get back to where I was before.
 - Issue: when clicking on the add review button of the product detail page, landing on the add review page the error message, belonging to submitting the form if the form is not valid, is triggered on page loading since both fields on the form are required before submitting the form.
-    - Fix: 
+    - Fix: first I thought to replace the input type submit with a link. However, I received an error message NoReverseMatch for add review. It turned out I forgot to remove the form line with csrf token. After removing those the link worked and the error message was gone.
 - Issue: after changing my tables into a grid for mobile, the add to wishlist, remove from wishlist add review, remove review and update review buttons, that all submit, all of a sudden trigger, like usual the accompanying message, but also add the basket to the message like when adding a product to the basket instead of only showing the message withouth the basket.
     - Fix: very interesting, I just solved it by adding a missing quotation mark at the end of the previous line above the Succes! line in the toast succes page.
 ----
@@ -198,38 +198,42 @@ To deploy Baby! to Heroku, take the following steps:
 7. Now, in the heroku dashboard of your application, click on "Settings" > "Reveal Config Vars".
 8. Set the following config vars:
 
-The first one is automatically generated once you connect to the postgres database via Heroku. How?
+This is automatically generated once you connect to the postgres database via Heroku. How?
     - DATABASE_URL|
 1. Via the Resources tab in Heroku go to the Add-ons section and search for postgres. 
 2. Select Heroku Postgres and use the free plan.
 
-Next, these are related to the Amazon Web Services account. By using the S3 service, static files stay in the cloud.
+Next, these are related to the Amazon Web Services account. 
+By using the S3 service, static files stay in the cloud.
     - AWS_ACCESS_KEY_ID|
     - AWS_SECRET_ACCESS_KEY|
     - USE_AWS|<True> 
-
 1. Create your own [AWS account](https://aws.amazon.com/console/).
 2. 
 
-
+Using email confirmation after registration or when ordering products.
     - EMAIL_HOST_PASS|
     - EMAIL_HOST_USER|<your_email_address>
 The easiest way to do this is to use a gmail account:
 1. Open or create your [gmail account](https://www.google.com/gmail/about/).
 2. Your emailaddress is the host user.
 To get your host pass:
+1. 
 
-    SECRET_KEY|<your_secret_key>
+This is a secret key for Django.
+    - SECRET_KEY|<your_secret_key>
+1. You can create a [secret key](https://djecrety.ir/) here.
 
+Safe payments that can let you know if a payment succeeded or failed.
     - STRIPE_PUBLIC_KEY|
     - STRIPE_SECRET_KEY|
     - STRIPE_WH_SECRET|
-    In order to get the keys above:
+In order to get the keys above:
 1. Create an account at [Stripe](https://dashboard.stripe.com/register).
 2. Go to Developers.
 3. Then go to API Keys.
 4. In the Standard keys section you will find the Public and Secret key.
-    To get the webhook secret key:
+To get the webhook secret key:
 1. Go to Developers.
 2. Then go to Webhooks.
 3. Click on Add endpoint
@@ -237,7 +241,7 @@ To get your host pass:
 5. Click on the particular Endpoint URL.
 6. Below the Signing Secret column, click on Reveal.
 
-Now continue after setting config vars in Heroku:
+**Now continue after setting config vars in Heroku:**
 
 9. Click "Deploy" in the heroku dashboard.
 10. In the section "Manual Deploy" make sure the main branch is selected and then click on "Deploy Branch".
