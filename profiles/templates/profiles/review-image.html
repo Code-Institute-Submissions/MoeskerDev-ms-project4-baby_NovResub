@@ -1,0 +1,11 @@
+{% if review.product.image %}
+<a href="{% url 'review' %}">
+    <img class="card-img-top img-fluid h-100 w-100" src="{{ review.product.image.url }}"
+        alt="{{ item.product.name }}">
+</a>
+{% else %}
+<a href="{% url 'review' %}">
+    <img class="card-img-top img-fluid h-100 w-100" src="{{ MEDIA_URL }}0noimage.png"
+        alt="{{ item.product.name }}">
+</a>
+{% endif %}

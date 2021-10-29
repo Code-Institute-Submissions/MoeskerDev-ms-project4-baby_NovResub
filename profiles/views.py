@@ -119,6 +119,7 @@ def review(request):
 @login_required
 def add_review(request, product_id):
     """ Add a review to a product """
+
     user = get_object_or_404(UserProfile, user=request.user)
     product = get_object_or_404(Product, pk=product_id)
     if request.method == 'POST':
@@ -135,11 +136,6 @@ def add_review(request, product_id):
                 request, 'Failed to add review.'
                 'Please ensure the form is valid.')
     else:
-        # user = get_object_or_404(UserProfile, user=request.user)
-        # product = get_object_or_404(Product, pk=product_id)
-        # initial = {'product': product,
-        #             'user': user
-        #         }
         form = ReviewForm()
 
     template = 'profiles/add_review.html'
@@ -187,29 +183,3 @@ def delete_review(request, review_id):
     review.delete()
     messages.success(request, 'Review deleted!')
     return redirect(reverse('review'))
-
-
-# @login_required
-# def add_review(request, item_id):
-#     """
-#     Adding or removing a review
-#     """
-#     product = Product.objects.get(pk=item_id)
-#     user = UserProfile.objects.get(user=request.user)
-#     redirect_url = request.POST.get('redirect_url')
-
-#     all_reviews = Review.objects.filter(product=product, user=user)
-
-#     if all_reviews:
-#         all_reviews.delete()
-#         messages.success(
-#             request, 'This review is removed from your reviews')
-#     else:
-#         r_list = Review(product=product, user=user)
-#         r_list.save()
-#         messages.success(
-#             request, 'Added review to your reviews')
-#     if redirect_url:
-#         return redirect(redirect_url)
-#     else:
-#         return redirect('review')

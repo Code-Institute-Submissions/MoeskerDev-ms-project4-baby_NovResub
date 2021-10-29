@@ -21,63 +21,99 @@
                 <hr>
                 <h2 class="logo-font mb-4">My Reviews</h2>
                 <hr>
-                <div class="row">
-                    <div class="col">
-                        <div class="review table-responsive">
-                            <table class="table table-sm table-borderless text-secondary">
-                                <thead>
-                                    <tr>
-                                        <th>Image</th>
-                                        <th>Rating</th>
-                                        <th>Review</th>
-                                        <th>Edit</th>
-                                        <th class="text-danger">Remove</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    {% for review in reviews %}
-                                    <tr>
-                                        <td>
-                                            {% if review.product.image %}
-                                            <a href="{% url 'review' %}">
-                                                <img class="card-img-top img-fluid h-50 w-50" src="{{ review.product.image.url }}"
-                                                    alt="{{ item.product.name }}">
-                                            </a>
-                                            {% else %}
-                                            <a href="{% url 'review' %}">
-                                                <img class="card-img-top img-fluid h-50 w-50" src="{{ MEDIA_URL }}0noimage.png"
-                                                    alt="{{ item.product.name }}">
-                                            </a>
-                                            {% endif %}
-                                        </td>
-                                        <td>{{ review.rating }}</td>
-                                        <td>{{ review.review }}</td>
-                                        <td>
-                                            <a type="button" class="btn btn-secondary rounded-pill btn-sm"
-                                                href="{% url 'edit_review' review.id %}">
-                                                Edit
-                                            </a>
-                                        </td>
-                                        <td>
-                                            <a type="button" class="btn btn-secondary rounded-pill btn-sm"
-                                                href="{% url 'delete_review' review.id %}">
-                                                Remove
-                                            </a>
-                                        </td>
-                                    </tr>
-                                    {% endfor %}
-                                </tbody>
-                            </table>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <!-- {% if reviews %} -->
+                <div class="d-block d-md-none">
+                    <div class="row">
+                        <div class="col">
+                            <a href="{% url 'products' %}" class="btn btn-outline-secondary rounded-pill btn-lg mb-3">
+                                <span class="icon">
+                                    <i class="fas fa-chevron-left"></i>
+                                </span>
+                                <span class="text-uppercase">Add review</span>
+                            </a>
                         </div>
                     </div>
+                    {% for review in reviews %}
+                        <div class="row">
+                            <div class="col-12 col-sm-6 mb-2">
+                                {% include "profiles/review-image.html" %}
+                            </div>
+                            <div class="col-12 col-sm-6 mb-2">
+                                {% include "profiles/review-rating.html" %}
+                            </div>
+                            <div class="col-12 col-sm-6 mb-2">
+                                {% include "profiles/review-review.html" %}
+                            </div>
+                            <div class="col-12 col-sm-6 mb-2">
+                                {% include "profiles/review-edit-button.html" %}
+                                <p></p>
+                                {% include "profiles/review-remove-button.html" %}
+                            </div>
+                        </div>
+                        <div class="row"><div class="col"><hr></div></div>
+                    {% endfor %}
+                    <div class="btt-button shadow-sm rounded-pill border border-secondary">
+                        <a class="btt-link d-flex h-100">
+                            <i class="fas fa-arrow-up text-secondary mx-auto my-auto"></i>
+                        </a>	
+                    </div>
                 </div>
-                <a href="{% url 'products' %}" class="btn btn-outline-secondary rounded-pill btn-lg">
-                    <span class="icon">
-                        <i class="fas fa-chevron-left"></i>
-                    </span>
-                    <span class="text-uppercase">Add review</span>
-                </a>
+                <div class="review table-responsive d-none d-md-block">
+                    <table class="table table-sm table-borderless text-secondary">
+                        <thead>
+                            <tr>
+                                <th>Image</th>
+                                <th>Rating</th>
+                                <th>Review</th>
+                                <th>Edit</th>
+                                <th class="text-danger">Remove</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for review in reviews %}
+                            <tr>
+                                <td>
+                                    {% include "profiles/review-image.html" %}
+                                </td>
+                                <td>
+                                    {% include "profiles/review-rating.html" %}
+                                </td>
+                                <td>
+                                    {% include "profiles/review-review.html" %}
+                                </td>
+                                <td>
+                                    {% include "profiles/review-edit-button.html" %}
+                                </td>
+                                <td>
+                                    {% include "profiles/review-remove-button.html" %}
+                                </td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                <!-- {% else %} -->
+                    <p class="lead text-danger mb-5">You have not written any reviews yet.</p>
+                    <a href="{% url 'products' %}" class="btn btn-outline-secondary rounded-pill btn-lg">
+                        <span class="icon">
+                            <i class="fas fa-chevron-left"></i>
+                        </span>
+                        <span class="text-uppercase">Add review</span>
+                    </a>
+                <!-- {% endif %} -->
             </div>
         </div>
     </div>
+{% endblock %}
+
+{% block postloadjs %}
+{{ block.super }}
+<script type="text/javascript">
+    $('.btt-link').click(function(e) {
+        window.scrollTo(0,0)
+    })
+</script>
 {% endblock %}

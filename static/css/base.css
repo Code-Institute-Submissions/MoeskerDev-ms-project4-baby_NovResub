@@ -305,6 +305,12 @@ input[name='query']::placeholder {
     }
 }
 
+@media (max-width: 767px) {
+    .remove {
+        padding-left: 100px;
+    }
+}
+/*Does this even work?  */
 @media (max-width: 540px) {
     .quantity-width {
         width: 60% !important;
