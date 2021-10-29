@@ -89,29 +89,29 @@ CSS3
 JavaScript
 Python
 ## External libraries and frameworks
-Django:
+[jQuery](https://jquery.com/):
+- JavaScript library to support features and functions. 
+[Django](https://www.djangoproject.com/):
 - Python web framework that makes setting up a project faster and easier.
-Postgres:
+[Postgres](https://www.postgresql.org/):
 - The relational database used for this project.
-Stripe:
+[Stripe](https://stripe.com/en-nl):
 - To have a secure payment infrastructure.
-Amazon Web Services:
+[Amazon Web Services](https://aws.amazon.com/):
 - To store some static files like the images and the main styling file in the cloud.
-Google Fonts:
+[Google Fonts](https://fonts.google.com/):
 - To use a font that is free and fits the project.
-Font Awesome:
-- To use the free icons that they provide.
-jQuery:
-- To support features and functions. 
-Git:
+[Font Awesome](https://fontawesome.com/):
+- To use the free icons that they provide. 
+[Git](https://www.gitpod.io/):
 - Used for version control by utilizing Gitpod terminal to commit to Git and Push to GitHub.
 GitHub:
 - To document and store the development process.
-Heroku:
+[Heroku](https://www.heroku.com/):
 - Used to deploy this full stack web application to a cloud platform.
-Balsamiq:
+[Balsamiq](https://balsamiq.com/wireframes/?gclid=EAIaIQobChMIvvPM2uzv8wIVUud3Ch2NeQosEAAYASAAEgL4bfD_BwE):
 - During the design process, the wireframes were created by Balsamiq.
-Something else?:
+[Lucidchart](https://www.lucidchart.com/pages/) or []():
 - To create the relational database schema.
 ----
 # Testing
@@ -210,7 +210,7 @@ To clone this project into Gidpod you have to:
 1. Have a GitHub account: create one [here]() if needed.
 2. Use a Chrome Browser. 
 According to the steps below:
-1. Install the [Gitpod Browser Extention for Chrome]().
+1. Install the [Gitpod Browser Extention for Chrome](https://www.gitpod.io/docs/browser-extension/).
 2. After installing it, restart the browser.
 3. Log into [Gitpod]() with your Gitpod account.
 4. Go to your project GitHub repository in GitHub under the tab "Repositories".
@@ -232,7 +232,7 @@ git clone https://github.com/USERNAME/REPOSITORY
 
 7. Press Enter for your local clone to be created.
 
-- For further information about cloning a repository from GitHub, read [this]().
+- For further information about cloning a repository from GitHub, read [this](https://docs.github.com/en/repositories/creating-and-managing-repositories/cloning-a-repository).
 ----
 # Credits
 ## Code
