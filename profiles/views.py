@@ -101,7 +101,7 @@ def add_to_wishlist(request, item_id):
 
 
 @login_required
-def review(request):
+def rev(request):
     """
     A view to show the review(s) of a registered user on one page
     """
@@ -149,7 +149,7 @@ def add_rev(request, product_id):
 
 
 @login_required
-def edit_review(request, review_id):
+def edit_rev(request, review_id):
     """ Edit a product in the store """
 
     review = get_object_or_404(Review, pk=review_id)
@@ -177,7 +177,7 @@ def edit_review(request, review_id):
 
 
 @login_required
-def delete_review(request, review_id):
+def delete_rev(request, review_id):
     """ Delete a review """
     review = get_object_or_404(Review, pk=review_id)
     review.delete()

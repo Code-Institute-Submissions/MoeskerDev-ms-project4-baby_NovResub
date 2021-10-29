@@ -305,19 +305,37 @@ input[name='query']::placeholder {
     }
 }
 
-@media (max-width: 767px) {
-    .remove {
-        padding-left: 100px;
+@media (max-width: 541px) {
+    .keep-link {
+        margin-top: 5px;
+        margin-bottom: 5px;
     }
-}
-/*Does this even work?  */
-@media (max-width: 540px) {
+
     .quantity-width {
-        width: 60% !important;
+        padding-right: 325px;
     }
 }
 
-@media (max-width: 280px) {
+@media (max-width: 539px) {
+    .quantity-width {
+        padding-right: 200px;
+    }
+}
+
+@media (max-width: 410px) {
+    .remove {
+        padding-left: 100px;
+    }
+
+    .quantity-width {
+        padding-right: 150px;
+    }
+}
+
+@media (max-width: 767px) {}
+
+
+@media (max-width: 281px) {
     nav.navbar {
         padding-left: 9px;
         padding-right: 9px;
@@ -351,5 +369,9 @@ input[name='query']::placeholder {
     .summary-basket {
         margin-top: 15px;
         margin-bottom: 15px !important;
+    }
+
+    .quantity-width {
+        padding-right: 100px;
     }
 }

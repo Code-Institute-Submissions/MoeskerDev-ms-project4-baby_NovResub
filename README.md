@@ -35,7 +35,10 @@ As a registered/logged in user, I want to be able to:
 * easily login or logout so that I can acces my personal account information.
 * easily recover my password in case I forget it so that I can recover access to my account.
 * receive an email confirmation after registering so that I can verify that my account registration was succesful.
-* have a personalized user profile so that I can view my personal order history and order confirmations, as well as saving default delivery information. 
+* have a personal user profile so that I can view my personal order history and order confirmations, as well as saving default delivery information. 
+* add products to my personal wishlist so that I can view all products that I wish to have and delete them as well.
+* add a review to a product that will display on the product detail page so that I can inform other potential buyers about the quality of the clothes I bought and give feedback to the company itself about their products.
+* add a review to my personal reviews page so that I can view, edit and delete all my reviews.
 
 Store Owner Goals
 As a store owner, I want to be able to:
@@ -81,7 +84,9 @@ All wireframes can be found [here]().
     - 1280x800
     - 1366x768
 ## Left to implement
-
+- I would like to add an average rating on the product page so that users are also able to sort by rating and get feedback from other regarding the product.
+- For the sale items I would like to add a strikethrough, previous price, so that the sales price becomes more obvious.
+-
 ----
 # Technologies Used
 ## Languages
@@ -170,7 +175,7 @@ The most common path for a store owner is from the homepage to the login page. A
 
 ## Fixed Bugs
 - Issue: Getting the NoReverseMatch error. I got this one several times.
-    - Fix: In my case I had to either adapt the url in the path itself or the link to the url in the template.
+    - Fix: In my case I had to either adapt the url in the path itself or the link to the url in the template and I used this [stackoverflow page](https://stackoverflow.com/questions/38390177/what-is-a-noreversematch-error-and-how-do-i-fix-it) to help me.
 - Issue: I could not get rid of the following error: A field with precision 1, scale  must round to an absolute value less than 1. This was after I changed the decimal places for the rating to 1 in the review model.
     - Fix: First I tried to change it back to 2 to get rid of the error and deal with decimal places later, but whatever number, also tried 3, I changed it into, the error was there to stay. After some time I asked a tutor. In the end the tutor suggested to reset migrations, since it was a weird error and so we did. It took me about a day to get back to where I was before.
 - Issue: when clicking on the add review button of the product detail page, landing on the add review page the error message, belonging to submitting the form if the form is not valid, is triggered on page loading since both fields on the form are required before submitting the form.
@@ -194,7 +199,7 @@ Key|Value
 ---|-----
 AWS_ACCESS_KEY_ID|
 AWS_SECRET_ACCESS_KEY|
-DATABASE_URL|
+DATABASE_URL| is automatically generated once you connect to the postgres database via Heroku.
 EMAIL_HOST_PASS|
 EMAIL_HOST_USER|<your_email_address>
 SECRET_KEY|<your_secret_key>
