@@ -10,14 +10,16 @@ from products.models import Product
 
 
 def view_basket(request):
-    """ A view that renders the basket contents page """
-
+    """
+    A view that renders the basket contents page
+    """
     return render(request, 'basket/basket.html')
 
 
 def add_to_basket(request, item_id):
-    """ Add a quantity of the specified product to the shopping basket """
-
+    """
+    Add a quantity of the specified product to the shopping basket
+    """
     product = Product.objects.get(pk=item_id)
     quantity = int(request.POST.get('quantity'))
     redirect_url = request.POST.get('redirect_url')
@@ -55,8 +57,9 @@ def add_to_basket(request, item_id):
 
 
 def adjust_basket(request, item_id):
-    """Adjust the quantity of the specified product to the specified amount"""
-
+    """
+    Adjust the quantity of the specified product to the specified amount
+    """
     product = get_object_or_404(Product, pk=item_id)
     quantity = int(request.POST.get('quantity'))
     size = None
@@ -90,7 +93,9 @@ def adjust_basket(request, item_id):
 
 
 def remove_from_basket(request, item_id):
-    """Remove the item from the shopping basket"""
+    """
+    Remove the item from the shopping basket
+    """
     try:
         product = get_object_or_404(Product, pk=item_id)
         size = None

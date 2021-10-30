@@ -1,7 +1,8 @@
-"""Form for user profile"""
+"""
+Form for user profile
+"""
 from django import forms
 from .models import Review, UserProfile
-# from products.models import Product
 
 
 class UserProfileForm(forms.ModelForm):
@@ -45,9 +46,12 @@ class UserProfileForm(forms.ModelForm):
 
 
 class ReviewForm(forms.ModelForm):
-    """Model for the the review form"""
-
+    """
+    Model for the the review form
+    """
     class Meta:
-        """It uses all fields of the Review model"""
+        """
+        It uses two specific fields of the Review model
+        """
         model = Review
         fields = ['rating', 'review']

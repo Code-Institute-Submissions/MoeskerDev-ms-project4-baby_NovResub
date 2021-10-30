@@ -1,4 +1,6 @@
-"""Views of the checkout app"""
+"""
+Views of the checkout app
+"""
 import json
 from django.shortcuts import (
     render, redirect, reverse, get_object_or_404, HttpResponse)
@@ -19,7 +21,9 @@ from .models import Order, OrderLineItem
 
 @require_POST
 def cache_checkout_data(request):
-    """Get's client secret"""
+    """
+    Get's client secret
+    """
     try:
         pid = request.POST.get('client_secret').split('_secret')[0]
         stripe.api_key = settings.STRIPE_SECRET_KEY

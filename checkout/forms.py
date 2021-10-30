@@ -1,12 +1,18 @@
-"""Forms of the checkout app"""
+"""
+Forms of the checkout app
+"""
 from django import forms
 from .models import Order
 
 
 class OrderForm(forms.ModelForm):
-    """Modelform for ordering"""
+    """
+    Modelform for ordering
+    """
     class Meta:
-        """Using the existing Order model fields"""
+        """
+        Using the existing Order model fields
+        """
         model = Order
         fields = ('full_name', 'email', 'phone_number',
                   'street_address1', 'street_address2',

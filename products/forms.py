@@ -1,13 +1,19 @@
-"""Model for form in products app """
+"""
+Model for form in products app
+"""
 from django import forms
 from .widgets import CustomClearableFileInput
 from .models import Product, Category
 
 
 class ProductForm(forms.ModelForm):
-    """Model that adapts the image field on the product form"""
+    """
+    Model that adapts the image field on the product form
+    """
     class Meta:
-        """It uses all the fields of the Product model"""
+        """
+        It uses all the fields of the Product model
+        """
         model = Product
         fields = '__all__'
 

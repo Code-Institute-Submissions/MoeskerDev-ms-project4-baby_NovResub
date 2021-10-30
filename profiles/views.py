@@ -14,7 +14,10 @@ from .forms import UserProfileForm
 
 @login_required
 def profile(request):
-    """ Display the user's profile. """
+    """
+    A view to display the user's profile which
+    includes the delivery information and order history
+    """
     profile_user = get_object_or_404(UserProfile, user=request.user)
 
     if request.method == 'POST':
@@ -40,7 +43,9 @@ def profile(request):
 
 
 def order_history(request, order_number):
-    """Display order history"""
+    """
+    Display order history
+    """
     order = get_object_or_404(Order, order_number=order_number)
 
     messages.info(request, (
@@ -60,7 +65,7 @@ def order_history(request, order_number):
 @login_required
 def wishlist(request):
     """
-    A view to show the wishlist
+    A view to show all products on the wishlist
     """
     user = UserProfile.objects.filter(user=request.user)
     w_list = WishList.objects.filter(user__in=user)
@@ -76,7 +81,7 @@ def wishlist(request):
 @login_required
 def add_to_wishlist(request, item_id):
     """
-    Adding or removing a product to or
+    Adding a product to or removing a product
     from the wishlist
     """
     product = Product.objects.get(pk=item_id)
@@ -103,7 +108,8 @@ def add_to_wishlist(request, item_id):
 @login_required
 def rev(request):
     """
-    A view to show the review(s) of a registered user on one page
+    A view to show all the review(s) of a registered user
+    on one page
     """
     user = UserProfile.objects.filter(user=request.user)
     reviews = Review.objects.filter(user__in=user)
@@ -118,8 +124,9 @@ def rev(request):
 
 @login_required
 def add_rev(request, product_id):
-    """ Add a review to a product """
-
+    """
+    A view to add a review to a product
+    """
     user = get_object_or_404(UserProfile, user=request.user)
     product = get_object_or_404(Product, pk=product_id)
     if request.method == 'POST':
@@ -150,8 +157,9 @@ def add_rev(request, product_id):
 
 @login_required
 def edit_rev(request, review_id):
-    """ Edit a product in the store """
-
+    """
+    A view to edit a review
+    """
     review = get_object_or_404(Review, pk=review_id)
     if request.method == 'POST':
         form = ReviewForm(request.POST, instance=review)
@@ -178,7 +186,9 @@ def edit_rev(request, review_id):
 
 @login_required
 def delete_rev(request, review_id):
-    """ Delete a review """
+    """
+    A view to delete a review
+    """
     review = get_object_or_404(Review, pk=review_id)
     review.delete()
     messages.success(request, 'Review deleted!')
