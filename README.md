@@ -111,13 +111,13 @@ Python
     - To use the free icons that they provide. 
 - [Git](https://www.gitpod.io/):
     - Used for version control by utilizing Gitpod terminal to commit to Git and Push to GitHub.
-- GitHub(https://github.com/):
+- [GitHub](https://github.com/):
     - To document and store the development process.
 - [Heroku](https://www.heroku.com/):
     - Used to deploy this full stack web application to a cloud platform.
 - [Balsamiq](https://balsamiq.com/wireframes/):
     - During the design process, the wireframes were created by Balsamiq.
-- [Lucidchart](https://www.lucidchart.com/pages/) or [diagrams](https://app.diagrams.net/):
+- [Diagrams](https://app.diagrams.net/):
     - To create the relational database schema.
 ----
 # Testing
