@@ -277,10 +277,6 @@ input[name='query']::placeholder {
         right: 0px;
     }
 
-    /* .dropdown-item.account {
-        padding-left: 15px;
-    } */
-
     .nav-link {
         padding: 0.1rem;
     }
@@ -323,6 +319,10 @@ input[name='query']::placeholder {
     .quantity-width {
         padding-right: 325px;
     }
+
+    .update-info {
+        padding-bottom: 15px;
+    }
 }
 
 @media (max-width: 539px) {
@@ -363,10 +363,6 @@ input[name='query']::placeholder {
         padding: .6rem .6rem;
         font-size: 0.4rem;
     } 
-
-    /* .dropdown-item.account {
-        padding-left: 10px;
-    } */
 
     .keep-link {
         margin-bottom: 15px;
