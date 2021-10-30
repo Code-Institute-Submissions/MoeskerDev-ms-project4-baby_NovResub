@@ -28,18 +28,18 @@
               <p class="my-0">My Account</p>
           </div>
       </a>
-      <div class="dropdown-menu bg-secondary border-0" aria-labelledby="user-options">
+      <div class="dropdown-menu account bg-secondary border-0" aria-labelledby="user-options">
           {% if request.user.is_authenticated %}
               {% if request.user.is_superuser %}
-                  <a href="{% url 'add_product' %}" class="dropdown-item">Store Management</a>
+                  <a href="{% url 'add_product' %}" class="dropdown-item account">Store Management</a>
               {% endif %}
-              <a href="{% url 'profile' %}" class="dropdown-item">My Profile</a>
-              <a href="{% url 'wishlist' %}" class="dropdown-item">My Wish List</a>
-              <a href="{% url 'review' %}" class="dropdown-item">My Reviews</a>
-              <a href="{% url 'account_logout' %}" class="dropdown-item">Logout</a>
+              <a href="{% url 'profile' %}" class="dropdown-item account">My Profile</a>
+              <a href="{% url 'wishlist' %}" class="dropdown-item account">My Wish List</a>
+              <a href="{% url 'review' %}" class="dropdown-item account">My Reviews</a>
+              <a href="{% url 'account_logout' %}" class="dropdown-item account">Logout</a>
           {% else %}
-              <a href="{% url 'account_signup' %}" class="dropdown-item">Register</a>
-              <a href="{% url 'account_login' %}" class="dropdown-item">Login</a>
+              <a href="{% url 'account_signup' %}" class="dropdown-item account">Register</a>
+              <a href="{% url 'account_login' %}" class="dropdown-item account">Login</a>
           {% endif %}
       </div>
   </li>

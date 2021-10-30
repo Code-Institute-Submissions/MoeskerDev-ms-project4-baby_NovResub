@@ -272,6 +272,15 @@ input[name='query']::placeholder {
         font-size: 2rem;
     }
 
+    .dropdown-menu.account {
+        position: relative;
+        right: 0px;
+    }
+
+    /* .dropdown-item.account {
+        padding-left: 15px;
+    } */
+
     .nav-link {
         padding: 0.1rem;
     }
@@ -332,9 +341,6 @@ input[name='query']::placeholder {
     }
 }
 
-@media (max-width: 767px) {}
-
-
 @media (max-width: 281px) {
     nav.navbar {
         padding-left: 9px;
@@ -357,6 +363,10 @@ input[name='query']::placeholder {
         padding: .6rem .6rem;
         font-size: 0.4rem;
     } 
+
+    /* .dropdown-item.account {
+        padding-left: 10px;
+    } */
 
     .keep-link {
         margin-bottom: 15px;

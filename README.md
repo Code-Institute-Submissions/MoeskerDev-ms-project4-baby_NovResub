@@ -184,6 +184,8 @@ The most common path for a store owner is from the homepage to the login page. A
     - Fix: first I thought to replace the input type submit with a link. However, I received an error message NoReverseMatch for add review. It turned out I forgot to remove the form line with csrf token. After removing those the link worked and the error message was gone.
 - Issue: after changing my tables into a grid for mobile, the add to wishlist, remove from wishlist add review, remove review and update review buttons, that all submit, all of a sudden trigger, like usual the accompanying message, but also add the basket to the message like when adding a product to the basket instead of only showing the message withouth the basket.
     - Fix: very interesting, I just solved it by adding a missing quotation mark at the end of the previous line above the Succes! line in the toast succes page.
+- Issue: In the mobile header, when being logged in as the superuser, the dropdown menu of account created an overflow for the first option: Store Management.
+    - Fix: Checking online I came across [this](https://stackoverflow.com/questions/18268078/drop-down-menu-out-of-screen) solution and it worked for me as well. Adding right:0 and position: relative meant that the whole menu actually was shown in another area. The only thing is that other links move towards different places when opening the dropdown menu of account on mobile screens, so I am not sure if that is the idea, but all links are still available along with the entire dropdown menu of account.
 ----
 # Deployment
 ## Deploy app to Heroku
