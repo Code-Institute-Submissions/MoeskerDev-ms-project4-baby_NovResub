@@ -53,7 +53,31 @@
             </div>
             <div class="col-12 col-lg-7">
                 <p class="text-muted">Order History</p>
-                <div class="order-history table-responsive">
+                <div class="d-block d-md-none">
+                {% for order in orders %}
+                    <div class="row">
+                        <div class="col-12 col-sm-6 mb-2">
+                            {% include "profiles/profile-order-number.html" %}
+                        </div>
+                        <div class="col-12 col-sm-6 mb-2">
+                            {% include "profiles/profile-order-date.html" %}
+                        </div>
+                        <div class="col-12 col-sm-6 mb-2">
+                            {% include "profiles/profile-order-items.html" %}
+                        </div>
+                        <div class="col-12 col-sm-6 mb-2">
+                            {% include "profiles/profile-order-total.html" %}
+                        </div>
+                    </div>
+                    <hr class="h-5">
+                {% endfor %}
+                    <div class="btt-button shadow-sm rounded-pill border border-secondary">
+                        <a class="btt-link d-flex h-100">
+                            <i class="fas fa-arrow-up text-secondary mx-auto my-auto"></i>
+                        </a>	
+                    </div>
+                </div>
+                <div class="order-history table-responsive d-none d-md-block">
                     <table class="table table-sm table-borderless text-secondary">
                         <thead>
                             <tr>
@@ -67,24 +91,17 @@
                             {% for order in orders %}
                                 <tr>
                                     <td>
-                                        <a href="{% url 'order_history' order.order_number %}"
-                                        title="{{ order.order_number }}">
-                                            {{ order.order_number|truncatechars:6 }}
-                                        </a>
+                                        {% include "profiles/profile-order-number.html" %}
                                     </td>
-                                    <td>{{ order.date }}</td>
                                     <td>
-                                        <ul class="list-unstyled">
-                                            {% for item in order.lineitems.all %}
-                                                <li class="small">
-                                                    {% if item.product.has_sizes %}
-                                                        Size {{ item.product.size|upper }}
-                                                    {% endif %}{{ item.product.name }} x{{ item.quantity }}
-                                                </li>
-                                            {% endfor %}
-                                        </ul>
+                                        {% include "profiles/profile-order-date.html" %}
                                     </td>
-                                    <td>€{{ order.grand_total }}</td>
+                                    <td>
+                                        {% include "profiles/profile-order-items.html" %}
+                                    </td>
+                                    <td>
+                                        {% include "profiles/profile-order-total.html" %}
+                                    </td>
                                 </tr>
                             {% endfor %}
                         </tbody>
@@ -97,4 +114,9 @@
 {% block postloadjs %}
     {{ block.super }}
     <script type="text/javascript" src="{% static 'profiles/js/countryfield.js' %}"></script>
+    <script type="text/javascript">
+        $('.btt-link').click(function(e) {
+            window.scrollTo(0,0)
+        })
+    </script>
 {% endblock %}
