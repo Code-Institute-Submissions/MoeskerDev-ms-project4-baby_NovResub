@@ -109,12 +109,13 @@
                 </div>
             </div>
         </div>
+    </div>
 {% endblock %}
 
 {% block postloadjs %}
     {{ block.super }}
-    <script type="text/javascript" src="{% static 'profiles/js/countryfield.js' %}"></script>
-    <script type="text/javascript">
+    <script src="{% static 'profiles/js/countryfield.js' %}"></script>
+    <script>
         $('.btt-link').click(function(e) {
             window.scrollTo(0,0)
         })
