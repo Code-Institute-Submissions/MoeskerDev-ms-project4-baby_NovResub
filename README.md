@@ -172,7 +172,7 @@ The most common path for a store owner is from the homepage to the login page. A
 - The [Lighthouse](https://developers.google.com/web/tools/lighthouse) report for mobile can be found [here]().
 - The Lighthouse report for desktop can be found [here]().
 ## Known Bugs
-
+- 
 ## Fixed Bugs
 - Issue: When using Stripe and sending test webhooks I always received an error with the payment_intent.succeeded option: Test webhook error: 500.
     - Fix: It turned out that it worked on my page so the tutor mentioned that the most important thing is that it worked on my page but I still wonder why I keep receiving the error.
