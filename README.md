@@ -1,6 +1,6 @@
                                             Baby!
 
-View the live project <a></a>
+View the [live project](https://babyadmin4-baby.herokuapp.com/)
 
 # UX
 ## Project Goals
@@ -65,7 +65,7 @@ Since the images I found had colour in them, to let them speak out more I decide
 ----
 # Features
 ## Existing Features
-- 
+
 - Backend code and frontend functionality for all users to search for items.
 - Backend code and frontend functionality for all users to sort items via a certain category or by price.
 - Secure payments.
@@ -253,8 +253,6 @@ The most common path for a store owner is from the homepage to the login page. A
 ## Further testing
 - The website was tested on Google Chrome, Microsoft Edge and Mozilla Firefox.
 - The website was viewed on several devices; Laptop, Moto G4, Galaxy S5, Pixel 2, Pixel 2 XL, Iphone 5/SE, Iphone 6/7/8, Iphone 6/7/8 Plus, Iphone x, Ipad, Ipad Pro, Surface Duo and Galaxy Fold, Nest Hub, Nest Hub Max.
-- The [Lighthouse](https://developers.google.com/web/tools/lighthouse) report for mobile can be found [here]().
-- The Lighthouse report for desktop can be found [here]().
 ## Known Bugs
 - In the add review form, the rating is not 1, 2, 3, 4 or 5 like I wanted it to be. I have to add rating choices in forms.py to figure out how that works.
 - I thought about how the same user can add more than 1 review to the same product. I want to prevent that.
@@ -371,7 +369,8 @@ git clone https://github.com/USERNAME/REPOSITORY
 # Credits
 ## Code
 1. For setting up the project I watched and copied most of the mini-project videos of CI. I adjusted mainly the CSS styling.
-2. 
+2. I checked the [django documentation](https://docs.djangoproject.com/en/3.2/topics/db/models/) and used the existing models, views, urls and templates to figure out the new ones.
+3. I wanted to add some more referrals regarding issues I had and what I looked up online but no time left.
 ## Content
 1. The images came from [unsplash](https://unsplash.com/). I actually kept the name of the person who made the image in the name of the image. When you click on the image the creator is mentioned in the url. For the cover image the source is fe-ngo-bvx3G7RkOts-unsplash.
 2. The data regarding the clothing I created myself.
