@@ -196,13 +196,42 @@ The most common path for a registered user is from the homepage to the login pag
 
 2. As a registered/logged in user, I want to be able to:
 * easily register for an account so that I can have a personal account, be able to view my profile and create my own wishlist.
+
+    - On the landing page, you can easily see the account link, where you can click register. To sign up you need an email, name and password and click on sign up button.
+
 * easily login or logout so that I can acces my personal account information.
+    
+    - Once logged out, on the landing page, you can see the account link and easily click on login to login. You have to enter username or email and password, then click on signin button.
+    - Once logged in, on the landing page, you can see the account link and easily click on logout and then confirm one more time on the logout page that you really want to logout by clicking on the signout button.
+
 * easily recover my password in case I forget it so that I can recover access to my account.
+
+    - If you want to login and forgot your password, go to login page and click on forgot password? link below the buttons. You go to the password reset page and are asked your email. Click reset my password and a message appears that an email has been sent to your email with a link to reset your password. 
+    - Go to your email, find the email, click on the link and reset your password.
+
 * receive an email confirmation after registering so that I can verify that my account registration was succesful.
+
+    - Once you successfully signed up, you see a success message which also mentiones that you will receive an email confirmation.
+    - Go to your email, find the specific mail and you can see that your account registration worked.
+
 * have a personal user profile so that I can view my personal order history and order confirmations, as well as saving default delivery information. 
+
+    - Once you have created an account, you will have a profile page as well. By clicking on My Account you will see My Profile. Click on it and it will lead to to the profile page. On this page you will find you can add or update information in the default delivery information and see an overview of you order history. The link link below the order number leads you back to your previous order confirmations.
+
 * add products to my personal wishlist so that I can view all products that I wish to have and delete them as well.
+
+    - From the product detail page I can add a product on my wishlist by clicking on the add to wishlist button in the middle of the page just below the image.
+    - Once a product is already on your wishlist you will see that the button on the product detail page will say remove from wishslist.
+    - By going to my wishlist, either via my profile page and the view wishlist button or via my account and then my wishslist, you will see an overview of all products on the wishlist.
+
 * add a review to a product that will display on the product detail page so that I can inform other potential buyers about the quality of the clothes I bought and give feedback to the company itself about their products.
+
+    - From the product detail page I can add a review about a product by clicking on the add review button at the reviews section. This will lead you to the add review from/page. You have to enter a rating and a review and click on add review button. 
+    - Then look at the product details page of that product and you will see your review at the bottom.
+
 * add a review to my personal reviews page so that I can view, edit and delete all my reviews. 
+
+    - Once you add a review it also appears on your personal reviews page where you can see all the reviews you have written. Go their via either clicking on the view my reviews button in your profile page or by clicking on my reviews in the my account link.
 
 The most common path for a store owner is from the homepage to the login page. After that, it is either going to the store management page where they can add a new product or searching for a particular product to either edit or delete that product.
 
