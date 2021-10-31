@@ -123,14 +123,14 @@ Python
 # Testing
 ## Validators
 - [W3C Markup Validator](https://validator.w3.org/)
-    - Most HTML no errors or warnings. A few 
+    - Most HTML pages no errors or warnings. The only thing is that the shopping basket can create errors once it is not empty due to the fact the the product id numbers are mentioned several times on the same page via a certain syntax, {{ item.item_id}} for example. On the edit product page is an error: duplicate attribute id via id=id(underscore)image. However, I have no idea where to correct this.
 - [W3C CSS Validator](https://jigsaw.w3.org/css-validator/)
-    - All css files; checkout, profile and base no errors.
+    - All css files passed; checkout, profile and base no errors.
 - [JSHint Validator](https://jshint.com/)
-    - 
+    - All passed. The only warnings I did have: template literal syntax only available in ES6 and 'let' is available in ES6 or Mozilla JS extenstions (use moz). The only errors left: undefined variables $ and Stripe, so that is fine since $ is part of jQuery language and Stripe is part of the payment functionality.
 - Python code was checked via the command line by typing: ```python3 -m flake8``` and via the online [Python validator](http://pep8online.com/)
 Pylint left me with one unused-import error, W0611 for import env, which is okay. I am using it, pylint just cannot see that.
-The PEP8 requirements results were: all right.
+The PEP8 requirements results were:
 
 ## Testing User Stories
 The most common path through the website for an anonymous user will be the homepage and then search for a particular piece of clothing via the search bar, click on the button or one of the menu items to view multiple items on a page and scrolling through them. Another frequent path would be from Homepage to the Register page.
@@ -258,7 +258,7 @@ To clone this project into Gidpod you have to:
 According to the steps below:
 1. Install the [Gitpod Browser Extention for Chrome](https://www.gitpod.io/docs/browser-extension/).
 2. After installing it, restart the browser.
-3. Log into [Gitpod]() with your Gitpod account.
+3. Log into [Gitpod](https://www.gitpod.io/) with your Gitpod account.
 4. Go to your project GitHub repository in GitHub under the tab "Repositories".
 5. Click the green "Gitpod" button in the top right corner of the repository.
 6. This will trigger a new Gitpod workspace, created from the code in GitHub, where you can work locally.
@@ -282,7 +282,7 @@ git clone https://github.com/USERNAME/REPOSITORY
 ----
 # Credits
 ## Code
-1. For setting up the project I watched and copied most of the mini-project videos of CI. I adjusted some CSS styling.
+1. For setting up the project I watched and copied most of the mini-project videos of CI. I adjusted mainly the CSS styling.
 2. 
 ## Content
 1. The images came from [unsplash](https://unsplash.com/). I actually kept the name of the person who made the image in the name of the image. When you click on the image the creator is mentioned in the url. For the cover image the source is fe-ngo-bvx3G7RkOts-unsplash.
@@ -291,4 +291,5 @@ git clone https://github.com/USERNAME/REPOSITORY
 4. To create images from screenshots I used [Paste Pics](https://paste.pics/).
 5. To adapt the sizes of the images, by cropping and resizing, I used [befunky](https://www.befunky.com/features/resize-image/).
 ## Acknowledgements
-
+- Most of all I would like to thank my mentor for guiding me through this larger project.
+- Also thanks to some tutors who took, when available, the time to help when I was stuck.
