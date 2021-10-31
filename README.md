@@ -237,8 +237,19 @@ The most common path for a store owner is from the homepage to the login page. A
 
 3. As a store owner, I want to be able to:
 * add a product to the store so that I can add new items to my store.
+
+    - Once you are logged in as a superuser you are able to add a product by clicing on my account and select store management. This will lead you to the add a product form/page. Fill out the required or more form inputs and click add product.
+    - Once successful you will see a succes message and are redirected to the specific product detail page.
+
 * edit or update a product so that I can change product prices, descriptions, images and other product criteria.
-* delete a product so that I can remove items that are no longer for sale.
+
+    - With all products and edit link is avaible to click on and to edit or update the product (details).
+    - Once you click on edit product you go to the edit product form where the information about the product is pre-filled and ready to adapt.
+    - Click on update product button and you are redirected to the product details page so you can see if the changes you have made are visible.
+
+* delete a product so that I can remove items that are no longer for sale, have only left part of an outfit or forever out of stock.
+
+    - Like the edit link, the delete link is also present at all products. Once you click on delete as a store owner the product is deleted at once. 
 
 ## Further testing
 - The website was tested on Google Chrome, Microsoft Edge and Mozilla Firefox.
