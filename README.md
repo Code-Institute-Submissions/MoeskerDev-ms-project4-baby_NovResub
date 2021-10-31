@@ -2,10 +2,6 @@
 
 View the live project <a></a>
 
-![Mockup]()
-![Mockup]()
-![Mockup]()
-
 # UX
 ## Project Goals
 
@@ -137,7 +133,6 @@ Python
 - Python code was checked via the online [Python validator](http://pep8online.com/).
     - I have several strings too long left, since I don't know how to solve them without breaking the function.
     - Also, several avoid using null=True on string-based fields such Charfield.
-
 
 
 ## Testing User Stories
