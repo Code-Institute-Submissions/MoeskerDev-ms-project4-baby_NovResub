@@ -141,18 +141,56 @@ The most common path through the website for an anonymous user will be the homep
 
 1. As an anonymous user, I want to be able to:
 * view a list of products so that I can select some to purchase.
+
+    - When I land on the home page I see a link to all products and a button to shop babies. Both lead me to a page where all products are listed and I can scroll through them to decide which one(s) I want to select.
+
 * view individual product details so that I can identify the image, price, description, product rating,reviews and sizes.
+
+    - All three links of the menu (all clothing, pieces and specials) lead to a list of products where you can click on the image to go to the product detail page where you can find more detailed information about the product.
+
 * view a specific category of products so that I can quickly find products I am interested in without going through all products.
+
+    - By clicking on pieces or specials in the menu, several categories appear to choose from.
+
 * easily view the total of my purchases so that I can avoid spending too much.
+
+    - Below the basket icon, on the top of the page, you can easily see the total price. 
+
 * search for a product by name or description so that I can find a specific product I would like to purchase.
-* easily to what I have searched for and the number of results, so that I can quickly decide if the product I want is available.
+
+    - When entering a search query in the search bar, both the name and the description of a product are used to search through and show results.
+
+* easily see what I have searched for and the number of results, so that I can quickly decide if the product I want is available.
+
+    - Once you search for pants, above the results, you will see how many products came up as a result for that particular search query.
+
 * easily select the size and quantity of a product when purchasing it so that I can ensure I do not accidentally select the wrong product, quantity or size.
+
+    - On the product details page, the sizes have a dropdown bar where you can easily choose from. Also, the standard quantity is one, but you can easily adapt the quantity by either clicking on the minus or plus buttons or by entering a number manually.
+
 * view items in my basket to be purchased, so that I can identify all items I will receive along with the total cost of my purchase.
+
+    - Once you either click on the basket icon on top of the page or right after adding a product on the go to secure checkout button, you end up on the basket page where you can view the items and the total cost.
+
 * adjust the quantity of individual items in my basket so that I can easily make changes to my purchase before paying for the order.
+
+    - On the basket page you are still able to increase or decrease the quantity of you items by again, either clicking on the minus or plus button or type it in manually. You do have to click the update link after that to make the change final.
+
 * easily enter my payment information so that I can checkout quickly with no hassels.
-* feel my personal and payment info is save and secure so that I can confidently provide the needed information to make a purchase. 
+
+    - On the basket page, once you click on the secure checkout button you will end up on the checkout page where you are able to easily fill out a form with some personal details, delivery information and payment, as in creditcard.
+
+* feel my personal and payment info is save and secure so that I can confidently provide the needed information to make a purchase.
+
+    - After filling out the required information in the form on the checkout page, you can click on the complete order button. A blue spinner appears on the page and a success message after that once the order has been processed successfully, which gives a sense of safety regarding the payment. 
+
 * view an order confirmation after checkout so that I can verify I have made no mistakes.
+
+    - After clicking on the complete order button you will end up on the checkout success page if everything went well. Here you will find an overview of your order. 
+
 * receive an email confirmation after checking out so that I can keep the confirmation of what I have purchased for my own records. 
+
+    - In the success message it says that you will receive a confirmation email regarding this order. This way you can even look at it again at a later moment and you have a reference once you receive the order. When I checked this function was working.
 
 The most common path for a registered user is from the homepage to the login page which leads to the profile page.
 
