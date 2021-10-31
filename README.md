@@ -161,7 +161,10 @@ The most common path for a registered user is from the homepage to the login pag
 * easily login or logout so that I can acces my personal account information.
 * easily recover my password in case I forget it so that I can recover access to my account.
 * receive an email confirmation after registering so that I can verify that my account registration was succesful.
-* have a personalized user profile so that I can view my personal order history and order confirmations, as well as saving default delivery information. 
+* have a personal user profile so that I can view my personal order history and order confirmations, as well as saving default delivery information. 
+* add products to my personal wishlist so that I can view all products that I wish to have and delete them as well.
+* add a review to a product that will display on the product detail page so that I can inform other potential buyers about the quality of the clothes I bought and give feedback to the company itself about their products.
+* add a review to my personal reviews page so that I can view, edit and delete all my reviews. 
 
 The most common path for a store owner is from the homepage to the login page. After that, it is either going to the store management page where they can add a new product or searching for a particular product to either edit or delete that product.
 
@@ -176,7 +179,9 @@ The most common path for a store owner is from the homepage to the login page. A
 - The [Lighthouse](https://developers.google.com/web/tools/lighthouse) report for mobile can be found [here]().
 - The Lighthouse report for desktop can be found [here]().
 ## Known Bugs
-- 
+- In the add review form, the rating is not 1, 2, 3, 4 or 5 like I wanted it to be. I have to add rating choices in forms.py to figure out how that works.
+- I thought about how the same user can add more than 1 review to the same product. I want to prevent that.
+- The quantity in the shopping basket can go below 0, which should not be the case.
 ## Fixed Bugs
 - Issue: When using Stripe and sending test webhooks I always received an error with the payment_intent.succeeded option: Test webhook error: 500.
     - Fix: It turned out that it worked on my page so the tutor mentioned that the most important thing is that it worked on my page but I still wonder why I keep receiving the error.
@@ -215,7 +220,9 @@ By using the S3 service, static files stay in the cloud.
     - AWS_SECRET_ACCESS_KEY|
     - USE_AWS|<True> 
 1. Create your own [AWS account](https://aws.amazon.com/console/).
-2. 
+2. Create a S3 bucket, read [this](https://docs.aws.amazon.com/AmazonS3/latest/userguide/create-bucket-overview.html).
+3. To get the access keys, read [this](https://docs.aws.amazon.com/powershell/latest/userguide/pstools-appendix-sign-up.html).
+
 
 Using email confirmation after registration or when ordering products.
     - EMAIL_HOST_PASS|
@@ -224,7 +231,7 @@ The easiest way to do this is to use a gmail account:
 1. Open or create your [gmail account](https://www.google.com/gmail/about/).
 2. Your emailaddress is the host user.
 To get your host pass:
-1. 
+1. Check online
 
 This is a secret key for Django.
     - SECRET_KEY|<your_secret_key>
