@@ -1,5 +1,5 @@
 """
-Form for user profile
+Models for form in user profile and adding a review
 """
 from django import forms
 from .models import Review, UserProfile

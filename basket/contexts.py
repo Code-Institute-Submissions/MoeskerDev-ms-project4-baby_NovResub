@@ -1,3 +1,6 @@
+"""
+Contexts for the basket app
+"""
 from decimal import Decimal
 from django.conf import settings
 from django.shortcuts import get_object_or_404
@@ -5,7 +8,9 @@ from products.models import Product
 
 
 def basket_contents(request):
-
+    """
+    Creating a specific context for the content of the basket
+    """
     basket_items = []
     total = 0
     product_count = 0

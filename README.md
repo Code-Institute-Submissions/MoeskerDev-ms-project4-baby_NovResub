@@ -56,10 +56,14 @@ In essence, the idea was to keep it simple and soft.
 
 The colours were based on Bootstrap's secondary class, which is tone of grey, and white since the images show several colours.
 ### Styling
-
+Since the images I found had colour in them, to let them speak out more I decided to keep it simple, clean and light so they stand out even more. The light and pure is also what babies represent. For that reason I also wanted soft shapes throughout the site. Sometimes the forms for submitting data are not that rounded since bigger text fields start to hide the text behind the rounding, making it difficult to see what you actually type.
 ----
 ## Wireframes
-All wireframes can be found [here]().
+
+- All wireframes can be found [here](https://github.com/MoeskerDev/ms-project4-baby/tree/main/media/wireframes).
+----
+## Data schema
+- The schema can be found [here](https://github.com/MoeskerDev/ms-project4-baby/tree/main/media/database_schema).
 ----
 # Features
 ## Existing Features

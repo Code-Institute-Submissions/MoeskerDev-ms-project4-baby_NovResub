@@ -1,5 +1,5 @@
 """
-Forms of the checkout app
+Forms for the checkout app
 """
 from django import forms
 from .models import Order
