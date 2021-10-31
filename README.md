@@ -123,11 +123,11 @@ Python
 # Testing
 ## Validators
 - [W3C Markup Validator](https://validator.w3.org/)
-
+    - Most HTML no errors or warnings. A few 
 - [W3C CSS Validator](https://jigsaw.w3.org/css-validator/)
-
+    - All css files; checkout, profile and base no errors.
 - [JSHint Validator](https://jshint.com/)
-
+    - 
 - Python code was checked via the command line by typing: ```python3 -m flake8``` and via the online [Python validator](http://pep8online.com/)
 Pylint left me with one unused-import error, W0611 for import env, which is okay. I am using it, pylint just cannot see that.
 The PEP8 requirements results were: all right.
