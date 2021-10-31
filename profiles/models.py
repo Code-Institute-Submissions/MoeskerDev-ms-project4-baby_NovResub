@@ -30,6 +30,7 @@ class UserProfile(models.Model):
         max_length=20, null=True, blank=True)
     default_country = CountryField(
         blank_label='Country', null=True, blank=True)
+    objects = models.Manager()
 
     def __str__(self):
         return self.user.username

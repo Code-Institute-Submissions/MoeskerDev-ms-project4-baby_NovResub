@@ -9,6 +9,8 @@ class Category(models.Model):
     Category model for products which creates a
     category name and friendly name
     """
+    objects = models.Manager()
+
     class Meta:
         """
         Adapts the plural name of the category model
@@ -43,6 +45,7 @@ class Product(models.Model):
     price = models.DecimalField(max_digits=6, decimal_places=2)
     image_url = models.URLField(max_length=1024, blank=True)
     image = models.ImageField(null=True, blank=True)
+    objects = models.Manager()
 
     def __str__(self):
         return str(self.name)

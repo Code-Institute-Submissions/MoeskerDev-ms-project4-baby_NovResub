@@ -1,13 +1,24 @@
+"""
+To register the model in the admin of Django
+"""
 from django.contrib import admin
 from .models import Order, OrderLineItem
 
 
 class OrderLineItemAdminInline(admin.TabularInline):
+    """
+    Letting Django know which model to refer to and
+    what fields are a certain kind of field
+    """
     model = OrderLineItem
     readonly_fields = ('lineitem_total',)
 
 
 class OrderAdmin(admin.ModelAdmin):
+    """
+    Letting Django know which model to refer to and
+    what fields are a certain kind of field
+    """
     inlines = (OrderLineItemAdminInline,)
 
     readonly_fields = ('order_number', 'date',

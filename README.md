@@ -10,6 +10,7 @@ View the live project <a></a>
 ## Project Goals
 
 The final goal of the store owner is to sell baby clothing online, but with the option to add toys, for example, in the future or other categories if wanted. Providing an easy and safe way to purchase baby clothing online.
+
 ----
 ## User Stories
 Anonymous Visitor Goals
@@ -57,6 +58,7 @@ In essence, the idea was to keep it simple and soft.
 The colours were based on Bootstrap's secondary class, which is tone of grey, and white since the images show several colours.
 ### Styling
 Since the images I found had colour in them, to let them speak out more I decided to keep it simple, clean and light so they stand out even more. The light and pure is also what babies represent. For that reason I also wanted soft shapes throughout the site. Sometimes the forms for submitting data are not that rounded since bigger text fields start to hide the text behind the rounding, making it difficult to see what you actually type.
+
 ----
 ## Wireframes
 
@@ -132,9 +134,11 @@ Python
     - All css files passed; checkout, profile and base no errors.
 - [JSHint Validator](https://jshint.com/)
     - All passed. The only warnings I did have: template literal syntax only available in ES6 and 'let' is available in ES6 or Mozilla JS extenstions (use moz). The only errors left: undefined variables $ and Stripe, so that is fine since $ is part of jQuery language and Stripe is part of the payment functionality.
-- Python code was checked via the command line by typing: ```python3 -m flake8``` and via the online [Python validator](http://pep8online.com/)
-Pylint left me with one unused-import error, W0611 for import env, which is okay. I am using it, pylint just cannot see that.
-The PEP8 requirements results were:
+- Python code was checked via the online [Python validator](http://pep8online.com/).
+    - I have several strings too long left, since I don't know how to solve them without breaking the function.
+    - Also, several avoid using null=True on string-based fields such Charfield.
+
+
 
 ## Testing User Stories
 The most common path through the website for an anonymous user will be the homepage and then search for a particular piece of clothing via the search bar, click on the button or one of the menu items to view multiple items on a page and scrolling through them. Another frequent path would be from Homepage to the Register page.
