@@ -28,7 +28,7 @@ SECRET_KEY = os.environ.get('SECRET_KEY', '')
 # ('django-insecure-m0scgzmf09o_fvq6p08chze6pfuat@!5&ynmfqb*)c6md#vca2')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-# DEBUG = 'DEVELOPMENT' in os.environ
+DEBUG = 'DEVELOPMENT' in os.environ
 DEBUG = True
 
 ALLOWED_HOSTS = ['babyadmin4-baby.herokuapp.com', 'localhost']
@@ -136,14 +136,13 @@ else:
         }
     }
 
-DEBUG = False
-
 # Password validation
 # https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators
 
 AUTH_PASSWORD_VALIDATORS = [
     {
-      'NAME': ('django.contrib.auth.password_validation.UserAttributeSimilarityValidator'),
+      'NAME': ('django.contrib.auth.password_validation'
+               '.UserAttributeSimilarityValidator'),
     },
     {
       'NAME': (

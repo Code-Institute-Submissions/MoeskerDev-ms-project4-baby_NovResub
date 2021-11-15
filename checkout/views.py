@@ -7,6 +7,7 @@ from django.shortcuts import (
 from django.views.decorators.http import require_POST
 from django.contrib import messages
 from django.conf import settings
+from django.core.exceptions import ObjectDoesNotExist
 
 import stripe
 
@@ -34,8 +35,9 @@ def cache_checkout_data(request):
         })
         return HttpResponse(status=200)
     except Exception as e:
-        messages.error(request, 'Sorry, your payment cannot be \
-            processed right now. Please try again later.')
+        messages.error(request,
+                       'Sorry, your payment cannot be'
+                       'processed right now. Please try again later.')
         return HttpResponse(content=e, status=400)
 
 
@@ -141,8 +143,10 @@ def checkout(request):
             order_form = OrderForm()
 
         if not stripe_public_key:
-            messages.warning(request, 'Stripe public key is missing. \
-                Did you forget to set it in your environment?')
+            messages.warning(request,
+                             'Stripe public key is missing.'
+                             'Did you forget to set it' 
+                             'in your environment?')
 
         template = 'checkout/checkout.html'
         context = {

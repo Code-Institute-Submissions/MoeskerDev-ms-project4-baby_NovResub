@@ -47,7 +47,7 @@ class UserProfileForm(forms.ModelForm):
 
 class ReviewForm(forms.ModelForm):
     """
-    Model for the the review form
+    Model for the review form
     """
     class Meta:
         """

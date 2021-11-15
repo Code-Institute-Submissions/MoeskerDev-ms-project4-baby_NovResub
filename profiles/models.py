@@ -33,11 +33,13 @@ class UserProfile(models.Model):
     objects = models.Manager()
 
     def __str__(self):
+        # pylint: disable=maybe-no-member
         return self.user.username
 
 
 @receiver(post_save, sender=User)
 def create_or_update_user_profile(sender, instance, created, **kwargs):
+    # pylint: disable=unused-argument
     """
     Create or update the user profile
     """
@@ -56,6 +58,7 @@ class WishList(models.Model):
         UserProfile, null=True, blank=True, on_delete=models.CASCADE)
     product = models.ForeignKey(
         Product, null=True, blank=True, on_delete=models.CASCADE)
+    objects = models.Manager()
 
     def __str__(self):
         return str(self.user)
@@ -73,6 +76,7 @@ class Review(models.Model):
     rating = models.DecimalField(
         max_digits=6, decimal_places=2, null=False, default=0)
     review = models.TextField(null=True)
+    objects = models.Manager()
 
     def __str__(self):
         return str(self.user)
