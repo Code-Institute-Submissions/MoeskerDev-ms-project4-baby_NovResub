@@ -370,7 +370,10 @@ git clone https://github.com/USERNAME/REPOSITORY
 ## Code
 1. For setting up the project I watched and copied most of the mini-project videos of CI. I adjusted mainly the CSS styling.
 2. I checked the [django documentation](https://docs.djangoproject.com/en/3.2/topics/db/models/) and used the existing models, views, urls and templates to figure out the new ones.
-3. I wanted to add some more referrals regarding issues I had and what I looked up online but no time left.
+3. In order to solve the line too long errors I looked at [this stackoverflow page](https://stackoverflow.com/questions/53158284/python-giving-a-e501-line-too-long-error?noredirect=1&lq=1).
+4. For the pylint no-member error I used [this](https://stackoverflow.com/questions/26657265/hide-some-maybe-no-member-pylint-errors) solution.
+5. To remove the DoesNotExist error I followed [this](https://stackoverflow.com/questions/52455835/where-do-i-import-the-doesnotexist-exception-in-django-1-10-from) code.
+6. I used option 2 from [this](https://stackoverflow.com/questions/59136064/python-unused-argument-needed-for-compatibility-how-to-avoid-pylint-complainin) source to solve the unused argument error.
 ## Content
 1. The images came from [unsplash](https://unsplash.com/). I actually kept the name of the person who made the image in the name of the image. When you click on the image the creator is mentioned in the url. For the cover image the source is fe-ngo-bvx3G7RkOts-unsplash.
 2. The data regarding the clothing I created myself.
