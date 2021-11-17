@@ -1,6 +1,16 @@
                                             Baby!
 
-View the [live project](https://babyadmin4-baby.herokuapp.com/)
+View the [live project]()
+
+![Mockup home]()
+
+![Mockup all clothing]()
+
+![Mockup clothing detail]()
+
+![Mockup my profile]()
+
+![Mockup my wishlist]()
 
 # UX
 ## Project Goals
@@ -13,7 +23,7 @@ Anonymous Visitor Goals
 
 As an anonymous user/shopper, I want to be able to:
 * view a list of products so that I can select some to purchase.
-* view individual product details so that I can identify the image, price, description, product rating,reviews and sizes.
+* view individual product details so that I can identify the image, price, description, product rating, reviews and sizes.
 * view a specific category of products so that I can quickly find products I am interested in without going through all products.
 * easily view the total of my purchases so that I can avoid spending too much.
 * search for a product by name or description so that I can find a specific product I would like to purchase.
@@ -86,9 +96,8 @@ Since the images I found had colour in them, to let them speak out more I decide
     - 1280x800
     - 1366x768
 ## Left to implement
-- I would like to add an average rating on the product page so that users are also able to sort by rating and get feedback from other regarding the product.
+- I would like to add an average rating on the product page so that users are also able to sort by rating and get feedback from others regarding the product.
 - For the sale items I would like to add a strikethrough, previous price, so that the sales price becomes more obvious.
--
 ----
 # Technologies Used
 ## Languages
@@ -130,9 +139,10 @@ Python
     - All css files passed; checkout, profile and base no errors.
 - [JSHint Validator](https://jshint.com/)
     - All passed. The only warnings I did have: template literal syntax only available in ES6 and 'let' is available in ES6 or Mozilla JS extenstions (use moz). The only errors left: undefined variables $ and Stripe, so that is fine since $ is part of jQuery language and Stripe is part of the payment functionality.
-- Python code was checked via the online [Python validator](http://pep8online.com/).
-    - I have several strings too long left, since I don't know how to solve them without breaking the function.
-    - Also, several avoid using null=True on string-based fields such Charfield.
+- Python code was checked via the command line by typing: ```python3 -m flake8``` after closing all windows and via the online [Python validator](http://pep8online.com/).
+    - Pep8 results
+        - Results for all python files is: All right.
+    - Flake8 left me with several avoid using null=True on string-based fields such Charfield.
 
 
 ## Testing User Stories
@@ -143,7 +153,7 @@ The most common path through the website for an anonymous user will be the homep
 
     - When I land on the home page I see a link to all products and a button to shop babies. Both lead me to a page where all products are listed and I can scroll through them to decide which one(s) I want to select.
 
-* view individual product details so that I can identify the image, price, description, product rating,reviews and sizes.
+* view individual product details so that I can identify the image, price, description, product rating, reviews and sizes.
 
     - All three links of the menu (all clothing, pieces and specials) lead to a list of products where you can click on the image to go to the product detail page where you can find more detailed information about the product.
 
@@ -220,13 +230,13 @@ The most common path for a registered user is from the homepage to the login pag
 * add products to my personal wishlist so that I can view all products that I wish to have and delete them as well.
 
     - From the product detail page I can add a product on my wishlist by clicking on the add to wishlist button in the middle of the page just below the image.
-    - Once a product is already on your wishlist you will see that the button on the product detail page will say remove from wishslist.
-    - By going to my wishlist, either via my profile page and the view wishlist button or via my account and then my wishslist, you will see an overview of all products on the wishlist.
+    - Once a product is already on your wishlist you will see that the button on the product detail page will say remove from wishlist.
+    - By going to my wishlist, either via my profile page and the view wishlist button or via my account and then my wishlist, you will see an overview of all products on the wishlist.
 
 * add a review to a product that will display on the product detail page so that I can inform other potential buyers about the quality of the clothes I bought and give feedback to the company itself about their products.
 
-    - From the product detail page I can add a review about a product by clicking on the add review button at the reviews section. This will lead you to the add review from/page. You have to enter a rating and a review and click on add review button. 
-    - Then look at the product details page of that product and you will see your review at the bottom.
+    - From the product detail page I can add a review about a product by clicking on the add review button at the reviews section. This will lead you to the add review from/page. You have to select a rating from the dropdown list choices ranging from one till five, write a review and then click on add review button. 
+    - Then look at the product details page of that product and you will see your rating and review at the bottom.
 
 * add a review to my personal reviews page so that I can view, edit and delete all my reviews. 
 
@@ -253,8 +263,9 @@ The most common path for a store owner is from the homepage to the login page. A
 ## Further testing
 - The website was tested on Google Chrome, Microsoft Edge and Mozilla Firefox.
 - The website was viewed on several devices; Laptop, Moto G4, Galaxy S5, Pixel 2, Pixel 2 XL, Iphone 5/SE, Iphone 6/7/8, Iphone 6/7/8 Plus, Iphone x, Ipad, Ipad Pro, Surface Duo and Galaxy Fold, Nest Hub, Nest Hub Max.
+- The Lighthouse report for mobile can be found [here]().
+- The Lighthouse report for desktop can be found [here]().
 ## Known Bugs
-- In the add review form, the rating is not 1, 2, 3, 4 or 5 like I wanted it to be. I have to add rating choices in forms.py to figure out how that works.
 - I thought about how the same user can add more than 1 review to the same product. I want to prevent that.
 - The quantity in the shopping basket can go below 0, which should not be the case.
 ## Fixed Bugs
@@ -271,7 +282,7 @@ The most common path for a store owner is from the homepage to the login page. A
 - Issue: In the mobile header, when being logged in as the superuser, the dropdown menu of account created an overflow for the first option: Store Management.
     - Fix: Checking online I came across [this](https://stackoverflow.com/questions/18268078/drop-down-menu-out-of-screen) solution and it worked for me as well. Adding right:0 and position: relative meant that the whole menu actually was shown in another area. The only thing is that other links move towards different places when opening the dropdown menu of account on mobile screens, so I am not sure if that is the idea, but all links are still available along with the entire dropdown menu of account.
 - Issue: the rating field of the review form produces a Django error screen with values greater than 9. In that sense the rating field was also not restriced enough in choice.
-    Fix: Following [Django documentation](https://docs.djangoproject.com/en/3.2/topics/forms/modelforms/) below the section of a full example, I added rating choices to the review model and to the form so that the only options in the dropdown list for rating are 1, 2, 3, 4, or 5. So I kill two birds with one stone.
+    Fix: Following [Django documentation](https://docs.djangoproject.com/en/3.2/topics/forms/modelforms/) below the section of a full example, I added rating choices to the review model and to the form so that the only options in the dropdown list for rating are 1, 2, 3, 4, or 5. So I killed two birds with one stone.
 ----
 # Deployment
 ## Deploy app to Heroku
@@ -376,6 +387,7 @@ git clone https://github.com/USERNAME/REPOSITORY
 4. For the pylint no-member error I used [this](https://stackoverflow.com/questions/26657265/hide-some-maybe-no-member-pylint-errors) solution.
 5. To remove the DoesNotExist error I followed [this](https://stackoverflow.com/questions/52455835/where-do-i-import-the-doesnotexist-exception-in-django-1-10-from) code.
 6. I used option 2 from [this](https://stackoverflow.com/questions/59136064/python-unused-argument-needed-for-compatibility-how-to-avoid-pylint-complainin) source to solve the unused argument error.
+7. Solving the class has no objects member error by adding objects = models.Manager() to the models seen [here](https://stackoverflow.com/questions/45135263/class-has-no-objects-member).
 ## Content
 1. The images came from [unsplash](https://unsplash.com/). I actually kept the name of the person who made the image in the name of the image. When you click on the image the creator is mentioned in the url. For the cover image the source is fe-ngo-bvx3G7RkOts-unsplash.
 2. The data regarding the clothing I created myself.
