@@ -45,20 +45,24 @@ class UserProfileForm(forms.ModelForm):
             self.fields[field].label = False
 
 
-RATING_CHOICES= [
-    ('1', '1'),
-    ('2', '2'),
-    ('3', '3'),
-    ('4', '4'),
-    ('5', '5'),
+RATING_CHOICES = [
+    (1, 1),
+    (2, 2),
+    (3, 3),
+    (4, 4),
+    (5, 5),
 ]
+
 
 class ReviewForm(forms.ModelForm):
     """
     Model for the review form
     """
-    rating = forms.Charfield(label='What is your rating?',
-    widget = forms.Select(choices=RATING_CHOICES))
+    rating = forms.DecimalField(
+            max_digits=2, decimal_places=1,
+            widget=forms.Select(choices=RATING_CHOICES))
+    review = forms.CharField(widget=forms.Textarea)
+
     class Meta:
         """
         It uses two specific fields of the Review model
