@@ -142,7 +142,8 @@ Python
 - Python code was checked via the command line by typing: ```python3 -m flake8``` after closing all windows and via the online [Python validator](http://pep8online.com/).
     - Pep8 results
         - Results for all python files is: All right.
-    - Flake8 left me with several avoid using null=True on string-based fields such Charfield.
+    - Flake8 results
+        - Left me with several avoid using null=True on string-based fields such Charfield.
 
 
 ## Testing User Stories
@@ -233,7 +234,7 @@ The most common path for a registered user is from the homepage to the login pag
     - Once a product is already on your wishlist you will see that the button on the product detail page will say remove from wishlist.
     - By going to my wishlist, either via my profile page and the view wishlist button or via my account and then my wishlist, you will see an overview of all products on the wishlist.
 
-* add a review to a product that will display on the product detail page so that I can inform other potential buyers about the quality of the clothes I bought and give feedback to the company itself about their products.
+* add a rating and review to a product that will display on the product detail page so that I can inform other potential buyers about the quality of the clothes I bought and give feedback to the company itself about their products.
 
     - From the product detail page I can add a review about a product by clicking on the add review button at the reviews section. This will lead you to the add review from/page. You have to select a rating from the dropdown list choices ranging from one till five, write a review and then click on add review button. 
     - Then look at the product details page of that product and you will see your rating and review at the bottom.
