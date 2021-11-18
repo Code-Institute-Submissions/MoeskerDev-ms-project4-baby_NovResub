@@ -395,6 +395,7 @@ git clone https://github.com/USERNAME/REPOSITORY
 5. To remove the DoesNotExist error I followed [this](https://stackoverflow.com/questions/52455835/where-do-i-import-the-doesnotexist-exception-in-django-1-10-from) code.
 6. I used option 2 from [this](https://stackoverflow.com/questions/59136064/python-unused-argument-needed-for-compatibility-how-to-avoid-pylint-complainin) source to solve the unused argument error.
 7. Solving the class has no objects member error by adding objects = models.Manager() to the models seen [here](https://stackoverflow.com/questions/45135263/class-has-no-objects-member).
+8. Flake8 check revealed too long line in VS code regarding a URL so I used a solution from [here](https://stackoverflow.com/questions/10739843/how-should-i-format-a-long-url-in-a-python-comment-and-still-be-pep8-compliant) by adding the comment #noqa after the URL.
 ## Content
 1. The images came from [unsplash](https://unsplash.com/). I actually kept the name of the person who made the image in the name of the image. When you click on the image the creator is mentioned in the url. For the cover image the source is fe-ngo-bvx3G7RkOts-unsplash.
 2. The data regarding the clothing I created myself.
