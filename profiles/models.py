@@ -64,15 +64,6 @@ class WishList(models.Model):
         return str(self.user)
 
 
-# RATING_CHOICES = [
-#     (1, 1),
-#     (2, 2),
-#     (3, 3),
-#     (4, 4),
-#     (5, 5),
-# ]
-
-
 class Review(models.Model):
     """
     A review model to maintain reviews and ratings
@@ -84,7 +75,6 @@ class Review(models.Model):
         Product, null=True, blank=True, on_delete=models.CASCADE)
     rating = models.DecimalField(
         max_digits=2, decimal_places=1, null=False)
-    # choices=RATING_CHOICES
     review = models.TextField(null=True)
     objects = models.Manager()
 

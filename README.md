@@ -267,7 +267,8 @@ The most common path for a store owner is from the homepage to the login page. A
 - The Lighthouse report for mobile can be found [here]().
 - The Lighthouse report for desktop can be found [here]().
 ## Known Bugs
-- I thought about how the same user can add more than 1 review to the same product. I want to prevent that.
+- I thought about how the same user can add more than 1 review to the same product. Each user should only be able to add one review per product which they later are able to adapt.
+- When editing the review the rating automatically goes to 1 and if you do not change that (back) you will edit your review to a rating of 1 while maybe you only wanted to adapt the review part.
 - The quantity in the shopping basket can go below 0, which should not be the case.
 ## Fixed Bugs
 - Issue: When using Stripe and sending test webhooks I always received an error with the payment_intent.succeeded option: Test webhook error: 500.
