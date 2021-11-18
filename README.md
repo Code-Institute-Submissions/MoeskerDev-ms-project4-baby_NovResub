@@ -141,10 +141,15 @@ Python
     - All passed. The only warnings I did have: template literal syntax only available in ES6 and 'let' is available in ES6 or Mozilla JS extenstions (use moz). The only errors left: undefined variables $ and Stripe, so that is fine since $ is part of jQuery language and Stripe is part of the payment functionality.
 - Python code was checked via the command line by typing: ```python3 -m flake8``` after closing all windows and via the online [Python validator](http://pep8online.com/).
     - Pep8 results
-        - Results for all python files is: All right.
+        - Results for all python files is:
+            - All right.
     - Flake8 results
-        - Left me with several avoid using null=True on string-based fields such Charfield.
-
+        - Left me with: 
+            - several avoid using null=True on string-based fields such CharField/TextField.
+            - two local variable 'e' is assigned to but never used.
+            - one F401 'checkout.signals' imported but unused.
+            - one F401 'subprocess' imported but unused.
+        As I understand it I can ignore all of these.
 
 ## Testing User Stories
 The most common path through the website for an anonymous user will be the homepage and then search for a particular piece of clothing via the search bar, click on the button or one of the menu items to view multiple items on a page and scrolling through them. Another frequent path would be from Homepage to the Register page.

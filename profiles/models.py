@@ -33,13 +33,11 @@ class UserProfile(models.Model):
     objects = models.Manager()
 
     def __str__(self):
-        # pylint: disable=maybe-no-member
         return self.user.username
 
 
 @receiver(post_save, sender=User)
 def create_or_update_user_profile(sender, instance, created, **kwargs):
-    # pylint: disable=unused-argument
     """
     Create or update the user profile
     """
