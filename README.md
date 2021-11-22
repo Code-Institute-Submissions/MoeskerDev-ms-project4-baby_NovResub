@@ -286,7 +286,9 @@ The most common path for a store owner is from the homepage to the login page. A
 - Issue: In the mobile header, when being logged in as the superuser, the dropdown menu of account created an overflow for the first option: Store Management.
     - Fix: Checking online I came across [this](https://stackoverflow.com/questions/18268078/drop-down-menu-out-of-screen) solution and it worked for me as well. Adding right:0 and position: relative meant that the whole menu actually was shown in another area. The only thing is that other links move towards different places when opening the dropdown menu of account on mobile screens, so I am not sure if that is the idea, but all links are still available along with the entire dropdown menu of account.
 - Issue: the rating field of the review form produces a Django error screen with values greater than 9. In that sense the rating field was also not restriced enough in choice.
-    Fix: Following [Django documentation](https://docs.djangoproject.com/en/3.2/topics/forms/modelforms/) below the section of a full example, I added rating choices to the review model and to the form so that the only options in the dropdown list for rating are 1, 2, 3, 4, or 5. So I killed two birds with one stone.
+    - Fix: Following [Django documentation](https://docs.djangoproject.com/en/3.2/topics/forms/modelforms/) below the section of a full example, I added rating choices to the review model and to the form so that the only options in the dropdown list for rating are 1, 2, 3, 4, or 5. So I killed two birds with one stone.
+- Issue: at the end when I wanted to create mockups my live site url would not work on any responsive check sites. It would state that my url refused a connection.
+    - Fix: by temporarily adding an extension to chrome called [ignore X-Frame headers](https://chrome.google.com/webstore/detail/ignore-x-frame-headers/gleekbfjekiniecknbkamfmkohkpodhe/related), I was able to create the mockups.
 ----
 # Deployment
 ## Deploy app to Heroku
