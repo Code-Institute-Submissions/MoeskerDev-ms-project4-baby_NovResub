@@ -8,10 +8,6 @@ View the [live project]()
 
 ![Mockup clothing detail]()
 
-![Mockup my profile]()
-
-![Mockup my wishlist]()
-
 # UX
 ## Project Goals
 
@@ -269,8 +265,9 @@ The most common path for a store owner is from the homepage to the login page. A
 ## Further testing
 - The website was tested on Google Chrome, Microsoft Edge and Mozilla Firefox.
 - The website was viewed on several devices; Laptop, Moto G4, Galaxy S5, Pixel 2, Pixel 2 XL, Iphone 5/SE, Iphone 6/7/8, Iphone 6/7/8 Plus, Iphone x, Ipad, Ipad Pro, Surface Duo and Galaxy Fold, Nest Hub, Nest Hub Max.
-- The Lighthouse report for mobile can be found [here]().
-- The Lighthouse report for desktop can be found [here]().
+- The Lighthouse report for desktop can be found [here](https://github.com/MoeskerDev/ms-project4-baby/blob/main/media/lighthouse_reports/baby_lighthouse_desktop.png).
+- The Lighthouse report for mobile can be found [here](https://github.com/MoeskerDev/ms-project4-baby/blob/main/media/lighthouse_reports/baby_lighthouse_mobile.png).
+
 ## Known Bugs
 - I thought about how the same user can add more than 1 review to the same product. Each user should only be able to add one review per product which they later are able to adapt.
 - When editing the review the rating automatically goes to 1 and if you do not change that (back) you will edit your review to a rating of 1 while maybe you only wanted to adapt the review part.
