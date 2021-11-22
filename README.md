@@ -101,10 +101,10 @@ Since the images I found had colour in them, to let them speak out more I decide
 ----
 # Technologies Used
 ## Languages
-HTML5
-CSS3
-JavaScript
-Python
+- HTML5
+- CSS3
+- JavaScript
+- Python
 ## External libraries and frameworks
 - [jQuery](https://jquery.com/):
     - JavaScript library to support features and functions. 
