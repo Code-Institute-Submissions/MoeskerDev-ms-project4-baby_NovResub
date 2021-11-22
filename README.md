@@ -2,11 +2,11 @@
 
 View the [live project]()
 
-![Mockup home]()
+![Mockup home](https://github.com/MoeskerDev/ms-project4-baby/blob/main/media/mockups/baby_mockup_home.png)
 
-![Mockup all clothing]()
+![Mockup all clothing](https://github.com/MoeskerDev/ms-project4-baby/blob/main/media/mockups/baby_mockup_products.png)
 
-![Mockup clothing detail]()
+![Mockup clothing detail](https://github.com/MoeskerDev/ms-project4-baby/blob/main/media/mockups/baby_mockup_detail.png)
 
 # UX
 ## Project Goals
