@@ -17,17 +17,17 @@ class UserProfile(models.Model):
     """
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     default_phone_number = models.CharField(
-        max_length=20, null=True, blank=True)
+        max_length=20, default='', blank=True)
     default_street_address1 = models.CharField(
-        max_length=80, null=True, blank=True)
+        max_length=80, default='', blank=True)
     default_street_address2 = models.CharField(
-        max_length=80, null=True, blank=True)
+        max_length=80, default='', blank=True)
     default_town_or_city = models.CharField(
-        max_length=40, null=True, blank=True)
+        max_length=40, default='', blank=True)
     default_county = models.CharField(
-        max_length=80, null=True, blank=True)
+        max_length=80, default='', blank=True)
     default_postcode = models.CharField(
-        max_length=20, null=True, blank=True)
+        max_length=20, default='', blank=True)
     default_country = CountryField(
         blank_label='Country', null=True, blank=True)
     objects = models.Manager()
@@ -73,7 +73,7 @@ class Review(models.Model):
         Product, null=True, blank=True, on_delete=models.CASCADE)
     rating = models.DecimalField(
         max_digits=2, decimal_places=1, null=False)
-    review = models.TextField(null=True)
+    review = models.TextField(default='')
     objects = models.Manager()
 
     def __str__(self):
