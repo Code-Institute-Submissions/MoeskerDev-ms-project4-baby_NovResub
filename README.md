@@ -141,11 +141,9 @@ Since the images I found had colour in them, to let them speak out more I decide
             - All right.
     - Flake8 results
         - Left me with: 
-            - several avoid using null=True on string-based fields such CharField/TextField.
-            - two local variable 'e' is assigned to but never used.
             - one F401 'checkout.signals' imported but unused.
             - one F401 'subprocess' imported but unused.
-        As I understand it I can ignore all of these.
+        As I understand it I can ignore both. The first one since I have a signals.py file which shows I do use signals. The later since this is part of the VS Code file automatically generated. 
 
 ## Testing User Stories
 The most common path through the website for an anonymous user will be the homepage and then search for a particular piece of clothing via the search bar, click on the button or one of the menu items to view multiple items on a page and scrolling through them. Another frequent path would be from Homepage to the Register page.
@@ -390,13 +388,10 @@ git clone https://github.com/USERNAME/REPOSITORY
 1. For setting up the project I watched and copied most of the mini-project videos of CI. I adjusted mainly the CSS styling.
 2. I checked the [django documentation](https://docs.djangoproject.com/en/3.2/topics/db/models/) and used the existing models, views, urls and templates to figure out the new ones.
 3. In order to solve the line too long errors I looked at [this stackoverflow page](https://stackoverflow.com/questions/53158284/python-giving-a-e501-line-too-long-error?noredirect=1&lq=1).
-4. For the pylint no-member error I used [this](https://stackoverflow.com/questions/26657265/hide-some-maybe-no-member-pylint-errors) solution.
-5. To remove the DoesNotExist error I followed [this](https://stackoverflow.com/questions/52455835/where-do-i-import-the-doesnotexist-exception-in-django-1-10-from) code.
-6. I used option 2 from [this](https://stackoverflow.com/questions/59136064/python-unused-argument-needed-for-compatibility-how-to-avoid-pylint-complainin) source to solve the unused argument error.
-7. Solving the class has no objects member error by adding objects = models.Manager() to the models seen [here](https://stackoverflow.com/questions/45135263/class-has-no-objects-member).
-8. Flake8 check revealed too long line in VS code regarding a URL so I used a solution from [here](https://stackoverflow.com/questions/10739843/how-should-i-format-a-long-url-in-a-python-comment-and-still-be-pep8-compliant) by adding the comment #noqa after the URL.
+4. Solving the class has no objects member error by adding objects = models.Manager() to the models seen [here](https://stackoverflow.com/questions/45135263/class-has-no-objects-member).
+5. Flake8 check revealed too long line in VS code regarding a URL so I used a solution from [here](https://stackoverflow.com/questions/10739843/how-should-i-format-a-long-url-in-a-python-comment-and-still-be-pep8-compliant) by adding the comment #noqa after the URL.
 ## Content
-1. The images came from [unsplash](https://unsplash.com/). I actually kept the name of the person who made the image in the name of the image. When you click on the image the creator is mentioned in the url. For the cover image the source is fe-ngo-bvx3G7RkOts-unsplash.
+1. The images came from [unsplash](https://unsplash.com/). I actually kept the name of the person who made the image in the name of the image. When you click on the image the creator is mentioned in the url. For the cover image the source is fe-ngo-bvx3G7RkOts-unsplash. I do notice that the quality of the images is not good enough and in the future I should use WebP or AVIF formats.
 2. The data regarding the clothing I created myself.
 3. In order to create the mockups I used this [website](http://ami.responsivedesign.is).
 4. To create images from screenshots I used [Paste Pics](https://paste.pics/).
